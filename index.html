@@ -90,7 +90,7 @@
           <!-- Logo -->
           <div class="flex items-center">
             <img
-              src="https://images.squarespace-cdn.com/content/v1/68adceb4527e8e5038fdbfe6/94563b8a-90d1-4866-b771-43cf79924639/WHEEL.png?format=1500w"
+              src="logo-01"
               alt="Solid Ground Arena"
               class="h-24 transform"
             />
@@ -469,22 +469,6 @@
           document.getElementById('year').textContent = new Date().getFullYear();
         });
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get the current page name (e.g. "contact.html")
-        const currentPage = window.location.pathname.split("/").pop();
-
-        // Find all nav links
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        // Loop through links and add blue color if it matches current page
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (href === currentPage) {
-            link.classList.add("text-[#5fbcff]");
-          }
-        });
-      });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

@@ -171,93 +171,61 @@
       </div>
     </header>
 
-    <!-- Features Section -->
-    <section id="sports" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <h2 class="font-bebas text-4xl md:text-5xl text-center mb-16">
-          ROLL ON OVER TO SOLID GROUND
+    <!-- Contact Form Section -->
+    <section class="py-16 px-6 bg-white text-gray-800">
+      <div class="max-w-screen-md mx-auto">
+        <h2 class="text-4xl font-bebas text-center mb-6 text-gray-900">
+          Send Us a Message
         </h2>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Feature 1 -->
-          <div
-            class="feature-card bg-white p-8 rounded-xl transition-all duration-300"
-          >
-            <div class="flex justify-center">
-              <img alt="Inline Sports" class="h-64 mb-6" />
-            </div>
-            <h3 class="font-bold text-2xl mb-4">INLINE SPORTS</h3>
-            <p class="text-gray-600 mb-6">
-              Join an inline hockey league, watch roller derby matches, or
-              explore artistic skating. Check out our league signups, coaching
-              opportunities, and program schedules.
-            </p>
-            <p class="font-semibold text-yellow-600 mb-4">
-              Hockey • Derby • Artistic Skating
-            </p>
-            <a
-              href="https://roller-hockey/"
-              class="text-[#5fbcff] font-semibold flex items-center"
+        <form
+          action="https://formspree.io/f/xldpzpqa"
+          method="POST"
+          class="space-y-6"
+          aria-label="Contact form"
+        >
+          <div>
+            <label for="name" class="block text-sm font-semibold mb-2"
+              >Name</label
             >
-              Learn more
-              <i data-feather="arrow-right" class="ml-2 text-[#5fbcff]"></i>
-            </a>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
+            />
           </div>
-
-          <!-- Feature 2 -->
-          <div
-            class="feature-card bg-white p-8 rounded-xl transition-all duration-300"
-          >
-            <div class="flex justify-center">
-              <img src="images/cat-02.png" alt="Open Skate" class="h-64 mb-6" />
-            </div>
-            <h3 class="font-bold text-2xl mb-4">OPEN SKATE</h3>
-            <p class="text-gray-600 mb-6">
-              Welcoming skaters of all ages to roll out and unwind. Whether
-              you're lacing up for the first time or looking to show off your
-              moves, we've got the music, the floor, and the energy.
-            </p>
-            <p class="font-semibold text-yellow-600 mb-4">
-              Themed Events • DJs • Community
-            </p>
-            <a
-              href="https://www.solidgroundarena.com/contact"
-              class="text-[#5fbcff] font-semibold flex items-center"
+          <div>
+            <label for="email" class="block text-sm font-semibold mb-2"
+              >Email</label
             >
-              Learn More
-              <i data-feather="arrow-right" class="ml-2 text-[#5fbcff]"></i>
-            </a>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
+            />
           </div>
-
-          <!-- Feature 3 -->
-          <div
-            class="feature-card bg-white p-8 rounded-xl transition-all duration-300"
-          >
-            <div class="flex justify-center">
-              <img
-                src="images/cat-01.png"
-                alt="Birthday Parties"
-                class="h-64 mb-6"
-              />
-            </div>
-            <h3 class="font-bold text-2xl mb-4">BIRTHDAY PARTIES</h3>
-            <p class="text-gray-600 mb-6">
-              Celebrate your special occasion on wheels with us! Make your next
-              birthday unforgettable with a high-energy party! Perfect for kids,
-              teens, and the young-at-heart.
-            </p>
-            <p class="font-semibold text-yellow-600 mb-4">
-              Party Packages • Rentals • Add-ons
-            </p>
-            <a
-              href="https://www.solidgroundarena.com/contact"
-              class="text-[#5fbcff] font-semibold flex items-center"
+          <div>
+            <label for="message" class="block text-sm font-semibold mb-2"
+              >Message</label
             >
-              Learn More
-              <i data-feather="arrow-right" class="ml-2 text-[#5fbcff]"></i>
-            </a>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
+            ></textarea>
           </div>
-        </div>
+          <button
+            type="submit"
+            class="bg-[#5fbcff] text-white font-bold py-3 px-6 rounded-full hover:bg-[#4aaadd] transition"
+          >
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
 

@@ -8,6 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
       logo.style.transform = "rotateY(0)";
     }, 500);
   }
+  // a. Flip logo when user lands on the page
+  flipLogo();
+
+  // b. Flip logo when Home is clicked
+  if (homeLink) {
+    homeLink.addEventListener("click", function (e) {
+      e.preventDefault(); // stop immediate navigation
+      flipLogo();
+
+      setTimeout(() => {
+        window.location.href = homeLink.getAttribute("href");
+      }, 600); // delay for animation
+    });
+  }
 
   // 2. Feather icons
   if (window.feather) feather.replace();

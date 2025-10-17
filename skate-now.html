@@ -90,7 +90,7 @@
           <!-- Logo -->
           <div class="flex items-center">
             <img
-              src="logo-01"
+              src="images/logo-01.png"
               alt="Solid Ground Arena"
               class="h-24 transform"
             />
@@ -343,7 +343,7 @@
         <div class="grid md:grid-cols-3 gap-8">
           <div>
             <img
-              src="https://images.squarespace-cdn.com/content/v1/68adceb4527e8e5038fdbfe6/94563b8a-90d1-4866-b771-43cf79924639/WHEEL.png?format=1500w"
+              src="images/logo-01.png"
               alt="Solid Ground Arena"
               class="h-24 mb-4"
             />
@@ -409,64 +409,6 @@
         </div>
       </div>
     </footer>
-    <script>
-              // Logo flip animation
-              document.addEventListener('DOMContentLoaded', () => {
-                  const logo = document.querySelector('nav img');
-                  logo.style.transition = 'transform 0.5s ease';
-                  logo.style.transform = 'rotateY(360deg)';
-                  setTimeout(() => {
-                      logo.style.transform = 'rotateY(0)';
-                  }, 500);
-              });
-
-              feather.replace();
-
-              // Mobile menu toggle
-      const menuBtn = document.getElementById('menu-btn');
-              const mobileMenu = document.getElementById('mobile-menu');
-
-              menuBtn.addEventListener('click', () => {
-                  mobileMenu.classList.toggle('hidden');
-                  const icon = menuBtn.querySelector('svg');
-                  if (mobileMenu.classList.contains('hidden')) {
-                      feather.replace();
-                  } else {
-                      icon.setAttribute('data-feather', 'x');
-                      feather.replace();
-                  }
-              });
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const menuBtn = document.getElementById('menu-btn');
-          const mobileMenu = document.getElementById('mobile-menu');
-
-          // Render the initial feather icon
-          feather.replace();
-
-          // Function to swap icons
-          function setIcon(isOpen) {
-            menuBtn.innerHTML = isOpen
-              ? '<i data-feather="x"></i>'
-              : '<i data-feather="menu"></i>';
-            feather.replace();
-            menuBtn.setAttribute('aria-expanded', String(isOpen));
-          }
-
-          // Start with menu closed
-          setIcon(false);
-
-          // On button click → toggle menu
-          menuBtn.addEventListener('click', () => {
-            const isNowHidden = mobileMenu.classList.toggle('hidden');
-            setIcon(!isNowHidden);
-          });
-
-
-          // Auto-update footer year
-          document.getElementById('year').textContent = new Date().getFullYear();
-        });
-    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

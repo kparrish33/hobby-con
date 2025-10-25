@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   flipLogo();
 
   // b. Flip logo when Home is clicked
+  const homeLink = document.getElementById("home-link");
   if (homeLink) {
     homeLink.addEventListener("click", function (e) {
       e.preventDefault(); // stop immediate navigation

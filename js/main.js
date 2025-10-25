@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Logo flip animation
-  const logo = document.querySelector("nav img");
-  if (logo) {
-    logo.style.transition = "transform 0.5s ease";
-    logo.style.transform = "rotateY(360deg)";
-    setTimeout(() => {
-      logo.style.transform = "rotateY(0)";
-    }, 500);
+  function flipLogo() {
+    const logo = document.querySelector("nav img");
+    if (logo) {
+      logo.style.transition = "transform 0.5s ease";
+      logo.style.transform = "rotateY(360deg)";
+      setTimeout(() => {
+        logo.style.transform = "rotateY(0)";
+      }, 500);
+    }
   }
+
   // a. Flip logo when user lands on the page
   flipLogo();
 

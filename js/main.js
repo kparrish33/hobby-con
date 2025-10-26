@@ -1,34 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Logo flip animation
   function flipLogo() {
-    const logo = document.querySelector("nav img");
-    if (logo) {
-      logo.style.transition = "transform 0.5s ease";
-      logo.style.transform = "rotateY(360deg)";
-      setTimeout(() => {
-        logo.style.transform = "rotateY(0)";
-      }, 500);
-    }
+  const logo = document.querySelector("nav img");
+  if (logo) {
+    logo.style.transition = "transform 0.5s ease";
+    logo.style.transform = "rotateY(360deg)";
+    setTimeout(() => {
+      logo.style.transform = "rotateY(0)";
+    }, 500);
   }
+}
 
-  // a. Flip logo when user lands on the page
-  flipLogo();
+  // 2. Wait until DOM is ready for the rest
+  document.addEventListener("DOMContentLoaded", function () {
+    // a. Flip logo on page load
+    flipLogo();
 
-  // b. Flip logo when Home is clicked
-  const homeLink = document.getElementById("home-link");
-  if (homeLink) {
-    homeLink.addEventListener("click", function (e) {
-      e.preventDefault(); // stop immediate navigation
-      flipLogo();
+    // b. Flip logo when Home is clicked
+    const homeLink = document.getElementById("home-link");
+      if (homeLink) {
+        homeLink.addEventListener("click", function (e) {
+          e.preventDefault(); // stop immediate nav
+          flipLogo();
 
-      setTimeout(() => {
-        window.location.href = homeLink.getAttribute("href");
-      }, 600); // delay for animation
-    });
-  }
+          setTimeout(() => {
+            window.location.href = homeLink.getAttribute("href");
+          }, 600); // delay for animation
+        });
+      }
 
-  // 2. Feather icons
-  if (window.feather) feather.replace();
+    // C. Feather icons
+    if (window.feather) feather.replace();
 
   // 3. Mobile menu toggle
   const menuBtn = document.getElementById("menu-btn");

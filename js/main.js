@@ -1,16 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // 1. Logo flip animation
-  function flipLogo() {
-    const logo = document.querySelector("nav img");
-    if (logo) {
-      logo.style.transition = "transform 0.5s ease";
-      logo.style.transform = "rotateY(360deg)";
-      setTimeout(() => {
-        logo.style.transform = "rotateY(0)";
-      }, 500);
-    }
+// 1. Logo flip animation
+function flipLogo() {
+  const logo = document.querySelector("nav img");
+  if (logo) {
+    logo.style.transition = "transform 0.5s ease";
+    logo.style.transform = "rotateY(360deg)";
+    setTimeout(() => {
+      logo.style.transform = "rotateY(0)";
+    }, 500);
   }
-});
+}
 
 // 2. Wait until DOM is ready for the rest
 document.addEventListener("DOMContentLoaded", function () {

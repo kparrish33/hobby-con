@@ -112,4 +112,14 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // 8. Toggle tournament detail rows
+  function toggleDetails(button) {
+  const row = button.closest("tr");
+  const nextRow = row.nextElementSibling;
+  const isHidden = nextRow.classList.contains("hidden");
+  nextRow.classList.toggle("hidden");
+  button.innerHTML = isHidden ? "▲" : "▼";
+  }
+  window.toggleDetails = toggleDetails;
 });

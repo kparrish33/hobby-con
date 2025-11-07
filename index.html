@@ -157,34 +157,33 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-gradient text-white">
-      <div
-        class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center"
+    <header class="relative w-full h-screen md:h-[60vh] overflow-hidden"
+      style="height: 70vh;"
       >
-        <div class="md:w-1/2 mb-12 md:mb-0">
-          <h1 class="font-bebas text-5xl md:text-7xl mb-6">
-            WELCOME TO <br /><span class="text-yellow-400">SOLID GROUND</span>
-          </h1>
-          <p class="text-xl mb-8">
-            Arizona's premier indoor roller sports arena featuring hockey,
-            derby, skating and more!
-          </p>
-          <a
-            href="skate-now.html"
-            class="skate-now-btn px-8 py-4 rounded-full text-white text-xl font-bold transition-all duration-300 inline-block"
-          >
-            SKATE NOW <i data-feather="arrow-right" class="inline ml-2"></i>
-          </a>
-        </div>
-        <div class="md:w-1/2">
-          <img
-            src="images/rink-preview.png"
-            alt="Solid Ground Arena"
-            class="rounded-lg shadow-2xl"
-          />
-        </div>
+      <img
+        src="images/rink-preview.png"
+        alt="Solid Ground Arena"
+        class="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
+      />
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6"
+      >
+        <h1 class="font-bebas text-5xl md:text-7xl mb-4">
+          WELCOME TO <br /><span class="text-yellow-400">SOLID GROUND</span>
+        </h1>
+        <p class="text-xl mb-6">
+          Arizona's premier indoor roller sports arena featuring hockey, derby,
+          skating and more!
+        </p>
+        <a
+          href="skate-now.html"
+          class="skate-now-btn px-8 py-4 rounded-full text-white text-xl font-bold transition-all duration-300 inline-block"
+        >
+          SKATE NOW <i data-feather="arrow-right" class="inline ml-2"></i>
+        </a>
       </div>
     </header>
+
 
     <!-- Features Section -->
     <section id="sports" class="py-16 bg-gray-50">

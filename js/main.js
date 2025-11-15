@@ -115,11 +115,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 8. Toggle tournament detail rows
   function toggleDetails(button) {
-  const row = button.closest("tr");
-  const nextRow = row.nextElementSibling;
-  const isHidden = nextRow.classList.contains("hidden");
-  nextRow.classList.toggle("hidden");
-  button.innerHTML = isHidden ? "▲" : "▼";
+    const row = button.closest("tr");
+    const nextRow = row.nextElementSibling;
+    const isHidden = nextRow.classList.contains("hidden");
+    nextRow.classList.toggle("hidden");
+    button.innerHTML = isHidden ? "▲" : "▼";
   }
   window.toggleDetails = toggleDetails;
 });
+
+// 9. Facility Event Form submission feedback
+const facilityForm = document.getElementById("eventApplicationForm");
+const facilityThankYou = document.getElementById("thankYouMsg");
+
+if (facilityForm && facilityThankYou) {
+  facilityForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    facilityForm.reset();
+    facilityThankYou.classList.remove("hidden");
+  });
+}

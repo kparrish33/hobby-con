@@ -156,78 +156,431 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-gradient text-white">
-      <div
-        class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center"
-      >
-        <div class="md:w-1/2 mb-12 md:mb-0">
-          <h1 class="font-bebas text-5xl md:text-7xl mb-6 text-yellow-400">Facility</h1>
-          <p class="text-xl mb-8">
-            Explore roller hockey, roller derby, and artistic skating programs
-            at Solid Ground Arena. Join leagues or learn more today.
+    <section id="rental-form" class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div
+          class="bg-gradient-to-r from-sky-400 to-blue-600 text-white rounded-3xl p-8 md:p-12 mb-16 shadow-xl"
+        >
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">
+            Host Your Next Event at Solid Ground Arena
+          </h2>
+          <p class="text-xl mb-6">
+            Our multi-use space is perfect for sports, concerts, expos, and
+            large events.
           </p>
+          <a
+            href="#rental-form"
+            class="bg-white text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center"
+          >
+            Book Facility Rental <i data-feather="arrow-right" class="ml-2"></i>
+          </a>
         </div>
-        <div class="md:w-1/2">
-          <img
-            src="https://images.squarespace-cdn.com/content/v1/68adceb4527e8e5038fdbfe6/ad2d799f-c643-42b6-acb6-2fd51237787a/rink+header.jpg"
-            alt="Solid Ground Arena"
-            class="rounded-lg shadow-2xl"
-          />
+
+        <!-- Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="users" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Seating Capacity</h3>
+            </div>
+            <p>
+              Spacious stands with accessible seating and team accommodations.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="wifi" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Technology</h3>
+            </div>
+            <p>
+              WiFi throughout, sound system, scoreboard integration and LED
+              displays.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="coffee" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Catering Options</h3>
+            </div>
+            <p>
+              Snack & drink bar access by the Can-Do Kitchen and food trucks
+              available for outdoors.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="truck" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Easy Access</h3>
+            </div>
+            <p>
+              Plenty of on-site parking and easy equipment loading through rear
+              doors.
+            </p>
+          </div>
         </div>
-      </div>
-    </header>
 
-    <!-- Features Section -->
-    <section id="sports" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <h2 class="font-bebas text-4xl md:text-5xl text-center mb-16">
-          ROLL ON OVER TO SOLID GROUND
-        </h2>
-      </div>
-    </section>
+        <!-- PDF Download/Upload Option -->
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-12">
+          <h3 class="text-2xl font-semibold mb-2 font-bebas">Event Rental Application</h3>
+          <p class="text-gray-600 mb-6">Download, fill out, and upload the PDF form below</p>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-            <h2 class="font-bebas text-4xl md:text-5xl mb-6">
-              CONVERTIBLE SPACE, <br />ENDLESS FUN
-            </h2>
-            <p class="text-lg mb-4">
-              <strong>Solid Ground Arena</strong> is a multi-sport indoor arena
-              and the new home of Arizona Inline Hockey. We have a full-size
-              <strong>185 x 80 indoor roller hockey rink</strong> that we use
-              for Arizona inline hockey, roller derby and roller skating.
-            </p>
-            <p class="text-lg mb-4">
-              We offer <strong>youth leagues</strong> on Saturday mornings and
-              <strong>adult leagues</strong> every day of the week.
-            </p>
-            <p class="text-lg mb-6">
-              Our indoor rink is also convertible into
-              <strong>4 full-size competition volleyball courts</strong>, and we
-              offer daily, weekly, or monthly volleyball rentals. We also have a
-              <strong>110 x 42 multi-purpose court</strong> for various sports
-              and activities.
-            </p>
-            <a
-              href="facility.html"
-              class="inline-block bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a 
+              href="forms/EVENT_APPLICATION.pdf" 
+              class="bg-[#5fbcff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 transition duration-300 inline-flex items-center justify-center"
+              download
             >
-              EXPLORE <i data-feather="arrow-right" class="inline ml-2"></i>
+              <i data-feather="download" class="mr-2"></i> Download Form
             </a>
-          </div>
-          <div class="md:w-1/2 h-full">
-            <img
-              src="images/inline-hockey-01.jpg"
-              alt="Roller Hockey"
-              class="w-full h-full object-cover rounded-lg shadow-md"
-            />
+            
+            <label for="uploadFile" class="cursor-pointer border border-[#5fbcff] text-[#5fbcff] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 inline-flex items-center justify-center">
+              <i data-feather="upload" class="mr-2"></i> Upload Completed Form
+              <input type="file" id="uploadFile" class="hidden" />
+            </label>
           </div>
         </div>
+
+        <!-- Or text -->
+        <h4 class="text-lg font-semibold mb-6 text-center">Or fill out our online form</h4>
+
+        <!-- Facility Rental Form Section -->
+           <section id="rental-form" class="py-16 bg-gray-100 text-gray-800">
+          <div class="container mx-auto px-6 max-w-4xl">
+            <form id="eventApplicationForm" class="space-y-8">
+
+            <h2 class="font-bebas text-4xl md:text-5xl mb-6 text-center text-gray-800">
+              RENTAL STATEMENT OF TERMS AND APPLICATION FOR SOLID GROUND ARENA
+            </h2>
+
+        <!-- Intro Text -->
+        <div class="text-gray-800 leading-relaxed space-y-4 mb-10">
+          <p>
+            <strong>I. AUTHORITY AND NON-CONTRACTUAL STATUS:</strong> No applicant, renter, or prospective user shall have any right, reservation, or expectation of a booking date,
+event date, or access to the premises until a written letter of approval is issued on official letterhead of 100
+Remington Holding Corp., signed by Richard Parrish, President. No contract—express, implied, verbal, or
+written—exists until that letter is issued. Upon approval, a formal contract detailing the specific terms of use,
+permitted activities, and conditions of occupancy will be issued for signature between the Owner and the
+approved Applicant.
+          </p>
+          <p>
+            <strong>II. MANAGEMENT AND ON-SITE AUTHORITY:</strong> An on-site Manager appointed by the Owner, Richard Parrish, shall supervise every approved event. By signing
+this application, the Applicant agrees to comply with all directions from the Manager to maintain safety and
+order. The Manager’s judgment on matters of safety or liability is final and may result in immediate termination
+of the event without refund.
+          </p>
+          <p>
+            <strong>III. INDEMNIFICATION:</strong> The Applicant agrees to indemnify, defend, and hold harmless 100 Remington Holding Corp., its officers,
+employees, and agents from any and all claims or damages arising from or related to the Applicant’s use or
+reservation of the premises.
+          </p>
+          <p>
+            <strong>IV. INSURANCE REQUIREMENTS:</strong> Prior to scheduling or confirming any event, the Applicant must provide a valid Certificate of Insurance
+meeting the following criteria:
+            <ul class="list-disc pl-5">
+              <li>Minimum General Liability Coverage: $1,000,000 per occurrence / $2,000,000 aggregate</li>
+              <li>Additional Insureds: 100 Remington Holding Corp. and Richard Parrish/ Castle</li>
+              <li>Address: 16083 N. 75th Avenue, Peoria, AZ</li>
+            </ul>
+          </p>
+          <p>
+            <strong>V. CLEANUP DEPOSIT:</strong> A $500 cleanup deposit is required and refundable only upon written confirmation by the Manager that the
+premises were left in satisfactory condition. Failure to comply results in forfeiture.
+          </p>
+          <p>
+            <strong>VI. CAPACITY AND PARKING:</strong> 
+            <ul class="list-disc pl-5">
+              <li>Maximum building occupancy: 430 persons (including staff, vendors, and guests)</li>
+              <li>Parking availability: 92 marked spaces only</li>
+              <li>No parking in fire lanes or restricted zones</li>
+              <li>The Applicant is responsible for all parking and traffic control</li>
+              <li>The Applicant assumes all liability for vehicle accidents or theft</li>
+            </ul>
+          </p>
+          <p>
+            <strong>VII. PROHIBITED USES AND ACTIVITIES:</strong> Unless specifically waived in writing, the following are prohibited: tape or adhesives, painting, cooking on
+concrete, animals except certified service animals, wild or exotic animals, combative sports, strobe lights or
+pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zoning.
+        </div>
+
+      <!-- Section A – Event Information -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section A – Event Information</h3>
+        <label class="block mb-2">Applicant Name *</label>
+        <input type="text" name="applicantName" required class="w-full border rounded p-2">
+
+        <label class="block mt-4 mb-2">Is the Applicant a 501(C) organization? *</label>
+        <select name="is501c" required class="w-full border rounded p-2">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label class="block mt-4 mb-2">Event Title or Description *</label>
+        <input type="text" name="eventTitle" required class="w-full border rounded p-2">
+
+        <div class="md:col-span-2">
+          <label class="block text-gray-700 mt-4 mb-2">Requested Event Date(s) *</label>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+              <input
+                type="date"
+                name="event-start"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Start Date"
+              />
+            </div>
+            <div class="flex-1">
+              <input
+                type="date"
+                name="event-end"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="End Date"
+              />
+            </div>
+          </div>
+        </div>
+
+        <label class="block mt-4 mb-2">Estimated Attendance (limit 430) *</label>
+        <input type="number" name="attendance" max="430" required class="w-full border rounded p-2">
       </div>
-    </section>
+
+      <!-- Section B - General Questions -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section B – General Questions</h3>
+        <label class="block mb-2">Has the Applicant reviewed the City of Peoria Code § 8-2 (Special Events) and confirmed whether a City Special Event or Temporary Use Permit is required? *</label>
+        <select name="reviewedCityCode" required class="w-full border rounded p-2">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label class="block mt-4 mb-2">If Yes, provide details</label>
+        <textarea name="codeDetails" class="w-full border rounded p-2"></textarea>
+
+        <label class="block mt-4 mb-2">Please list City Liaison Name</label>
+        <input type="text" name="cityLiaison" class="w-full border rounded p-2">
+
+        <label class="block mt-4 mb-2">Will tickets or admission be sold? *</label>
+        <select name="ticketsSold" required class="w-full border rounded p-2">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label class="block mt-4 mb-2">If Yes, provide details and tax status</label>
+        <input type="text" name="taxStatus" class="w-full border rounded p-2">
+      </div>
+
+      <!-- Section C - Activities and Equipment Related Questions -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section C – Activities and Equipment</h3>
+        <div class="mt-4">
+          <label class="block mt-4 mb-2">Any fighting, boxing, wrestling, or martial arts? *</label>
+          <select name="martialArts" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="martialArtsExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Will minors attend without adult supervision? *</label>
+          <select name="minorsUnattended" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="minorsExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Will you be using any recreational equipment (e.g. bouncy house, slides, etc.)? *</label>
+          <select name="recEquipment" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="recExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Any pyrotechnics, fireworks, smoke machines, or strobe lighting? *</label>
+          <select name="pyroEquipment" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="pyroExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Any animals (wild or domestic) be on-site? *</label>
+          <select name="animals" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="animalsExplain" class="w-full border rounded p-2">
+
+           <label class="block mt-4 mb-2">Any cooking, open flame, or heat-producing devices? *</label>
+          <select name="cooking" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="cookingExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Any amplified music or sound systems? *</label>
+          <select name="soundEquipment" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="soundExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Any temporary structures (tents, barriers, stages)? *</label>
+          <select name="structureEquipment" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="structureExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Will private security be utilized? *</label>
+          <select name="security" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, identify if they are armed</label>
+          <input type="text" name="securityExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Will Applicant require any special access considerations [road closures, lane restrictions, barricades detours]? *</label>
+          <select name="specialAccess" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="accessExplain" class="w-full border rounded p-2">
+
+          <label class="block mt-4 mb-2">Will applicant be arranging for trash removal, recycling or restroom facilities? *</label>
+          <select name="trashRemoval" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <label class="block mt-4 mb-2">If Yes, explain</label>
+          <input type="text" name="trashExplain" class="w-full border rounded p-2">
+        </div>
+      </div>
+
+      <!-- Section D - Vendors and Contractors -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section D – Vendors and Contractors</h3>
+        <label class="block mt-4 mb-2">List all vendors including contact info, address, and insurance provider.</label>
+        <textarea name="vendors" class="w-full border rounded p-2" rows="4" placeholder="List all vendors including contact info, address, and insurance provider"></textarea>
+      </div>
+
+      <!-- Section E – Alcohol Use, Sale and Consumption -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section E – Alcohol Use, Sale and Consumption</h3>
+        <label class="block mt-4 mb-2">The premises has no permits to sell or distribute alcohol, if you intend to get a temporary permit for sale and/or distribution of alcohol, provide details on application with Peoria Police Department and Maricopa County.</label>
+
+        <label class="block mt-4 mb-2">Is the Applicant serving Alcohol as a private, invitation-only event with no sales, no open public access? *</label>
+        <select name="privateAlcohol" required class="w-full border rounded p-2">
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+        <label class="block mt-4 mb-2">Is the Applicant serving with a hired licensed caterer or bar operator with a Series 6 or 12 license filing an Extension of Premises / Offsite Permit [PD and DLLC sign-off required]? *</label>
+        <select name="liquorCaterer" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label class="block mt-4 mb-2">Is Applicant claiming temporary permit under A.R.S. § 4-203.02, a Special Event Liquor License? [501c3, religious, civic, fraternal, political, or service organizations] *</label>
+        <select name="liquorPermits" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+        <label class="block mt-4 mb-2">Police Contact Name & Email</label>
+        <input type="text" name="policeContact" class="w-full border rounded p-2">
+
+        <label class="block mt-4 mb-2">State/Maricopa County Contact Name & Email</label>
+        <input type="text" name="countyContact" class="w-full border rounded p-2">
+
+         <label class="block font-semibold mt-4 mb-2">YOU MUST PROVIDE PROOF OF LIQUOR LIABILITY INSURANCE FOR HOST OR BARTENDER</label>
+
+         <label class="block mt-4 mb-2">Will Applicant have Peoria Police and Arizona Liquor Department security and fencing plan? *</label>
+        <select name="liquorPermits" required class="w-full border rounded p-2">
+            <option value="">Select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+      </div>
+
+      <!-- Section F – Additional Details -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Section F – Additional Details</h3>
+        <label class="block mt-4 mb-2">Provide any other details or information that will need to be addressed in a binding rental contract:</label>
+        <textarea name="additionalDetails" rows="4" class="w-full border rounded p-2"></textarea>
+      </div>
+
+      <!-- ACKNOWLEDGMENT -->
+      <div>
+        <h3 class="text-xl font-semibold mb-4">ACKNOWLEDGMENT</h3>
+        <label class="block mt-4 mb-2">By signing below, the Applicant acknowledges and agrees that no event date or booking exists until written approval is issued by Richard Parrish, President of 100 Remington Holding Corp. Upon approval, a formal contract will specify permitted uses and rates that will apply for consideration. The Manager assigned by the Owner has full authority to direct or terminate the event without refund. Maximum occupancy is 430 persons; parking limited to 92 spaces. The Applicant is responsible for parking, vehicle safety, and indemnifies 100 Remington Holding Corp.</label>
+
+        <label class="block mt-4 mb-2">Applicant Full Name (signature) *</label>
+        <input type="text" name="signature" required class="w-full border rounded p-2">
+
+        <label class="block mt-4 mb-2">Date *</label>
+        <input type="date" name="signatureDate" required class="w-full border rounded p-2">
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-center mt-10">
+        <button
+          type="submit"
+          class="bg-[#5fbcff] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition"
+        >
+          Submit Application
+        </button>
+        <p id="thankYouMsg" class="text-green-600 font-semibold mt-4 hidden">
+          Thank you! Your application has been submitted.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+</section>
 
     <!-- CTA Section -->
     <section class="py-20 bg-gray-900 text-white">

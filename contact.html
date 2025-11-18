@@ -176,7 +176,9 @@
         class="container mx-auto px-6 py-20 md:py-32 flex flex-col md:flex-row items-center"
       >
         <div class="md:w-1/2 mb-12 md:mb-0">
-          <h1 class="font-bebas text-5xl md:text-7xl mb-6 text-yellow-400">CONTACT US</h1>
+          <h1 class="font-bebas text-5xl md:text-7xl mb-6 text-yellow-400">
+            CONTACT US
+          </h1>
           <p class="text-xl mb-8">
             Get in touch with Solid Ground Arena. <br />
             about events, rentals, or joining our skating community.
@@ -191,6 +193,89 @@
         </div>
       </div>
     </header>
+
+    <!-- Contact Info Boxes -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-bebas text-center mb-12">
+          Contact Information
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Hours -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 p-3 rounded-full mr-3">
+                <i data-feather="clock" class="text-blue-600 w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-semibold">Hours</h3>
+            </div>
+            <p class="text-gray-700">Mon–Fri: 9am–10pm</p>
+            <p class="text-gray-700">Sat–Sun: 8am–11pm</p>
+          </div>
+
+          <!-- Location -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 p-3 rounded-full mr-3">
+                <i data-feather="map-pin" class="text-blue-600 w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-semibold">Location</h3>
+            </div>
+            <p class="text-gray-700">
+              <a
+                href="https://www.google.com/maps/place/16083+N+75th+Ave,+Peoria,+AZ+85382"
+                target="_blank"
+                class="text-blue-600 hover:underline"
+              >
+                16083 N 75th Ave<br />Peoria, AZ 85382
+              </a>
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 p-3 rounded-full mr-3">
+                <i data-feather="mail" class="text-blue-600 w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-semibold">Email</h3>
+            </div>
+            <p class="text-gray-700">
+              <a
+                href="mailto:solidgroundarena@gmail.com"
+                class="text-blue-600 hover:underline"
+              >
+                solidgroundarena@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <!-- Phone -->
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
+          >
+            <div class="flex items-center mb-3">
+              <div class="bg-blue-100 p-3 rounded-full mr-3">
+                <i data-feather="phone" class="text-blue-600 w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-semibold">Phone</h3>
+            </div>
+            <p class="text-gray-700">
+              <a href="tel:6238782444" class="text-blue-600 hover:underline">
+                (623) 878-2444
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contact Form Section -->
     <section class="py-16 px-6 bg-white text-gray-800" id="contact-form">
@@ -272,49 +357,6 @@
             Thanks! Your message has been sent. 🛼
           </p>
         </form>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col md:flex-row items-center">
-          <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-            <h2 class="font-bebas text-4xl md:text-5xl mb-6">
-              CONVERTIBLE SPACE, <br />ENDLESS FUN
-            </h2>
-            <p class="text-lg mb-4">
-              <strong>Solid Ground Arena</strong> is a multi-sport indoor arena
-              and the new home of Arizona Inline Hockey. We have a full-size
-              <strong>185 x 80 indoor roller hockey rink</strong> that we use
-              for Arizona inline hockey, roller derby and roller skating.
-            </p>
-            <p class="text-lg mb-4">
-              We offer <strong>youth leagues</strong> on Saturday mornings and
-              <strong>adult leagues</strong> every day of the week.
-            </p>
-            <p class="text-lg mb-6">
-              Our indoor rink is also convertible into
-              <strong>4 full-size competition volleyball courts</strong>, and we
-              offer daily, weekly, or monthly volleyball rentals. We also have a
-              <strong>110 x 42 multi-purpose court</strong> for various sports
-              and activities.
-            </p>
-            <a
-              href="facility.html"
-              class="inline-block bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-            >
-              EXPLORE <i data-feather="arrow-right" class="inline ml-2"></i>
-            </a>
-          </div>
-          <div class="md:w-1/2 h-full">
-            <img
-              src="images/inline-hockey-01.jpg"
-              alt="Roller Hockey"
-              class="w-full h-full object-cover rounded-lg shadow-md"
-            />
-          </div>
-        </div>
       </div>
     </section>
 
@@ -479,6 +521,10 @@
         </div>
       </div>
     </footer>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+      feather.replace();
+    </script>
     <script src="js/main.js"></script>
   </body>
 </html>

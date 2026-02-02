@@ -189,10 +189,10 @@
       >
         <div class="w-full mb-12 md:mb-0">
           <h1 class="font-bebas text-5xl md:text-7xl mb-6 text-yellow-400">
-            ARENA RENTAL
+            BIRTHDAY PARTIES
           </h1>
           <p class="text-xl mb-4">
-            Check out all our space has to offer and book your next event with us.
+            Book your next birthday party with us at Solid Ground Arena!
           </p>
         </div>
         <div class="md:w-1/2">
@@ -200,7 +200,7 @@
       </div>
     </header>
     
-    <!-- Facility Rental Form -->
+    <!-- Birthday Party Form -->
     <section id="rental-form" class="py-16 bg-white scroll-mt-28">
       <div class="container mx-auto px-6">
         <div
@@ -210,13 +210,12 @@
             Host Your Next Event at Solid Ground Arena
           </h2>
           <p class="text-xl mb-6">
-            Our multi-use space is perfect for sports, concerts, expos, and
-            large events.
+            Our multi-use space is perfect for private event.
           </p>
           <a
             href="#rental-form"
             class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-8 py-4 rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
-            Book Facility Rental <i data-feather="arrow-right" class="ml-2"></i>
+            Book Birthday Party <i data-feather="arrow-right" class="ml-2"></i>
           </a>
         </div>
 
@@ -232,7 +231,7 @@
               <h3 class="font-bold text-lg">Seating Capacity</h3>
             </div>
             <p>
-              Spacious stands with accessible seating and team accommodations.
+              Spacious areas with seating and group accommodations.
             </p>
           </div>
 
@@ -282,87 +281,91 @@
           </div>
         </div>
 
-        <!-- PDF Upload Option (PDF-ONLY submission) -->
-        <form
-          action="https://formspree.io/f/maqqnzaz"
-          method="POST"
-          enctype="multipart/form-data"
-          class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-12"
-          id="facilityPdfForm"
-        >
-          <h3 class="text-2xl font-semibold mb-2 font-bebas">Facility Rental Form</h3>
-          <p class="text-gray-600 mb-6">Download, fill out, and upload the PDF form below</p>
+      <!-- PDF Upload Option (PDF-ONLY submission) -->
+      <form
+        action="https://formspree.io/f/xbddlede"
+        method="POST"
+        enctype="multipart/form-data"
+        class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-12"
+        id="birthdayPdfForm"
+      >
+        <h3 class="text-2xl font-semibold mb-2 font-bebas">Birthday Party Form</h3>
+        <p class="text-gray-600 mb-6">Download, fill out, and upload the PDF form below</p>
 
-          <input type="hidden" name="_subject" value="Facility Rental PDF Upload - Solid Ground Arena" />
-          <input type="hidden" name="submission_type" value="pdf_upload" />
+        <input
+          type="hidden"
+          name="_subject"
+          value="Birthday Party PDF Upload - Solid Ground Arena"
+        />
+        <input type="hidden" name="submission_type" value="pdf_upload" />
 
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href="forms/FACILITY_RENTAL.pdf"
-              class="bg-[#5fbcff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 transition duration-300 inline-flex items-center justify-center"
-              download
-            >
-              <i data-feather="download" class="mr-2"></i> Download Form
-            </a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="forms/BIRTHDAY_PARTY.pdf"
+            class="bg-[#5fbcff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 transition duration-300 inline-flex items-center justify-center"
+            download
+          >
+            <i data-feather="download" class="mr-2"></i> Download Form
+          </a>
 
-            <label
-              for="facilityPdf"
-              class="cursor-pointer border border-[#5fbcff] text-[#5fbcff] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 inline-flex items-center justify-center"
-            >
-              <i data-feather="upload" class="mr-2"></i> Upload Completed PDF
+          <label
+            for="birthdayPdf"
+            class="cursor-pointer border border-[#5fbcff] text-[#5fbcff] px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 inline-flex items-center justify-center"
+          >
+            <i data-feather="upload" class="mr-2"></i> Upload Completed PDF
+          </label>
 
-              <!-- IMPORTANT: sr-only (NOT hidden) so browser can enforce required -->
-              <input
-                type="file"
-                id="facilityPdf"
-                name="completed_pdf"
-                accept="application/pdf,.pdf"
-                class="sr-only"
-                required
-              />
-            </label>
+          <!-- IMPORTANT: Formspree expects file field name="attachment" -->
+          <input
+            type="file"
+            id="birthdayPdf"
+            name="attachment"
+            accept="application/pdf,.pdf"
+            class="sr-only"
+            required
+          />
 
-            <button
-              type="submit"
-              class="bg-[#5fbcff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300 inline-flex items-center justify-center"
-              id="facilityPdfSubmit"
-            >
-              Submit PDF
-            </button>
+          <button
+            type="submit"
+            class="bg-[#5fbcff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition duration-300 inline-flex items-center justify-center"
+            id="birthdayPdfSubmit"
+          >
+            Submit PDF
+          </button>
+        </div>
+
+        <p id="birthdayPdfErr" class="mt-4 text-red-500 font-semibold hidden"></p>
+
+        <p id="birthdayPdfName" class="mt-4 text-base font-semibold text-yellow-400 hidden"></p>
+
+        <p id="birthdayPdfMsg" class="text-green-600 font-semibold mt-4 hidden">
+          Thanks! Your PDF was submitted.
+        </p>
+      </form>
+
+      <!-- Or text -->
+      <h4 class="text-lg font-semibold mb-6 text-center">Or fill out our online form</h4>
+
+      <!-- Birthday Online Form -->
+      <form
+        id="birthdayOnlineForm"
+        action="https://formspree.io/f/xbddlede"
+        method="POST"
+        class="space-y-6"
+      >
+        <input type="hidden" name="_subject" value="Birthday Party Online Form">
+        <input type="hidden" name="submission_type" value="online_form">
+
+        <section id="rental-form" class="py-16 bg-gray-100 text-gray-800">
+          <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="font-bebas text-4xl md:text-5xl mb-6 text-center text-gray-800">
+              BIRTHDAY PARTY APPLICATION FOR SOLID GROUND ARENA
+            </h2>
+            
           </div>
 
-          <p id="facilityPdfErr" class="mt-4 text-red-500 font-semibold hidden"></p>
-
-          <p id="facilityPdfName" class="mt-4 text-base font-semibold text-yellow-400 hidden"></p>
-
-          <p id="facilityPdfMsg" class="text-green-600 font-semibold mt-4 hidden">
-            Thanks! Your PDF was submitted.
-          </p>
-        </form>
-
-        <!-- Or text -->
-        <h4 class="text-lg font-semibold mb-6 text-center">Or fill out our online form</h4>
-
-        <!-- Facility Rental Form Section -->
-         <form
-          id="facilityOnlineForm"
-          action="https://formspree.io/f/maqqnzaz"
-          method="POST"
-          class="space-y-6"
-        >
-          <input type="hidden" name="_subject" value="Facility Rental Online Form - Solid Ground Arena" />
-          <input type="hidden" name="submission_type" value="online_form" />
-
-          <section id="facility-rental-form" class="py-16 bg-gray-100 text-gray-800">
-            <div class="container mx-auto px-6 max-w-4xl">
-              <div class="max-w-4xl mx-auto">
-                <!-- TITLE -->
-                <h2 class="font-bebas text-4xl md:text-5xl mb-6 text-center text-gray-800">
-                  FACILITY RENTAL STATEMENT OF TERMS AND APPLICATION FOR SOLID GROUND ARENA
-                </h2>
-
         <!-- Intro Text -->
-        <div class="text-gray-800 leading-relaxed space-y-4 mb-10">
+        <div class="text-gray-600 leading-relaxed space-y-4 mb-10 max-w-4xl mx-auto">
           <p>
             <strong>I. AUTHORITY AND NON-CONTRACTUAL STATUS:</strong> No applicant, renter, or prospective user shall have any right, reservation, or expectation of a booking date,
 event date, or access to the premises until a written letter of approval is issued on official letterhead of 100
@@ -412,6 +415,7 @@ pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zonin
         </div>
 
       <!-- Section A – Event Information -->
+      <div class="max-w-4xl mx-auto">
       <div>
         <div class="pt-4 mt-4"></div>
         <h3 class="text-xl font-semibold mb-4">Section A – Event Information</h3>
@@ -455,38 +459,10 @@ pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zonin
         <input type="number" name="attendance" max="430" required class="w-full border rounded p-2">
       </div>
 
-      <!-- Section B - General Questions -->
+      <!-- Section B - Activities and Equipment Related Questions -->
       <div>
         <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section B – General Questions</h3>
-        <label class="block mb-2">Has the Applicant reviewed the City of Peoria Code § 8-2 (Special Events) and confirmed whether a City Special Event or Temporary Use Permit is required? *</label>
-        <select name="reviewedCityCode" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">If Yes, provide details</label>
-        <textarea name="codeDetails" class="w-full border rounded p-2"></textarea>
-
-        <label class="block mt-4 mb-2">Please list City Liaison Name</label>
-        <input type="text" name="cityLiaison" class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">Will tickets or admission be sold? *</label>
-        <select name="ticketsSold" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">If Yes, provide details and tax status</label>
-        <input type="text" name="taxStatus" class="w-full border rounded p-2">
-      </div>
-
-      <!-- Section C - Activities and Equipment Related Questions -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section C – Activities and Equipment</h3>
+        <h3 class="text-xl font-semibold mb-4">Section B – Activities and Equipment</h3>
         <div class="mt-4">
           <label class="block mt-4 mb-2">Any fighting, boxing, wrestling, or martial arts? *</label>
           <select name="martialArts" required class="w-full border rounded p-2">
@@ -559,93 +535,21 @@ pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zonin
           </select>
           <label class="block mt-4 mb-2">If Yes, explain</label>
           <input type="text" name="structureExplain" class="w-full border rounded p-2">
+          </div>
 
-          <label class="block mt-4 mb-2">Will private security be utilized? *</label>
-          <select name="security" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, identify if they are armed</label>
-          <input type="text" name="securityExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will Applicant require any special access considerations [road closures, lane restrictions, barricades detours]? *</label>
-          <select name="specialAccess" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="accessExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will applicant be arranging for trash removal, recycling or restroom facilities? *</label>
-          <select name="trashRemoval" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="trashExplain" class="w-full border rounded p-2">
-        </div>
-      </div>
-
-      <!-- Section D - Vendors and Contractors -->
+      <!-- Section C - Vendors and Contractors -->
       <div>
         <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section D – Vendors and Contractors</h3>
+        <h3 class="text-xl font-semibold mb-4">Section C – Vendors and Contractors, If Any</h3>
         <label class="block mt-4 mb-2">List all vendors including contact info, address, and insurance provider.</label>
         <textarea name="vendors" class="w-full border rounded p-2" rows="4" placeholder="List all vendors including contact info, address, and insurance provider"></textarea>
       </div>
 
-      <!-- Section E – Alcohol Use, Sale and Consumption -->
+      <!-- Section D – Additional Details -->
       <div>
         <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section E – Alcohol Use, Sale and Consumption</h3>
-        <label class="block mt-4 mb-2">The premises has no permits to sell or distribute alcohol, if you intend to get a temporary permit for sale and/or distribution of alcohol, provide details on application with Peoria Police Department and Maricopa County.</label>
-
-        <label class="block mt-4 mb-2">Is the Applicant serving Alcohol as a private, invitation-only event with no sales, no open public access? *</label>
-        <select name="privateAlcohol" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">Is the Applicant serving with a hired licensed caterer or bar operator with a Series 6 or 12 license filing an Extension of Premises / Offsite Permit [PD and DLLC sign-off required]? *</label>
-        <select name="liquorCaterer" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-          <label class="block mt-4 mb-2">Is Applicant claiming temporary permit under A.R.S. § 4-203.02, a Special Event Liquor License? [501c3, religious, civic, fraternal, political, or service organizations] *</label>
-        <select name="liquorPermits" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-        <label class="block mt-4 mb-2">Police Contact Name & Email</label>
-        <input type="text" name="policeContact" class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">State/Maricopa County Contact Name & Email</label>
-        <input type="text" name="countyContact" class="w-full border rounded p-2">
-
-         <label class="block font-semibold mt-4 mb-2">YOU MUST PROVIDE PROOF OF LIQUOR LIABILITY INSURANCE FOR HOST OR BARTENDER</label>
-
-         <label class="block mt-4 mb-2">Will Applicant have Peoria Police and Arizona Liquor Department security and fencing plan? *</label>
-        <select name="liquorPermits" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-      </div>
-
-      <!-- Section F – Additional Details -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section F – Additional Details</h3>
-        <label class="block mt-4 mb-2">Provide any other details or information that will need to be addressed in a binding rental contract:</label>
+        <h3 class="text-xl font-semibold mb-4">Section D – Additional Details</h3>
+        <label class="block mt-4 mb-2">Provide any other details or information that will need to be addressed:</label>
         <textarea name="additionalDetails" rows="4" class="w-full border rounded p-2"></textarea>
       </div>
 
@@ -665,18 +569,18 @@ pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zonin
 
       <!-- Submit Button -->
       <div class="text-center mt-10">
-          <button
-            type="submit"
-            class="bg-[#5fbcff] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition"
-          >
-            Submit Application
-          </button>
-
-          <p id="facilityOnlineMsg" class="text-green-600 font-semibold mt-4 hidden">
-            Thanks! Your facility rental request was submitted.
-          </p>
-        </div>
+        <button
+          type="submit"
+          class="bg-[#5fbcff] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition"
+        >
+          Submit Application
+        </button>
+        <p id="birthdayOnlineMsg" class="text-green-600 font-semibold mt-4 hidden">
+              Thanks! Your birthday request was submitted.
+            </p>
+      </div>
     </form>
+    </div>
   </div>
 </section>
 </section>

@@ -1,85 +1,132 @@
-# 🛼 Solid Ground Arena Website
+🎟️ HobbyCon Website
 
-This repository contains the official website for **Solid Ground Arena**, an indoor roller sports and community space.  
-Built with **HTML**, **Tailwind CSS**, and **JavaScript**, and hosted via **GitHub Pages**.
+This repository contains the official website for HobbyCon, a curated, community-driven convention designed to help people discover, explore, and deepen their engagement with niche hobbies.
 
----
+The site is built with HTML, Tailwind CSS, and JavaScript, and is hosted as a static site via GitHub Pages.
 
-## 🌐 Live Site
+🌐 Live Site
 
-**URL:** [https://solidgroundarena.com](https://solidgroundarena.com)
+URL:
+(Add once domain or GitHub Pages URL is finalized)
+Example: https://hobbycon.com or https://username.github.io/hobbycon-site
 
----
-
-## 🧱 Project Structure
-
+🧱 Project Structure
 index.html
-roller-sports.html
+schedule.html
+exhibitors.html
+tickets.html
 contact.html
-skate-now.html
 /images
 /js
-main.js
+└── main.js
+/styles (optional)
 
----
+Note: Page structure may evolve as HobbyCon expands (multi-day schedules, exhibitor portals, etc.).
 
-## ⚙️ Built With
+⚙️ Built With
 
-- [Tailwind CSS (CDN)](https://tailwindcss.com/docs/installation/play-cdn)
-- [Feather Icons](https://feathericons.com/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-- [GitHub Pages](https://pages.github.com/)
+Tailwind CSS (CDN)
 
----
+Feather Icons
 
-## 🧠 Key Features
+Vanilla JavaScript (main.js)
 
-- Responsive design with Tailwind CSS
-- Automatic page highlighting in navigation
-- Dynamic footer year update
-- Mobile-friendly menu toggle
-- Clean, modular JavaScript in `main.js`
+Visual Studio Code
 
----
+VS Code Extensions:
 
-## 💻 How to Edit This Site
+Live Server
 
-1. **Clone the repository**
+Prettier
 
-   - Open **GitHub Desktop** → File → Clone Repository
-   - Choose your GitHub account and this repository
-   - Select a folder on your computer → **Clone**
+Auto Rename Tag
 
-2. **Open the folder in VS Code**
+Image Preview
 
-   - Right-click → **Open with VS Code**
-   - Install extensions: _Live Server_, _Prettier_, _Auto Rename Tag_, _Image Preview_
+GitHub Pages
 
-3. **Preview changes**
+🧠 Key Features
 
-   - Right-click `index.html` → **Open with Live Server**
+Fully responsive layout using Tailwind CSS
 
-4. **Commit & Push updates**
-   - In GitHub Desktop → add a summary → **Commit to main**
-   - Then click **Push origin** to publish changes live
+Shared navigation across all pages
 
----
+Active page highlighting in the nav
 
-## 📦 Backup & Archival
+Mobile-friendly menu toggle
 
-- To make a static backup, compress the entire project folder into a `.zip` file.
-- Upload it to **Google Drive** for long-term storage or to share with team members.
+Dynamic footer year update
 
----
+Modular, readable JavaScript in main.js
 
-## 🧑‍💻 Contributors
+Static-site friendly (no backend required)
 
-- **Primary Developer:** [Your Name]
-- **Organization:** Solid Ground Arena
+💻 How to Edit This Site
 
----
+Clone the repository
 
-## 🛡 License
+Open GitHub Desktop
 
-© Solid Ground Arena. All rights reserved.
+File → Clone Repository
+
+Select this repository and choose a local folder
+
+Open in VS Code
+
+Right-click the project folder → Open with VS Code
+
+Install recommended extensions:
+
+Live Server
+
+Prettier
+
+Auto Rename Tag
+
+Image Preview
+
+Preview changes locally
+
+Right-click index.html → Open with Live Server
+
+Changes will auto-refresh in the browser
+
+Publish updates
+
+In GitHub Desktop:
+
+Write a commit message
+
+Commit to main
+
+Click Push origin to publish changes
+
+🧾 Forms, Tickets & Integrations
+
+Contact forms: Formspree (no backend required)
+
+Ticketing / payments: Stripe Payment Links (initial implementation)
+
+Analytics: Google Analytics 4 (added post-launch)
+
+These services can be swapped or expanded as HobbyCon grows.
+
+📦 Backup & Portability
+
+To create a static backup:
+
+Compress the entire project folder into a .zip
+
+Store in Google Drive or other shared storage
+
+This repo can also be duplicated to create new event sites or year-based variants.
+
+🧑‍💻 Contributors
+
+Primary Maintainer: (Your Name)
+
+Organization: HobbyCon
+
+🛡 License
+
+© HobbyCon. All rights reserved.

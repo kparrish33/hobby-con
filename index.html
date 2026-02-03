@@ -50,20 +50,6 @@
   </head>
   <body class="bg-white text-gray-800">
 
-      <!-- Floating Live Badge (HOME ONLY) -->
-      <div
-        id="liveBadgePopup"
-        class="hidden fixed right-4 z-50 bg-red-600 text-white font-bold px-4 py-2 rounded-full shadow-lg
-              flex items-center gap-2 cursor-pointer select-none
-              top-[max(1rem,env(safe-area-inset-top))]
-              opacity-0 transition-opacity duration-700 ease-out"
-      >
-        <span>🔴 LIVE Now</span>
-        <button id="dismissLiveBadgePopup" class="text-white text-lg leading-none">
-          &times;
-        </button>
-      </div>
-
     <!-- Navigation -->
 <nav class="bg-white shadow-md sticky top-0 z-50 overflow-visible">
   <div class="container mx-auto px-6 py-4">
@@ -100,8 +86,8 @@
               opacity-0 pointer-events-none
               group-hover:opacity-100 group-hover:pointer-events-auto
               transition-opacity duration-150">
-              <a href="inline-hockey" class="block px-4 py-2 hover:bg-gray-100">Inline Hockey</a>
-              <a href="derby" class="block px-4 py-2 hover:bg-gray-100">Roller Derby</a>
+              <a href="about" class="block px-4 py-2 hover:bg-gray-100">Inline Hockey</a>
+              <a href="retreat" class="block px-4 py-2 hover:bg-gray-100">Retreat</a>
               <a href="volleyball" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">Volleyball</a>
             </div>
           </div>
@@ -119,15 +105,15 @@
               group-hover:opacity-100 group-hover:pointer-events-auto
               transition-opacity duration-150">
               <a href="birthdays" class="block px-4 py-2 hover:bg-gray-100">Birthday Parties</a>
-              <a href="arena-rental" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">Public Events</a>
+              <a href="vendors" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">Vendors</a>
             </div>
           </div>
 
           <!-- CONTACT -->
           <a href="contact" class="nav-link font-semibold">Contact</a>
 
-           <!-- SHOP -->
-            <a href="shop" class="nav-link font-semibold">Shop</a>
+           <!--EVENTS  -->
+            <a href="events" class="nav-link font-semibold">Events</a>
 
       <!-- SKATE NIGHT BUTTON -->
       <a
@@ -165,8 +151,8 @@
         </button>
 
         <div class="submenu hidden pr-2 space-y-1 text-sm">
-          <a href="inline-hockey" class="block py-1">Inline Hockey</a>
-          <a href="derby" class="block py-1">Roller Derby</a>
+          <a href="about" class="block py-1">Inline Hockey</a>
+          <a href="retreat" class="block py-1">Retreat</a>
           <a href="volleyball" class="block py-1">Volleyball</a>
         </div>
       </div>
@@ -180,13 +166,13 @@
 
         <div class="submenu hidden pr-2 space-y-1 text-sm">
           <a href="birthdays" class="block py-1">Birthday Parties</a>
-          <a href="arena-rental" class="block py-1">Public Events</a>
+          <a href="vendors" class="block py-1">Vendors</a>
         </div>
       </div>
 
       <a href="contact" class="block py-2 nav-link font-semibold">Contact</a>
 
-      <a href="shop" class="block py-2 font-semibold">Shop</a>
+      <a href="events" class="block py-2 font-semibold">Events</a>
 
       <a href="skate-night"
         class="inline-block px-6 py-2 rounded-full text-white font-bold bg-gradient-to-r from-[#5fbcff] to-[#0085c3]">
@@ -212,7 +198,7 @@
   <!-- Stripes -->
   <div class="stripes-layer stripe-wrapper">
     <!-- Roller Sports -->
-    <a href="inline-hockey" class="stripe-container group bg-gradient-to-r from-blue-600 via-sky-400 to-blue-600">
+    <a href="about" class="stripe-container group bg-gradient-to-r from-blue-600 via-sky-400 to-blue-600">
       <div class="stripe-content">
         <img src="images/cat-05.png" class="stripe-cat-icon" alt="Cat Icon">
         <div class="stripe-text">
@@ -245,12 +231,12 @@
     </a>
 
     <!-- Arena Rental -->
-    <a href="arena-rental" class="stripe-container group bg-gradient-to-r from-[#ff8c00] via-[#ffd60a] to-[#ff8c00]">
+    <a href="vendors" class="stripe-container group bg-gradient-to-r from-[#ff8c00] via-[#ffd60a] to-[#ff8c00]">
       <div class="stripe-content">
         <img src="images/cat-01.png" class="stripe-cat-icon" alt="Cat Icon">
         <div class="stripe-text">
           <h2 class="stripe-title">Arena Rental</h2>
-          <p class="stripe-subtitle">Birthday Parties & Public Events</p>
+          <p class="stripe-subtitle">Birthday Parties & Vendors</p>
         </div>
       </div>
     </a>
@@ -286,7 +272,7 @@
           <!-- CARD 1 -->
           <a
             class="sga-card event-card w-[360px] shrink-0 bg-white rounded-3xl p-10 text-center shadow-xl"
-            href="shop?add=festival-2026-02-07"
+            href="events?add=festival-2026-02-07"
           >
             <i data-feather="clock" class="w-10 h-10 text-blue-500 mx-auto mb-4"></i>
             <h3 class="text-2xl font-bold">Winter Festival</h3>
@@ -302,7 +288,7 @@
           <!-- CARD 2 -->
           <a
             class="sga-card event-card w-[360px] shrink-0 bg-white rounded-3xl p-10 text-center shadow-xl"
-            href="shop?add=skate-night-2026-02-13"
+            href="events?add=skate-night-2026-02-13"
           >
             <i data-feather="users" class="w-10 h-10 text-blue-500 mx-auto mb-4"></i>
             <h3 class="text-2xl font-bold">Open Skate Night</h3>
@@ -316,7 +302,7 @@
           <!-- CARD 3 -->
           <a
             class="sga-card event-card w-[360px] shrink-0 bg-white rounded-3xl p-10 text-center shadow-xl"
-            href="shop?add=tournament-2026-02-19"
+            href="events?add=tournament-2026-02-19"
           >
             <i data-feather="star" class="w-10 h-10 text-blue-500 mx-auto mb-4"></i>
             <h3 class="text-2xl font-bold">Inline Tournament</h3>
@@ -330,7 +316,7 @@
           <!-- CARD 4 -->
           <a
             class="sga-card event-card w-[360px] shrink-0 bg-white rounded-3xl p-10 text-center shadow-xl"
-            href="shop?add=dj-night-2026-02-20"
+            href="events?add=dj-night-2026-02-20"
           >
             <i data-feather="music" class="w-10 h-10 text-blue-500 mx-auto mb-4"></i>
             <h3 class="text-2xl font-bold">Live DJ Night</h3>
@@ -344,7 +330,7 @@
           <!-- CARD 5 -->
           <a
             class="sga-card event-card w-[360px] shrink-0 bg-white rounded-3xl p-10 text-center shadow-xl"
-            href="shop?add=skate-party-2026-02-14"
+            href="events?add=skate-party-2026-02-14"
           >
             <i data-feather="gift" class="w-10 h-10 text-blue-500 mx-auto mb-4"></i>
             <h3 class="text-2xl font-bold">Valentine's Skate Party</h3>
@@ -510,7 +496,7 @@
               <p class="font-semibold text-yellow-400 text-sm mb-3">
                 Inline Hockey • Roller Derby • Coaching
               </p>
-              <a href="inline-hockey" class="text-[#5fbcff] font-bold text-sm flex items-center">
+              <a href="about" class="text-[#5fbcff] font-bold text-sm flex items-center">
                 LEARN MORE
                 <i data-feather="arrow-right" class="ml-2 text-[#5fbcff]"></i>
               </a>
@@ -548,7 +534,7 @@
                 Celebrate your special occasion on wheels with us! Use our space to host a public event or private party at Solid Ground Arena.
               </p>
               <p class="font-semibold text-yellow-400 text-sm mb-3">
-                Party Packages • Public Events • Add-ons
+                Party Packages • Vendors • Add-ons
               </p>
               <a href="birthdays" class="text-[#5fbcff] font-bold text-sm flex items-center">
                  LEARN MORE
@@ -594,7 +580,7 @@
             large events.
           </p>
           <a
-            href="arena-rental"
+            href="vendors"
              class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-8 py-4 rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
             Book Facility Rental <i data-feather="arrow-right" class="ml-2"></i>
           </a>
@@ -626,7 +612,7 @@
               and activities.
             </p>
             <a
-              href="arena-rental"
+              href="vendors"
               class="inline-block bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
             >
               EXPLORE <i data-feather="arrow-right" class="inline ml-2"></i>
@@ -634,7 +620,7 @@
           </div>
           <div class="md:w-1/2 h-full">
             <img
-              src="images/inline-hockey-01.jpg"
+              src="images/about-01.jpg"
               alt="Roller Hockey"
               class="w-full h-full object-cover rounded-lg shadow-md"
             />
@@ -654,7 +640,7 @@
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
           <a 
-          href="shop"
+          href="events"
           class="inline-block bg-gradient-to-r from-sky-400 to-blue-600 
                 text-white text-xl font-bold px-10 py-5 rounded-full shadow-lg 
                 hover:scale-105 transition transform !rounded-full">

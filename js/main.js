@@ -26,11 +26,13 @@ function rafThrottle(fn) {
    1) Logo flip animation
 --------------------------- */
 function flipLogo() {
-  const logo = qs("nav img");
+  const logo = qs("#logo");
   if (!logo) return;
 
   logo.style.transition = "transform 0.5s ease";
   logo.style.transform = "rotateY(360deg)";
+  logo.style.transformStyle = "preserve-3d";
+  logo.style.perspective = "1000px";
 
   setTimeout(() => {
     logo.style.transform = "rotateY(0)";

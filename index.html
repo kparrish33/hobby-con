@@ -29,9 +29,9 @@
     />
     <meta
       property="og:image"
-      content="https://YOURDOMAIN.com/images/og-hobbycon.jpg"
+      content="https://hobbycon.com/images/logo-01.jpg"
     />
-    <meta property="og:url" content="https://YOURDOMAIN.com" />
+    <meta property="og:url" content="https://hobbycon.com" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Card -->
@@ -46,65 +46,85 @@
     />
     <meta
       name="twitter:image"
-      content="https://YOURDOMAIN.com/images/og-hobbycon.jpg"
+      content="https://hobbycon.com/images/logo-01.jpg"
     />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
 
-  <body class="bg-glow text-white">
-    <!-- NAV -->
-    <header class="site-header">
-      <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img
-          src="images/logo-01.png"
-          alt="HobbyCon"
-          class="h-12 w-auto select-none"
-          draggable="false"
-        />
+  <body class="bg-glow text-slate-900">
 
-          <div class="leading-tight">
-            <div class="font-bold tracking-wide">HobbyCon</div>
-          </div>
+  <div class="relative">
+    <!-- NAV -->
+<header class="bg-white border-b border-slate-200 relative">
+  <div
+    class="absolute bottom-0 left-0 right-0 h-[2px]
+           bg-gradient-to-r from-purple-300 to-indigo-300"
+  ></div>
+</header>
+
+      <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img
+            src="images/logo-01.png"
+            alt="HobbyCon"
+            id="logo"
+            class="h-32 transform transition-transform duration-500 ease-out select-none"
+            draggable="false"
+          />
+        </div>
+
         </a>
 
-        <nav class="hidden md:flex items-center gap-7 text-sm">
-          <a class="nav-link font-semibold" href="about">About</a>
-          <a class="nav-link font-semibold" href="experience">Experience</a>
-          <a class="nav-link font-semibold" href="community">Community</a>
-          <a class="nav-link font-semibold" href="faq">FAQ</a>
-          <a
-            href="tickets"
-            class="hc-btn hc-btn-primary px-4 py-2"
-          >
+        <nav class="hidden md:flex items-center gap-7 text-base text-slate-700">
+          <!-- EVENTS DROPDOWN -->
+          <div class="relative group">
+            <button class="nav-link font-semibold flex items-center gap-1">
+              Events
+              <i data-feather="chevron-down" class="w-4 h-4"></i>
+            </button>
+
+            <div class="absolute left-0 top-full mt-0
+              w-56 bg-white shadow-lg rounded-lg z-[999]
+              opacity-0 pointer-tickets-none
+              group-hover:opacity-100 group-hover:pointer-tickets-auto
+              transition-opacity duration-150">
+              <a href="convention" class="block px-4 py-2 hover:bg-gray-100">Convention</a>
+              <a href="retreat" class="block px-4 py-2 hover:bg-gray-100">Retreats</a>
+              <a href="events" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">More Experiences</a>
+            </div>
+          </div>
+          <a class="nav-link font-semibold hover:text-slate-900" href="community">Community</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="vendors">Vendors</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="contact">Contact</a>
+          <a href="tickets" class="hc-btn hc-btn-primary px-7 py-3 text-base font-semibold text-white rounded-full">
             Get Tickets
           </a>
+
         </nav>
 
         <button
-          id="menuBtn"
-          class="md:hidden p-2 rounded-xl hover:bg-white/10 transition"
+          id="menu-btn"
+          class="md:hidden p-2 rounded-xl hover:bg-slate-100 transition"
           aria-expanded="false"
-          aria-controls="mobileMenu"
+          aria-controls="mobile-menu"
         >
           <i data-feather="menu" class="w-5 h-5"></i>
         </button>
       </div>
 
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-black/40">
-        <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-3 text-sm">
-          <a class="nav-link font-semibold" href="about">About</a>
-          <a class="nav-link font-semibold" href="experience">Experience</a>
-          <a class="nav-link font-semibold" href="community">Community</a>
-          <a class="nav-link font-semibold" href="faq">FAQ</a>
-          <a
-            href="tickets"
-            class="hc-btn hc-btn-primary px-4 py-2"
-          >
+      <!-- Mobile menu (light) -->
+      <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/90 backdrop-blur">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-3 text-sm text-slate-700">
+          <a class="nav-link font-semibold hover:text-slate-900" href="about">About</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="experience">Experience</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="community">Community</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="faq">FAQ</a>
+          <a href="tickets" class="hc-btn hc-btn-primary px-4 py-2">
             Get Tickets
           </a>
         </div>
@@ -116,243 +136,254 @@
       <section class="max-w-6xl mx-auto px-5 pt-14 pb-10 md:pt-20 md:pb-16">
         <div class="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <div class="hc-pill">
-              <span class="h-2 w-2 rounded-full bg-purple-300"></span>
-              Beginner-friendly • Community-first • Modern & playful
+            <!-- Pill becomes light: border + readable text -->
+            <div class="hc-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm">
+              <span class="h-2 w-2 rounded-full bg-purple-400"></span>
+              Coming Spring 2027
             </div>
-
-            <h1 class="mt-5 text-4xl md:text-6xl font-bold leading-[1.05]">
+            <h1 class="mt-5 text-4xl md:text-6xl font-bold text-white leading-[1.05] text-slate-900">
               A community for
-              <span
-                class="bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent"
-                >curious hobbyists</span
-              >.
+              <span class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                curious hobbyists
+              </span>
             </h1>
 
-            <p class="mt-5 text-white/80 text-base md:text-lg leading-relaxed max-w-xl">
-              HobbyCon is an annual event and year-round community built for anyone exploring new
-              interests. Try hobbies hands-on, meet welcoming people, and leave with a new obsession —
-              no experience required.
-            </p>
-
+            <p class="mt-5 text-slate-600 text-base md:text-lg leading-relaxed max-w-xl">
+              HobbyCon welcomes all hobbies from art to sports to science, creating a one-of-a-kind experience with personalization and playfulness in mind. HobbyCon is a space featuring exploration of interests, learning new skills, and connecting hobbyists together. 
             <div class="mt-7 flex flex-col sm:flex-row gap-3">
-              <a
-                href="tickets"
-                class="hc-btn hc-btn-primary px-6 py-3"
-              >
+              <a href="tickets" class="hc-btn hc-btn-primary px-6 py-3">
                 Explore the Event <i data-feather="arrow-right" class="w-4 h-4"></i>
               </a>
-              <a
-                href="community"
-                class="hc-btn hc-btn-ghost px-6 py-3"
-              >
+
+              <a href="community" class="hc-btn hc-btn-ghost px-6 py-3">
                 Join the Community <i data-feather="users" class="w-4 h-4"></i>
               </a>
             </div>
 
-            <div class="mt-6 flex flex-wrap gap-3 text-xs text-white/70">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">🎨 Creative & expressive</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">🧠 Beginner-friendly</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">🤝 Community-first</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">✨ Modern, not corporate</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-1 ring-white/10">🧸 Playful & welcoming</span>
+            <!-- Tags: light chips -->
+            <div class="mt-6 flex flex-wrap gap-3 text-xs text-slate-600">
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎨 Exhibitors</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🧠 Workshops</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🤝 Meetups</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">✨ Performances</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎤 Panelists</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🥤 Catering</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🏆 Competitions</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎮 Interactive Elements</span>
             </div>
           </div>
+        
 
-          <!-- HERO CARD -->
-          <div class="hc-card p-6 md:p-7">
+          <!-- HERO CARD (light surface) -->
+          <div class="hc-card p-6 md:p-7 bg-white border border-slate-200 rounded-3xl shadow-sm">
             <div class="flex items-center justify-between">
               <div>
-                <div class="text-sm text-white/70">Next up</div>
-                <div class="text-xl font-bold">HobbyCon 2026</div>
+                <div class="text-sm text-slate-500">Next up</div>
+                <div class="text-xl font-bold text-slate-900">Mahjong + Yoga Retreat 2026</div>
               </div>
-              <div
-                class="px-3 py-1 rounded-full bg-purple-400/15 ring-1 ring-purple-300/20 text-purple-100 text-xs"
-              >
-                Annual event
+              <div class="px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+                Few Spots Left
               </div>
             </div>
 
             <div class="mt-5 grid grid-cols-2 gap-4 text-sm">
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-white/70 text-xs">Format</div>
-                <div class="mt-1 font-semibold">Workshops • Demos • Meetups</div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">MAHJONG</div>
+                <div class="mt-1 font-semibold text-slate-800">Workshops • Demos • Beginner Friendly</div>
               </div>
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-white/70 text-xs">Energy</div>
-                <div class="mt-1 font-semibold">Low-pressure, hands-on</div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">YOGA</div>
+                <div class="mt-1 font-semibold text-slate-800">Guided Flows • Mindful Journaling • Exercise</div>
               </div>
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-white/70 text-xs">For</div>
-                <div class="mt-1 font-semibold">Beginners to enthusiasts</div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">VALUE</div>
+                <div class="mt-1 font-semibold text-slate-800">All-Inclusive Experience • Luxury Accommodations</div>
               </div>
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-white/70 text-xs">Goal</div>
-                <div class="mt-1 font-semibold">Discover your next hobby</div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">COMMUNITY</div>
+                <div class="mt-1 font-semibold text-slate-800">Group Activities • Excursions • Social Events </div>
               </div>
             </div>
 
-            <div
-              class="mt-6 rounded-2xl bg-gradient-to-br from-purple-400/15 to-indigo-400/10 ring-1 ring-white/10 p-5"
-            >
-              <div class="flex items-center gap-2 text-sm font-semibold">
-                <i data-feather="sparkles" class="w-4 h-4"></i>
-                What makes HobbyCon different
-              </div>
-              <ul class="mt-3 space-y-2 text-sm text-white/80">
-                <li class="flex gap-2"><span class="text-purple-200">•</span> Try-before-you-commit experiences</li>
-                <li class="flex gap-2"><span class="text-purple-200">•</span> Real people, real skills — no gatekeeping</li>
-                <li class="flex gap-2"><span class="text-purple-200">•</span> Community-building baked into the layout</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <div class="grid md:grid-cols-12 gap-8 items-start">
-          <div class="md:col-span-5">
-            <h2 class="text-3xl md:text-4xl font-bold">What is HobbyCon?</h2>
-            <p class="mt-4 text-white/80 leading-relaxed">
-              HobbyCon is a welcoming space to explore hobbies with zero pressure.
-              Come curious, leave connected — and maybe with a brand new interest you didn’t expect.
-            </p>
-          </div>
-
-          <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
-            <div class="hc-card p-6">
-              <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-purple-400/15 ring-1 ring-purple-300/20 flex items-center justify-center">
-                  <i data-feather="heart" class="w-5 h-5 text-purple-200"></i>
-                </div>
-                <div class="font-semibold">Beginner-safe</div>
-              </div>
-              <p class="mt-3 text-sm text-white/80">
-                Designed for people trying something new — friendly intros, guided experiences, and no judgment.
-              </p>
-            </div>
-
-            <div class="hc-card p-6">
-              <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-purple-400/15 ring-1 ring-purple-300/20 flex items-center justify-center">
-                  <i data-feather="users" class="w-5 h-5 text-purple-200"></i>
-                </div>
-                <div class="font-semibold">Community-first</div>
-              </div>
-              <p class="mt-3 text-sm text-white/80">
-                Meet people who share your curiosity — from casual dabblers to dedicated hobbyists.
-              </p>
-            </div>
-
-            <div class="hc-card p-6">
-              <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-purple-400/15 ring-1 ring-purple-300/20 flex items-center justify-center">
-                  <i data-feather="palette" class="w-5 h-5 text-purple-200"></i>
-                </div>
-                <div class="font-semibold">Creative & expressive</div>
-              </div>
-              <p class="mt-3 text-sm text-white/80">
-                A spectrum of hobbies — art, making, movement, games, tinkering — all in one place.
-              </p>
-            </div>
-
-            <div class="hc-card p-6">
-              <div class="flex items-center gap-3">
-                <div class="h-10 w-10 rounded-2xl bg-purple-400/15 ring-1 ring-purple-300/20 flex items-center justify-center">
-                  <i data-feather="zap" class="w-5 h-5 text-purple-200"></i>
-                </div>
-                <div class="font-semibold">Modern, not corporate</div>
-              </div>
-              <p class="mt-3 text-sm text-white/80">
-                Polished and organized — but warm, playful, and human.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section id="experience" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <div class="flex items-end justify-between gap-6 flex-wrap">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold">The HobbyCon experience</h2>
-            <p class="mt-3 text-white/80 max-w-2xl">
-              Try new hobbies through hands-on sessions, quick-start workshops, demos, and meetups.
-              You’re not expected to “already know” anything.
-            </p>
-          </div>
-          <a
-            href="tickets"
-            class="hc-btn hc-btn-ghost px-4 py-2 text-sm"
-          >
-            See ticket options <i data-feather="arrow-right" class="w-4 h-4"></i>
+            <a href="retreat" class="hc-btn hc-btn-soft px-6 py-3 w-full justify-center mt-4">
+            View the Full Itinerary <i data-feather="arrow-right" class="w-4 h-4"></i>
           </a>
         </div>
-
-        <div class="mt-8 grid md:grid-cols-3 gap-4">
-          <div class="hc-card p-6">
-            <div class="text-sm text-white/70">Hands-on</div>
-            <div class="mt-1 text-xl font-bold">Workshops</div>
-            <p class="mt-3 text-sm text-white/80">
-              Quick-start sessions designed to get you trying the hobby right away.
-            </p>
-          </div>
-          <div class="hc-card p-6">
-            <div class="text-sm text-white/70">Meet people</div>
-            <div class="mt-1 text-xl font-bold">Meetups</div>
-            <p class="mt-3 text-sm text-white/80">
-              Low-pressure spaces to connect, chat, trade tips, and find your people.
-            </p>
-          </div>
-          <div class="hc-card p-6">
-            <div class="text-sm text-white/70">See what’s possible</div>
-            <div class="mt-1 text-xl font-bold">Demos</div>
-            <p class="mt-3 text-sm text-white/80">
-              Watch hobbyists showcase skills and walk you through how to get started.
-            </p>
-          </div>
-        </div>
       </section>
+
+     <!-- ABOUT -->
+<section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+    Come Curious, Leave Connected
+  </h2>
+  <p class="mt-4 text-base md:text-lg text-slate-600 max-w-4xl leading-relaxed">
+  Explore all our hobby categories designed to spark creativity, connection, and discovery.
+</p>
+
+  <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-art h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="edit-3" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Arts &amp; Design</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Explore hobbies rooted in aesthetics, visual storytelling, and personal
+        expression through drawing, painting, graphic design, or style-focused disciplines.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-collecting h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="archive" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Collecting &amp; Curating</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Celebrate the joy of preserving, organizing, and showcasing meaningful
+        objects, whether they hold historical, cultural, or nostalgic value.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-craft h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="tool" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">DIY &amp; Crafting</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Channel your drive to make things by hand. This category focuses on at-home projects, repair culture, and the pride of building something yourself.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-food h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="coffee" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Food &amp; Beverage</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Where flavor meets fascination. Whether you’re experimenting in the kitchen
+        or seeking finer techniques, this space celebrates edible hobbies of all kinds.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-games h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="slack" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Games &amp; Puzzles</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Dive into interactive worlds and brain-teasing challenges. This category includes
+        analog and digital play, logic, storytelling, and strategy.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-performance h-10 w-10 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center"
+        >
+          <i data-feather="mic" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Performance &amp; Stage</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Designed for expressive, theatrical, or audience-based hobbies. Whether you’re
+        performing or producing, this is a space for spotlight moments and audience connection.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-science h-10 w-10 rounded-2xl border flex items-center justify-center"
+        >
+          <i data-feather="cpu" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Science, Tech &amp; Tinkering</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        This is where experimentation, invention, and technical curiosity come to life.
+        Whether analog or digital, it’s about asking “what if?” and diving into the how.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-sports h-10 w-10 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center"
+        >
+          <i data-feather="activity" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Sports &amp; Movement</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Where bodies are in motion for fun, fitness, or focus. Whether competitive or
+        meditative, movement-based hobbies belong here.
+      </p>
+    </div>
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hidden lg:block">
+  <div class="flex items-center gap-3">
+    <div class="zone-icon zone-volunteering h-10 w-10 rounded-2xl flex items-center justify-center">
+      <i data-feather="heart" class="w-5 h-5 text-purple-600"></i>
+    </div>
+    <div class="font-semibold text-slate-900">Volunteering & Service</div>
+    </div>
+    <p class="mt-3 text-sm text-slate-600">
+      For those who turn hobbies into impact. This category supports community-minded efforts, skill-sharing, and acts of care and contribution.
+    </p>
+  </div>
+  </div>
+</section>
 
       <!-- COMMUNITY -->
       <section id="community" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <div class="hc-card p-8 md:p-10 bg-gradient-to-br from-purple-400/15 to-indigo-400/10">
+        <div class="hc-card p-8 md:p-10 bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-3xl">
           <div class="grid md:grid-cols-12 gap-8 items-center">
             <div class="md:col-span-7">
-              <h2 class="text-3xl md:text-4xl font-bold">A community, not just an event</h2>
-              <p class="mt-4 text-white/85 leading-relaxed">
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">A community, not just an event</h2>
+              <p class="mt-4 text-slate-700 leading-relaxed">
                 HobbyCon is building year-round connection: hobby groups, local meetups, and ongoing discovery.
-                The annual event is the spark — the community is the fire.
               </p>
               <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="tickets"
-                  class="hc-btn hc-btn-primary px-6 py-3"
-                >
-                  Attend HobbyCon <i data-feather="ticket" class="w-4 h-4"></i>
+                <a href="community" class="hc-btn hc-btn-primary px-6 py-3 inline-flex items-center gap-2">
+                  Community Resources <i data-feather="users" class="w-4 h-4"></i>
                 </a>
-                <a
-                  href=""
-                  class="hc-btn hc-btn-ghost px-6 py-3"
-                >
+                <a href="" class="hc-btn hc-btn-ghost px-6 py-3 inline-flex items-center gap-2">
                   Get updates <i data-feather="mail" class="w-4 h-4"></i>
                 </a>
               </div>
             </div>
 
             <div class="md:col-span-5 grid gap-3">
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-xs text-white/70">Community promise</div>
-                <div class="mt-1 font-semibold">No gatekeeping. No pressure.</div>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Community Patreon</div>
+                <div class="mt-1 font-semibold text-slate-900">Exclusive Access & Features</div>
               </div>
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-xs text-white/70">Who it’s for</div>
-                <div class="mt-1 font-semibold">Anyone exploring new interests</div>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Clubs & Meetups</div>
+                <div class="mt-1 font-semibold text-slate-900">Find your People</div>
               </div>
-              <div class="rounded-2xl bg-black/25 ring-1 ring-white/10 p-4">
-                <div class="text-xs text-white/70">The vibe</div>
-                <div class="mt-1 font-semibold">Playful, welcoming, modern</div>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Retreats</div>
+                <div class="mt-1 font-semibold text-slate-900">Hobby-based Experiences</div>
               </div>
             </div>
           </div>
@@ -361,92 +392,54 @@
 
       <!-- TICKETS -->
       <section id="tickets" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <h2 class="text-3xl md:text-4xl font-bold">Tickets</h2>
-        <p class="mt-3 text-white/80 max-w-2xl">
-          Ticketing can start simple (Stripe Payment Links) and expand later. For now, these buttons are placeholders you’ll replace with real links.
-        </p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Tickets</h2>
 
         <div class="mt-8 grid md:grid-cols-3 gap-4">
-          <a href="" class="hc-card p-6 hover:bg-white/10 transition block">
-            <div class="text-sm text-white/70">Pass</div>
-            <div class="mt-1 text-xl font-bold">General Admission</div>
-            <p class="mt-3 text-sm text-white/80">Access to the expo floor, demos, and community zones.</p>
-            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-200">
+          <a href="tickets" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Pass</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">General Admission</div>
+            <p class="mt-3 text-sm text-slate-600">Access to the expo floor, demos, and community zones.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
               Buy now <i data-feather="arrow-right" class="w-4 h-4"></i>
             </div>
           </a>
 
-          <a href="" class="hc-card p-6 hover:bg-white/10 transition block">
-            <div class="text-sm text-white/70">Pass</div>
-            <div class="mt-1 text-xl font-bold">VIP</div>
-            <p class="mt-3 text-sm text-white/80">Early entry + lounge access + exclusive keepsakes.</p>
-            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-200">
+          <a href="tickets" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Pass</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">VIP</div>
+            <p class="mt-3 text-sm text-slate-600">Early entry + lounge access + exclusive keepsakes.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
               Buy now <i data-feather="arrow-right" class="w-4 h-4"></i>
             </div>
           </a>
 
-          <a href="" class="hc-card p-6 hover:bg-white/10 transition block">
-            <div class="text-sm text-white/70">Apply</div>
-            <div class="mt-1 text-xl font-bold">Exhibitor / Vendor</div>
-            <p class="mt-3 text-sm text-white/80">Share your hobby, teach, demo, or sell products.</p>
-            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-200">
+          <a href="vendors" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Apply</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">Exhibitor / Vendor</div>
+            <p class="mt-3 text-sm text-slate-600">Share your hobby, teach, demo, or sell products.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
               Apply <i data-feather="arrow-right" class="w-4 h-4"></i>
             </div>
           </a>
         </div>
       </section>
 
-      <!-- FAQ -->
-      <section id="faq" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
-
-        <div class="mt-8 grid md:grid-cols-2 gap-4">
-          <details class="hc-card p-6">
-            <summary class="cursor-pointer font-semibold">Do I need experience to attend?</summary>
-            <p class="mt-3 text-sm text-white/80">
-              Nope. HobbyCon is designed for beginners. You can explore and try things without pressure.
-            </p>
-          </details>
-
-          <details class="hc-card p-6">
-            <summary class="cursor-pointer font-semibold">Is HobbyCon only once a year?</summary>
-            <p class="mt-3 text-sm text-white/80">
-              The big event is annual, but the community and programming can run year-round.
-            </p>
-          </details>
-
-          <details class="hc-card p-6">
-            <summary class="cursor-pointer font-semibold">What kinds of hobbies are included?</summary>
-            <p class="mt-3 text-sm text-white/80">
-              A wide range — creative, games, DIY, outdoors, performance, sports & movement, tech & tinkering, and more.
-            </p>
-          </details>
-
-          <details class="hc-card p-6">
-            <summary class="cursor-pointer font-semibold">How do I become a vendor or instructor?</summary>
-            <p class="mt-3 text-sm text-white/80">
-              Start with the Exhibitor/Vendor option above (or add a dedicated application page later).
-            </p>
-          </details>
-        </div>
-      </section>
-
       <!-- FOOTER -->
-      <footer class="site-footer">
+      <footer class="site-footer bg-white border-t border-slate-200">
         <div class="max-w-6xl mx-auto px-5 py-10 flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
           <div>
-            <div class="font-bold">HobbyCon</div>
-            <div class="text-sm text-white/70 mt-1">Made for curious humans.</div>
+            <div class="font-bold text-slate-900">HobbyCon</div>
+            <div class="text-sm text-slate-600 mt-1">Made for curious humans.</div>
           </div>
 
-          <div class="flex flex-wrap gap-4 text-sm text-white/75">
-            <a class="hover:text-white transition" href="about">About</a>
-            <a class="hover:text-white transition" href="tickets">Tickets</a>
-            <a class="hover:text-white transition" href="community">Community</a>
-            <a class="hover:text-white transition" href="faq">FAQ</a>
+          <div class="flex flex-wrap gap-4 text-sm text-slate-600">
+            <a class="hover:text-slate-900 transition" href="about">About</a>
+            <a class="hover:text-slate-900 transition" href="tickets">Tickets</a>
+            <a class="hover:text-slate-900 transition" href="community">Community</a>
+            <a class="hover:text-slate-900 transition" href="faq">FAQ</a>
           </div>
 
-          <div class="text-sm text-white/60">
+          <div class="text-sm text-slate-500">
             © <span id="year"></span> HobbyCon. All rights reserved.
           </div>
         </div>

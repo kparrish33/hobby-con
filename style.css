@@ -1,136 +1,299 @@
-/* ================================
-   HobbyCon Shared Styles (site-wide)
-   Works alongside Tailwind CDN
-   ================================ */
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
-
 :root {
-  --hc-bg: #0b0613;
-  --hc-text: #ffffff;
+  /* HobbyCon core */
+  --hc-text: #0b0b14;
+  --hc-muted: #4b5563;         /* gray-600-ish */
+  --hc-surface: #ffffff;
+  --hc-surface-2: #f7f7ff;     /* soft lavender tint */
+  --hc-border: rgba(15, 23, 42, 0.10);
 
-  --hc-purple: #a855f7;
-  --hc-indigo: #6366f1;
-
-  --hc-purple-soft: rgba(168, 85, 247, 0.18);
-  --hc-violet-soft: rgba(124, 58, 237, 0.16);
-  --hc-indigo-soft: rgba(99, 102, 241, 0.12);
-
-  --hc-border: rgba(255, 255, 255, 0.10);
-  --hc-border-2: rgba(255, 255, 255, 0.15);
-
-  --hc-card: rgba(255, 255, 255, 0.05);
-  --hc-card-hover: rgba(255, 255, 255, 0.10);
-
-  --hc-shadow: rgba(0, 0, 0, 0.35);
-  --hc-shadow-soft: rgba(168, 85, 247, 0.25);
+  /* brand gradient */
+  --hc-grad-a: #d8b4fe;        /* purple-300 */
+  --hc-grad-b: #a5b4fc;        /* indigo-300 */
 }
 
-html,
-body {
-  height: 100%;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
-  color: var(--hc-text);
-  background: var(--hc-bg);
-}
-
-/* Page background glow (apply as a class OR just set on body) */
+/* LIGHT background “soft glow” (bright + welcoming) */
 .bg-glow {
   background:
-    radial-gradient(900px 500px at 20% 10%, var(--hc-purple-soft), transparent 55%),
-    radial-gradient(900px 500px at 80% 30%, var(--hc-violet-soft), transparent 60%),
-    radial-gradient(900px 500px at 50% 90%, var(--hc-indigo-soft), transparent 60%),
-    linear-gradient(180deg, var(--hc-bg) 0%, var(--hc-bg) 100%);
+    radial-gradient(1200px 600px at 20% 10%, rgba(216,180,254,0.55), transparent 60%),
+    radial-gradient(900px 500px at 80% 20%, rgba(165,180,252,0.45), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, var(--hc-surface-2) 100%);
+  color: var(--hc-text);
 }
 
-/* Sticky header glass */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(0, 0, 0, 0.20);
-  border-bottom: 1px solid var(--hc-border);
-  backdrop-filter: blur(10px);
+/* Reusable “HobbyCon logo” gradient text without Tailwind */
+.hc-gradient-text {
+  background: linear-gradient(90deg, var(--hc-grad-a), var(--hc-grad-b));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-/* Nav links */
-.nav-link {
-  color: rgba(255, 255, 255, 0.80);
-  transition: color 180ms ease;
+/* Optional: gradient ring / border accent you can reuse */
+.hc-gradient-ring {
+  position: relative;
 }
-.nav-link:hover {
-  color: rgba(255, 255, 255, 1);
-}
-.nav-link.is-active {
-  color: #d8b4fe; /* purple-200 */
+.hc-gradient-ring::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(216,180,254,0.8), rgba(165,180,252,0.8));
+  z-index: -1;
 }
 
-/* Cards */
-.hc-card {
-  background: var(--hc-card);
+.hc-surface {
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--hc-border);
-  border-radius: 24px;
-  box-shadow: 0 14px 40px var(--hc-shadow);
-  transition: background 180ms ease, transform 180ms ease;
-}
-.hc-card:hover {
-  background: var(--hc-card-hover);
-  transform: translateY(-2px);
+  border-radius: 1.25rem; /* 20px */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.06),
+    0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-/* Buttons */
+/* -----------------------------
+   Navigation links – HobbyCon
+-------------------------------- */
+
+.nav-link {
+  position: relative;
+  color: #334155; /* slate-700 */
+  transition: color 0.2s ease;
+}
+
+/* Hover = underline only */
+.nav-link:hover {
+  color: #334155;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+  opacity: 0;
+  transform: scaleX(0.7);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Active page */
+.nav-link.active {
+  color: #7c3aed; /* purple-600 */
+}
+
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* =========================
+   BUTTONS (Light theme)
+   ========================= */
 .hc-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   border-radius: 999px;
   font-weight: 700;
+  line-height: 1;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease,
+    color 160ms ease, border-color 160ms ease;
   text-decoration: none;
-  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+  white-space: nowrap;
 }
 
-.hc-btn-primary {
-  color: #0b0613;
-  background: linear-gradient(90deg, var(--hc-purple) 0%, var(--hc-indigo) 100%);
-  box-shadow: 0 14px 40px var(--hc-shadow-soft);
+.hc-btn:active {
+  transform: translateY(1px);
 }
-.hc-btn-primary:hover {
-  opacity: 0.95;
+
+/* PRIMARY gradient button */
+.hc-btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+
+  border-radius:999px;
+  padding:.9rem 1.5rem;
+  font-weight:700;
+
+  color:#2a0f55;
+  background: linear-gradient(
+    135deg,
+    #c7b6ff 0%,
+    #a5b9ff 35%,
+    #9fd3ff 65%,
+    #cbbcff 100%
+  );
+
+  border:none;
+
+  transition:
+    transform 180ms cubic-bezier(.2,.8,.2,1),
+    box-shadow 180ms cubic-bezier(.2,.8,.2,1),
+    background-position 220ms ease;
+  
+  background-size: 140% 140%;
+  background-position: left center;
+}
+
+/* HOVER = POP */
+.hc-btn-primary:hover{
+  transform: translateY(-3px) scale(1.03);
+  background-position: right center;
+
+  box-shadow:
+    0 26px 60px rgba(147, 105, 255, 0.45),
+    0 10px 24px rgba(120, 75, 220, 0.35);
+}
+
+/* ACTIVE = PRESS */
+.hc-btn-primary:active{
+  transform: translateY(-1px) scale(1.01);
+  box-shadow:
+    0 14px 32px rgba(147, 105, 255, 0.35);
+}
+
+/* Secondary / ghost: soft outline pill */
+.hc-btn-ghost {
+  position: relative;
+  color: #1f1330;
+
+  /* Two-layer background */
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(168,130,255,0.95), rgba(120,180,255,0.9)) border-box;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  box-shadow:
+    0 14px 30px rgba(93, 58, 170, 0.22),
+    0 2px 0 rgba(255, 255, 255, 0.7) inset;
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.hc-btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 18px 38px rgba(93, 58, 170, 0.28),
+    0 2px 0 rgba(255, 255, 255, 0.75) inset;
+}
+
+/* Optional: small “link button” style inside cards */
+.hc-btn-soft {
+  color: #2a1b44;
+  background: rgba(170, 130, 255, 0.12);
+  border: 1px solid rgba(170, 130, 255, 0.28);
+  box-shadow: 0 10px 20px rgba(90, 40, 160, 0.10);
+}
+
+.hc-btn-soft:hover {
+  background: rgba(170, 130, 255, 0.16);
   transform: translateY(-1px);
 }
 
-.hc-btn-ghost {
-  color: var(--hc-text);
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid var(--hc-border-2);
-}
-.hc-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
+/* ---------------------------
+   Hobby Zones Icon Styling
+--------------------------- */
 
-/* Pills / badges */
-.hc-pill {
-  display: inline-flex;
+.zone-icon {
+  height: 48px;     
+  width: 48px;
+  border-radius: 16px;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: 999px;
-  padding: 0.35rem 0.75rem;
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid var(--hc-border);
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.85);
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-/* Better focus (keyboard accessibility) */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid rgba(216, 180, 254, 0.85);
-  outline-offset: 3px;
-  border-radius: 12px;
+.zone-icon svg {
+  width: 22px;       
+  height: 22px;
+  stroke-width: 1.8; 
 }
+
+/* Art */
+.zone-art {
+  background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+  border-color: #e9d5ff;
+}
+.zone-art svg { stroke: #db2777; }
+
+/* Games */
+.zone-games {
+  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+}
+.zone-games svg { stroke: #6366f1; }
+
+/* Collecting */
+.zone-collecting {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+.zone-collecting svg { stroke: #d97706; }
+
+/* Craft */
+.zone-craft {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+}
+.zone-craft svg { stroke: #0284c7; }
+
+/* Science */
+.zone-science {
+  background: linear-gradient(135deg, #d1fae5, #ccfbf1);
+}
+.zone-science svg { stroke: #059669; }
+
+/* Sports */
+.zone-games {
+  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+}
+.zone-games svg { stroke: #6366f1; }
+
+/* Food */
+.zone-food {
+  background: linear-gradient(135deg, #f9d5ff, #f3e8ff);
+}
+.zone-food svg { stroke: #c026d3; }
+
+/* Performance */
+.zone-performance {
+  background: linear-gradient(135deg, #f5f3ff, #e9d5ff);
+}
+.zone-performance svg { stroke: #7e22ce; }
+
+/* Volunteering */
+.zone-volunteering {
+  background: #ffedd5; 
+}
+
+.zone-volunteering svg {
+  stroke: #ea580c; 
+}
+
+/* ---------------------------
+   Card Hover Movement
+--------------------------- */
+
+.hc-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(80, 0, 150, 0.08);
+}
+
+.hc-card:hover .zone-icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+

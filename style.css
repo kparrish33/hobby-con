@@ -296,3 +296,76 @@
 .hc-card:hover .zone-icon {
   transform: scale(1.1) rotate(-4deg);
 }
+
+/* ---------------------------
+   Mobile Nav Underline
+--------------------------- */
+
+#mobile-menu a,
+#mobile-menu summary {
+  position: relative;
+}
+
+#mobile-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+  transition: width 0.25s ease;
+  border-radius: 9999px;
+}
+
+#mobile-menu a:hover::after {
+  width: 100%;
+}
+
+/* Disable summary underline - we use .m-underline instead */
+#mobile-menu summary::after {
+  display: none;
+}
+
+/* Remove default summary marker */
+#mobile-menu summary {
+  list-style: none;
+}
+#mobile-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Underline is tied to the span ONLY (so it won't stretch when dropdown opens) */
+#mobile-menu .m-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px; /* space for underline */
+}
+
+/* purple underline */
+#mobile-menu .m-underline::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  width: 120%;
+  border-radius: 999px;
+  background: linear-gradient(to right, #c4b5fd, #a5b4fc);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 160ms ease;
+}
+
+/* show underline on hover + when opened */
+#mobile-menu summary:hover .m-underline::after,
+#mobile-menu details[open] > summary .m-underline::after {
+  transform: scaleX(1);
+}
+
+/* Remove underline from CTA button */
+#mobile-menu .hc-btn::after {
+  display: none;
+}

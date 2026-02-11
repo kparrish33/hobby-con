@@ -117,19 +117,39 @@
         </button>
       </div>
 
-      <!-- Mobile menu (light) -->
-      <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/90 backdrop-blur">
-        <div class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-3 text-sm text-slate-700">
-          <a class="nav-link font-semibold hover:text-slate-900" href="about">About</a>
-          <a class="nav-link font-semibold hover:text-slate-900" href="experience">Experience</a>
-          <a class="nav-link font-semibold hover:text-slate-900" href="community">Community</a>
-          <a class="nav-link font-semibold hover:text-slate-900" href="faq">FAQ</a>
-          <a href="tickets" class="hc-btn hc-btn-primary px-4 py-2">
-            Get Tickets
-          </a>
-        </div>
+     <!-- Mobile menu -->
+<div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-5 py-6">
+    <!-- Right-aligned stack (NOT full width) -->
+    <nav class="ml-auto w-fit flex flex-col items-end gap-3 text-base text-slate-700">
+
+    <!-- Events dropdown -->
+    <details class="w-fit">
+      <summary class="list-none cursor-pointer select-none font-semibold flex items-center justify-end gap-2 py-2 px-3 transition">
+        <span class="m-underline">
+          <span>Events</span>
+          <i data-feather="chevron-down" class="w-4 h-4"></i>
+        </span>
+      </summary>
+
+      <div class="mt-2 pr-3 border-r border-slate-200 flex flex-col items-end gap-1">
+        <a href="convention" class="w-fit px-3 py-2 transition">Convention</a>
+        <a href="retreat" class="w-fit px-3 py-2 transition">Retreats</a>
+        <a href="events" class="w-fit px-3 py-2 transition">More Experiences</a>
       </div>
-    </header>
+    </details>
+
+      <a class="w-fit font-semibold py-2 px-3 transition" href="community">Community</a>
+      <a class="w-fit font-semibold py-2 px-3 transition" href="vendors">Vendors</a>
+      <a class="w-fit font-semibold py-2 px-3 transition" href="contact">Contact</a>
+
+      <!-- CTA (not full width) -->
+      <a href="tickets" class="hc-btn hc-btn-primary px-7 py-3 text-base font-semibold text-white rounded-full w-fit mt-1">
+        Get Tickets
+      </a>
+    </nav>
+  </div>
+</div>
 
     <!-- HERO -->
     <main>
@@ -523,19 +543,19 @@
 
           <div class="mt-4 space-y-3 text-slate-600">
             <div class="flex items-center gap-3">
-              <span class="h-9 w-9 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <span class="h-9 w-9 flex-shrink-0 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
                 <i data-feather="mail" class="w-4 h-4 text-purple-700"></i>
               </span>
-              <a href="mailto:info@hobbycon.com" class="hover:text-purple-700 transition">
+              <a href="mailto:info@hobbycon.com" class="hover:text-purple-700 transition min-w-0">
                 info@hobbycon.com
               </a>
             </div>
 
             <div class="flex items-center gap-3">
-              <span class="h-9 w-9 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <span class="h-9 w-9 flex-shrink-0 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
                 <i data-feather="phone" class="w-4 h-4 text-purple-700"></i>
               </span>
-              <a href="tel:6318314843" class="hover:text-purple-700 transition">
+              <a href="tel:6318314843" class="hover:text-purple-700 transition min-w-0">
                 (631) 831-4843
               </a>
             </div>

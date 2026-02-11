@@ -369,3 +369,21 @@
 #mobile-menu .hc-btn::after {
   display: none;
 }
+
+/* =========================================================
+   Mahjong + Yoga Retreat animation
+   ========================================================= */
+.marquee-track {
+  display: inline-block;
+  transform: translateX(-50%);
+  animation: marquee-scroll 22s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

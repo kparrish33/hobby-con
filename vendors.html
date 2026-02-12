@@ -90,8 +90,8 @@
 
             <div class="absolute left-0 top-full mt-0
               w-56 bg-white shadow-lg rounded-lg z-[999]
-              opacity-0 pointer-tickets-none
-              group-hover:opacity-100 group-hover:pointer-tickets-auto
+              opacity-0 pointer-events-none
+              group-hover:opacity-100 group-hover:pointer-events-auto
               transition-opacity duration-150">
               <a href="convention" class="block px-4 py-2 hover:bg-gray-100">Convention</a>
               <a href="retreats" class="block px-4 py-2 hover:bg-gray-100">Retreats</a>
@@ -160,12 +160,327 @@
     We are excited to partner with a diverse range of vendors to create a vibrant and engaging experience for our attendees.
 </p>
 
+        <!-- Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-5 py-12 gap-6 mb-16">
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="grid" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Capacity</h3>
+            </div>
+            <p>
+              Spacious booth space with additional upgrades and accommodations.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="wifi" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Technology</h3>
+            </div>
+            <p>
+              WiFi throughout, electiricty, sound, and visual
+              displays at an extra rate.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="users" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Visibility</h3>
+            </div>
+            <p>
+              Multi-entrance exhibit hall ensures even foot traffic for all vendors.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-feather="truck" class="text-blue-600"></i>
+              </div>
+              <h3 class="font-bold text-lg">Access</h3>
+            </div>
+            <p>
+              Plenty of on-site parking and easy equipment loading through rear
+              doors.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-10">
+        <!-- Button: Event 1 Vendor Form -->
+          <button
+            type="button"
+            id="toggleVendorFormNY"
+            class="inline-flex items-center gap-2
+                  border-2 border-purple-300 text-purple-700
+                  px-8 py-3 rounded-full font-semibold
+                  hover:bg-purple-50 transition-all duration-300"
+            aria-expanded="false"
+            aria-controls="vendorFormPanelNY"
+          >
+            HOBBYCON 2027 (NY)
+            <span id="toggleVendorFormNYCaret" class="text-lg leading-none transition-transform duration-200">▾</span>
+          </button>
+          
+          <!-- Button: Event 2 Vendor Form -->
+          <button
+            type="button"
+            id="toggleVendorFormAZ"
+            class="inline-flex items-center gap-2
+                  border-2 border-purple-300 text-purple-700
+                  px-8 py-3 rounded-full font-semibold
+                  hover:bg-purple-50 transition-all duration-300"
+            aria-expanded="false"
+            aria-controls="vendorFormPanelAZ"
+          >
+            INLINE HOCKEY TOURNAMENT 2026 (AZ)
+            <span id="toggleVendorFormAZCaret" class="text-lg leading-none transition-transform duration-200">▾</span>
+          </button>
+        </div>
+
+        <!-- Panel: Event 1 Vendor Form (Hidden by default) -->
+        <div id="vendorFormPanelNY" class="hidden mb-16">
+          <section class="max-w-6xl mx-auto px-5 pb-10">
+            <div class="max-w-4xl mx-auto">
+              <form
+                id="vendorFormNY"
+                action="https://formspree.io/f/mykkzake"
+                method="POST"
+                class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-10"
+              >
+                <!-- Identifies which event this submission is for -->
+                <input type="hidden" name="eventType" value="HobbyCon 2027 (NY)" />
+                <input type="hidden" name="_subject" value="Vendor Application — HobbyCon 2027 (NY)" />
+
+                <!-- Header -->
+                <div class="mb-8">
+                  <h3 class="text-2xl md:text-3xl font-bold text-slate-900">
+                    Vendor Application — HobbyCon 2027 (NY)
+                  </h3>
+                  <p class="mt-2 text-slate-600">
+                    Submit a quick application and we’ll follow up with next steps.
+                  </p>
+                </div>
+
+                <!-- Sample Questions -->
+                <div class="space-y-6">
+                  <!-- Contact Name (required) -->
+                  <div>
+                    <label for="ny_contact_name" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Contact Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_contact_name"
+                      name="contact_name"
+                      required
+                      autocomplete="name"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Email (required) -->
+                  <div>
+                    <label for="ny_contact_email" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="ny_contact_email"
+                      name="contact_email"
+                      required
+                      autocomplete="email"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Business / Brand Name (required) -->
+                  <div>
+                    <label for="ny_brand_name" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Business / Brand Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_brand_name"
+                      name="brand_name"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Vendor Type (required) -->
+                  <div>
+                    <label for="ny_vendor_type" class="block text-sm font-semibold text-slate-900 mb-2">
+                      What best describes you? *
+                    </label>
+                    <select
+                      id="ny_vendor_type"
+                      name="vendor_type"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value="">Select one</option>
+                      <option value="seller">I sell products</option>
+                      <option value="teacher">I teach / run workshops</option>
+                      <option value="demo">I offer demos / experiences</option>
+                      <option value="sponsor">I’m interested in sponsoring</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Description (required) -->
+                  <div>
+                    <label for="ny_vendor_description" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Tell us what you want to bring to HobbyCon *
+                    </label>
+                    <textarea
+                      id="ny_vendor_description"
+                      name="vendor_description"
+                      rows="5"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    ></textarea>
+                    <p class="mt-2 text-xs text-slate-500">
+                      Example: what you sell/teach, your audience, and what your booth/activation would look like.
+                    </p>
+                  </div>
+
+                  <!-- Website / IG (optional) -->
+                  <div>
+                    <label for="ny_links" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Website / Instagram (optional)
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_links"
+                      name="links"
+                      placeholder="https://... or @handle"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <button
+                    id="vendorFormNYSubmit"
+                    type="submit"
+                    class="hc-btn hc-btn-primary px-8 py-4"
+                  >
+                    Submit Application
+                    <i data-feather="arrow-right" class="w-4 h-4"></i>
+                  </button>
+
+                  <p id="vendorFormNYThanks" class="hidden text-emerald-700 font-semibold">
+                    Thanks! Your application has been submitted.
+                  </p>
+
+                  <p id="vendorFormNYError" class="hidden text-rose-700 font-semibold">
+                    Hmm—something went wrong. Please try again.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
+        <!-- Panel: Event 2 Vendor Form -->
+        <div id="vendorFormPanelAZ" class="hidden mb-16">
+          <section class="max-w-6xl mx-auto px-5 pb-10">
+            <div class="max-w-4xl mx-auto">
+              <form
+                id="vendorFormAZ"
+                action="https://formspree.io/f/mykkzake"
+                method="POST"
+                class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-10"
+              >
+                <input type="hidden" name="eventType" value="Inline Hockey Tournament 2026 (AZ)" />
+                <input type="hidden" name="_subject" value="Vendor Application — Inline Hockey Tournament 2026 (AZ)" />
+
+                <div class="mb-8">
+                  <h3 class="text-2xl md:text-3xl font-bold text-slate-900">
+                    Vendor Application — Inline Hockey Tournament 2026 (AZ)
+                  </h3>
+                  <p class="mt-2 text-slate-600">
+                    Apply to be part of this tournament experience.
+                  </p>
+                </div>
+
+                <div class="space-y-6">
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                      Contact Name *
+                    </label>
+                    <input type="text" name="contact_name" required
+                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                      Email *
+                    </label>
+                    <input type="email" name="contact_email" required
+                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                      What will you be selling or offering? *
+                    </label>
+                    <textarea name="vendor_description" rows="4" required
+                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"></textarea>
+                  </div>
+                </div>
+
+                <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <button type="submit" class="hc-btn hc-btn-primary px-8 py-4">
+                    Submit Application
+                  </button>
+
+                  <p id="vendorFormAZThanks" class="hidden text-emerald-700 font-semibold">
+                    Thanks! Your application has been submitted.
+                  </p>
+
+                  <p id="vendorFormAZError" class="hidden text-rose-700 font-semibold">
+                    Something went wrong. Please try again.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+
+
+        </section>
+
         <!-- Mahjong + Yoga Retreat – Join Now Banner -->
-                <div class="full-bleed overflow-hidden pt-10 my-10">
+                <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden pt-2 my-2">
                   <a
                     href="retreats"
-                    target="_blank"
-                    rel="noopener"
                     class="block ring-1 ring-black/5 bg-gradient-to-r from-[#F6DCC7] via-[#F3CFB4] to-[#F0BE98]"
                     aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
                   >
@@ -228,458 +543,35 @@
                   </a>
                 </div>
 
-        <!-- Highlights -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <!-- CTA Section (HobbyCon style) -->
+        <section class="max-w-6xl mx-auto px-5 pt-20 pb-0">
           <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
+            class="rounded-3xl p-10 md:p-14 text-center
+                  bg-gradient-to-r
+                  from-[#c7b6ff]
+                  via-[#a5b9ff]
+                  to-[#cbbcff]
+                  text-white shadow-xl"
           >
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 p-2 rounded-full mr-3">
-                <i data-feather="grid" class="text-blue-600"></i>
-              </div>
-              <h3 class="font-bold text-lg">Capacity</h3>
-            </div>
-            <p>
-              Spacious booth space with additional upgrades and accommodations.
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              Join the HobbyCon Community
+            </h2>
+
+            <p class="text-white/90 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+              We can’t wait to welcome you into the HobbyCon experience.
             </p>
-          </div>
 
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
-          >
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 p-2 rounded-full mr-3">
-                <i data-feather="wifi" class="text-blue-600"></i>
-              </div>
-              <h3 class="font-bold text-lg">Technology</h3>
-            </div>
-            <p>
-              WiFi throughout, electiricty, sound, and visual
-              displays at an extra rate.
-            </p>
-          </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="tickets" class="inline-flex w-52 h-16 items-center justify-center bg-white text-purple-700 text-lg font-bold px-10 py-5 rounded-full shadow-l hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                TICKETS
+              </a>
 
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
-          >
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 p-2 rounded-full mr-3">
-                <i data-feather="users" class="text-blue-600"></i>
-              </div>
-              <h3 class="font-bold text-lg">Visibility</h3>
-            </div>
-            <p>
-              Multi-entrance exhibit hall ensures even foot traffic for all vendors.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
-          >
-            <div class="flex items-center mb-4">
-              <div class="bg-blue-100 p-2 rounded-full mr-3">
-                <i data-feather="truck" class="text-blue-600"></i>
-              </div>
-              <h3 class="font-bold text-lg">Access</h3>
-            </div>
-            <p>
-              Plenty of on-site parking and easy equipment loading through rear
-              doors.
-            </p>
-          </div>
-        </div>
-
-<!-- Button -->
-        <div class="text-center mb-10">
-          <button
-            type="button"
-            id="toggleFacilityOnlineForm"
-            class="inline-flex items-center gap-2
-                  border-2 border-[#5fbcff] text-[#5fbcff]
-                  px-8 py-3 rounded-full font-semibold
-                  hover:bg-[#5fbcff] hover:text-white
-                  transition-all duration-300"
-          >
-            HOBBYCON 2027 (NY)
-            <span class="text-lg leading-none">▾</span>
-          </button>
-        </div>
-
-        <!-- Button -->
-        <div class="text-center mb-10">
-          <button
-            type="button"
-            id="toggleFacilityOnlineForm"
-            class="inline-flex items-center gap-2
-                  border-2 border-[#5fbcff] text-[#5fbcff]
-                  px-8 py-3 rounded-full font-semibold
-                  hover:bg-[#5fbcff] hover:text-white
-                  transition-all duration-300"
-          >
-            INLINE HOCKEY TOURNAMENT 2026 (AZ)
-            <span class="text-lg leading-none">▾</span>
-          </button>
-        </div>
-
-        <!-- Vendor Application Form Section -->
-        <div id="facilityOnlineWrap" class="hidden">
-        <form
-          id="facilityOnlineForm"
-          action="https://formspree.io/f/maqqnzaz"
-          method="POST"
-          class="space-y-6"
-        >
-          <input type="hidden" name="_subject" value="Facility Rental Online Form - Solid Ground Arena" />
-          <input type="hidden" name="submission_type" value="online_form" />
-
-          <section id="facility-rental-form" class="py-16 bg-gray-100 text-gray-800">
-            <div class="container mx-auto px-6 max-w-4xl">
-              <div class="max-w-4xl mx-auto">
-
-        <!-- Intro Text -->
-        <div class="text-gray-800 leading-relaxed space-y-4 mb-10">
-          <p>
-            <strong>I. AUTHORITY AND NON-CONTRACTUAL STATUS:</strong> No applicant, renter, or prospective user shall have any right, reservation, or expectation of a booking date,
-event date, or access to the premises until a written letter of approval is issued on official letterhead of 100
-Remington Holding Corp., signed by Richard Parrish, President. No contract—express, implied, verbal, or
-written—exists until that letter is issued. Upon approval, a formal contract detailing the specific terms of use,
-permitted activities, and conditions of occupancy will be issued for signature between the Owner and the
-approved Applicant.
-          </p>
-          <p>
-            <strong>II. MANAGEMENT AND ON-SITE AUTHORITY:</strong> An on-site Manager appointed by the Owner, Richard Parrish, shall supervise every approved event. By signing
-this application, the Applicant agrees to comply with all directions from the Manager to maintain safety and
-order. The Manager’s judgment on matters of safety or liability is final and may result in immediate termination
-of the event without refund.
-          </p>
-          <p>
-            <strong>III. INDEMNIFICATION:</strong> The Applicant agrees to indemnify, defend, and hold harmless 100 Remington Holding Corp., its officers,
-employees, and agents from any and all claims or damages arising from or related to the Applicant’s use or
-reservation of the premises.
-          </p>
-          <p>
-            <strong>IV. INSURANCE REQUIREMENTS:</strong> Prior to scheduling or confirming any event, the Applicant must provide a valid Certificate of Insurance
-meeting the following criteria:
-            <ul class="list-disc pl-5">
-              <li>Minimum General Liability Coverage: $1,000,000 per occurrence / $2,000,000 aggregate</li>
-              <li>Additional Insureds: 100 Remington Holding Corp. and Richard Parrish/ Castle</li>
-              <li>Address: 16083 N. 75th Avenue, Peoria, AZ</li>
-            </ul>
-          </p>
-          <p>
-            <strong>V. CLEANUP DEPOSIT:</strong> A $500 cleanup deposit is required and refundable only upon written confirmation by the Manager that the
-premises were left in satisfactory condition. Failure to comply results in forfeiture.
-          </p>
-          <p>
-            <strong>VI. CAPACITY AND PARKING:</strong> 
-            <ul class="list-disc pl-5">
-              <li>Maximum building occupancy: 430 persons (including staff, vendors, and guests)</li>
-              <li>Parking availability: 92 marked spaces only</li>
-              <li>No parking in fire lanes or restricted zones</li>
-              <li>The Applicant is responsible for all parking and traffic control</li>
-              <li>The Applicant assumes all liability for vehicle accidents or theft</li>
-            </ul>
-          </p>
-          <p>
-            <strong>VII. PROHIBITED USES AND ACTIVITIES:</strong> Unless specifically waived in writing, the following are prohibited: tape or adhesives, painting, cooking on
-concrete, animals except certified service animals, wild or exotic animals, combative sports, strobe lights or
-pyrotechnics, firearms, and any use inconsistent with City of Peoria C-1/2 zoning.
-        </div>
-
-      <!-- Section A – Event Information -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section A – Event Information</h3>
-        <label class="block mb-2">Applicant Name *</label>
-        <input type="text" name="applicantName" required class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">Is the Applicant a 501(C) organization? *</label>
-        <select name="is501c" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">Event Title or Description *</label>
-        <input type="text" name="eventTitle" required class="w-full border rounded p-2">
-
-        <div class="md:col-span-2">
-          <label class="block text-gray-700 mt-4 mb-2">Requested Event Date(s) *</label>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <div class="flex-1">
-              <input
-                type="date"
-                name="event-start"
-                required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="Start Date"
-              />
-            </div>
-            <div class="flex-1">
-              <input
-                type="date"
-                name="event-end"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                placeholder="End Date"
-              />
+              <a href="community" class="inline-flex items-center justify-center w-52 h-16 rounded-full font-bold text-lg text-white border-2 border-whitebg-transparent transition-all duration-300 hover:bg-white hover:text-purple-700 hover:scale-105">
+                COMMUNITY
+              </a>
             </div>
           </div>
-        </div>
-
-        <label class="block mt-4 mb-2">Estimated Attendance (limit 430) *</label>
-        <input type="number" name="attendance" max="430" required class="w-full border rounded p-2">
-      </div>
-
-      <!-- Section B - General Questions -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section B – General Questions</h3>
-        <label class="block mb-2">Has the Applicant reviewed the City of Peoria Code § 8-2 (Special Events) and confirmed whether a City Special Event or Temporary Use Permit is required? *</label>
-        <select name="reviewedCityCode" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">If Yes, provide details</label>
-        <textarea name="codeDetails" class="w-full border rounded p-2"></textarea>
-
-        <label class="block mt-4 mb-2">Please list City Liaison Name</label>
-        <input type="text" name="cityLiaison" class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">Will tickets or admission be sold? *</label>
-        <select name="ticketsSold" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">If Yes, provide details and tax status</label>
-        <input type="text" name="taxStatus" class="w-full border rounded p-2">
-      </div>
-
-      <!-- Section C - Activities and Equipment Related Questions -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section C – Activities and Equipment</h3>
-        <div class="mt-4">
-          <label class="block mt-4 mb-2">Any fighting, boxing, wrestling, or martial arts? *</label>
-          <select name="martialArts" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="martialArtsExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will minors attend without adult supervision? *</label>
-          <select name="minorsUnattended" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="minorsExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will you be using any recreational equipment (e.g. bouncy house, slides, etc.)? *</label>
-          <select name="recEquipment" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="recExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Any pyrotechnics, fireworks, smoke machines, or strobe lighting? *</label>
-          <select name="pyroEquipment" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="pyroExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Any animals (wild or domestic) be on-site? *</label>
-          <select name="animals" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="animalsExplain" class="w-full border rounded p-2">
-
-           <label class="block mt-4 mb-2">Any cooking, open flame, or heat-producing devices? *</label>
-          <select name="cooking" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="cookingExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Any amplified music or sound systems? *</label>
-          <select name="soundEquipment" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="soundExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Any temporary structures (tents, barriers, stages)? *</label>
-          <select name="structureEquipment" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="structureExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will private security be utilized? *</label>
-          <select name="security" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, identify if they are armed</label>
-          <input type="text" name="securityExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will Applicant require any special access considerations [road closures, lane restrictions, barricades detours]? *</label>
-          <select name="specialAccess" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="accessExplain" class="w-full border rounded p-2">
-
-          <label class="block mt-4 mb-2">Will applicant be arranging for trash removal, recycling or restroom facilities? *</label>
-          <select name="trashRemoval" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <label class="block mt-4 mb-2">If Yes, explain</label>
-          <input type="text" name="trashExplain" class="w-full border rounded p-2">
-        </div>
-      </div>
-
-      <!-- Section D - Vendors and Contractors -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section D – Vendors and Contractors</h3>
-        <label class="block mt-4 mb-2">List all vendors including contact info, address, and insurance provider.</label>
-        <textarea name="vendors" class="w-full border rounded p-2" rows="4" placeholder="List all vendors including contact info, address, and insurance provider"></textarea>
-      </div>
-
-      <!-- Section E – Alcohol Use, Sale and Consumption -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section E – Alcohol Use, Sale and Consumption</h3>
-        <label class="block mt-4 mb-2">The premises has no permits to sell or distribute alcohol, if you intend to get a temporary permit for sale and/or distribution of alcohol, provide details on application with Peoria Police Department and Maricopa County.</label>
-
-        <label class="block mt-4 mb-2">Is the Applicant serving Alcohol as a private, invitation-only event with no sales, no open public access? *</label>
-        <select name="privateAlcohol" required class="w-full border rounded p-2">
-          <option value="">Select</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-
-        <label class="block mt-4 mb-2">Is the Applicant serving with a hired licensed caterer or bar operator with a Series 6 or 12 license filing an Extension of Premises / Offsite Permit [PD and DLLC sign-off required]? *</label>
-        <select name="liquorCaterer" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-          <label class="block mt-4 mb-2">Is Applicant claiming temporary permit under A.R.S. § 4-203.02, a Special Event Liquor License? [501c3, religious, civic, fraternal, political, or service organizations] *</label>
-        <select name="liquorPermits" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-        <label class="block mt-4 mb-2">Police Contact Name & Email</label>
-        <input type="text" name="policeContact" class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">State/Maricopa County Contact Name & Email</label>
-        <input type="text" name="countyContact" class="w-full border rounded p-2">
-
-         <label class="block font-semibold mt-4 mb-2">YOU MUST PROVIDE PROOF OF LIQUOR LIABILITY INSURANCE FOR HOST OR BARTENDER</label>
-
-         <label class="block mt-4 mb-2">Will Applicant have Peoria Police and Arizona Liquor Department security and fencing plan? *</label>
-        <select name="liquorPermits" required class="w-full border rounded p-2">
-            <option value="">Select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-
-      </div>
-
-      <!-- Section F – Additional Details -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">Section F – Additional Details</h3>
-        <label class="block mt-4 mb-2">Provide any other details or information that will need to be addressed in a binding rental contract:</label>
-        <textarea name="additionalDetails" rows="4" class="w-full border rounded p-2"></textarea>
-      </div>
-
-      <!-- ACKNOWLEDGMENT -->
-      <div>
-        <div class="pt-4 mt-4"></div>
-        <h3 class="text-xl font-semibold mb-4">ACKNOWLEDGMENT</h3>
-        <label class="block mt-4 mb-2">By signing below, the Applicant acknowledges and agrees that no event date or booking exists until written approval is issued by Richard Parrish, President of 100 Remington Holding Corp. Upon approval, a formal contract will specify permitted uses and rates that will apply for consideration. The Manager assigned by the Owner has full authority to direct or terminate the event without refund. Maximum occupancy is 430 persons; parking limited to 92 spaces. The Applicant is responsible for parking, vehicle safety, and indemnifies 100 Remington Holding Corp.</label>
-
-        <label class="block mt-4 mb-2">Applicant Full Name (signature) *</label>
-        <input type="text" name="signature" required class="w-full border rounded p-2">
-
-        <label class="block mt-4 mb-2">Date *</label>
-        <input type="date" name="signatureDate" required class="w-full border rounded p-2">
-      </div>
-      </form>
-
- <!-- Submit Button -->
-      <div class="text-center mt-10">
-          <button
-            type="submit"
-            class="bg-[#5fbcff] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition"
-          >
-            Submit Application
-          </button>
-
-          <p id="facilityOnlineMsg" class="text-green-600 font-semibold mt-4 hidden">
-            Thanks! Your facility rental request was submitted.
-          </p>
-        </div>
-    </form>
-  </div>
-</section>
-</section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-purple-400 text-white">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="font-bebas text-4xl md:text-6xl mb-6">HOBBYCON</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto">
-          Join us at as an attendee or vendor at our next event. We can't wait to welcome you to the HobbyCon community!
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a 
-          href="tickets"
-          class="inline-block bg-gradient-to-r from-sky-400 to-blue-600 
-                text-white text-xl font-bold px-10 py-5 rounded-full shadow-lg 
-                hover:scale-105 transition transform !rounded-full">
-            TICKETS
-          </a>
-          <a
-            href="contact"
-            class="bg-transparent border-2 border-white px-8 py-5 rounded-full text-white text-xl font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 inline-block"
-          >
-            CONTACT US
-          </a>
-        </div>
-      </div>
-    </section>
+        </section>
 
 <!-- FOOTER -->
 <footer class="mt-16">

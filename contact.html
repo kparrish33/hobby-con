@@ -90,8 +90,8 @@
 
             <div class="absolute left-0 top-full mt-0
               w-56 bg-white shadow-lg rounded-lg z-[999]
-              opacity-0 pointer-tickets-none
-              group-hover:opacity-100 group-hover:pointer-tickets-auto
+              opacity-0 pointer-events-none
+              group-hover:opacity-100 group-hover:pointer-events-auto
               transition-opacity duration-150">
               <a href="convention" class="block px-4 py-2 hover:bg-gray-100">Convention</a>
               <a href="retreats" class="block px-4 py-2 hover:bg-gray-100">Retreats</a>
@@ -151,199 +151,203 @@
   </div>
 </div>
 
-    <!-- HERO -->
-    <section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-  <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
-    Contact Us
-  </h2>
-  <p class="mt-4 text-base md:text-lg text-slate-600 max-w-4xl leading-relaxed">
-  Questions? Ideas? We’d love to hear from you!
-</p>
+      <!-- CONTACT INFO BOXES (HobbyCon style) -->
+    <section class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center">
+        Contact Information
+      </h2>
+      <p class="mt-3 text-slate-600 text-center">
+        Questions? Ideas? We’d love to hear from you.
+      </p>
 
-    <!-- CONTACT INFO BOXES -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-bebas text-center mb-12">
-          Contact Information
-        </h2>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Email -->
+        <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-4">
+            <span class="h-12 w-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <i data-feather="mail" class="w-5 h-5 text-purple-700"></i>
+            </span>
+            <div class="font-semibold text-slate-900 text-lg">Email</div>
+          </div>
+          <a href="mailto:info@hobbycon.com" class="mt-4 inline-block text-purple-700 hover:text-purple-900 transition">
+            info@hobbycon.com
+          </a>
+        </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Email -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
-          >
-            <div class="flex items-center mb-3">
-              <div class="bg-blue-100 p-3 rounded-full mr-3">
-                <i data-feather="mail" class="text-blue-600 w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-semibold">Email</h3>
-            </div>
-            <p class="text-gray-700">
-              <a
-                href="mailto:info@hobbycon.com"
-                class="text-blue-600 hover:underline"
-              >
-                info@hobbycon.com
-              </a>
-            </p>
+        <!-- Phone -->
+        <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-4">
+            <span class="h-12 w-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <i data-feather="phone" class="w-5 h-5 text-purple-700"></i>
+            </span>
+            <div class="font-semibold text-slate-900 text-lg">Phone</div>
           </div>
+          <a href="tel:6318314843" class="mt-4 inline-block text-purple-700 hover:text-purple-900 transition">
+            (631) 831-4843
+          </a>
+        </div>
 
-          <!-- Phone -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
-          >
-            <div class="flex items-center mb-3">
-              <div class="bg-blue-100 p-3 rounded-full mr-3">
-                <i data-feather="phone" class="text-blue-600 w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-semibold">Phone</h3>
-            </div>
-            <p class="text-gray-700">
-              <a href="tel:6238782444" class="text-blue-600 hover:underline">
-                (631) 831-4843
-              </a>
-            </p>
+        <!-- Socials -->
+        <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-4">
+            <span class="h-12 w-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <i data-feather="instagram" class="w-5 h-5 text-purple-700"></i>
+            </span>
+            <div class="font-semibold text-slate-900 text-lg">Socials</div>
           </div>
-          
-          <!-- Socials -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
-          >
-            <div class="flex items-center mb-3">
-              <div class="bg-blue-100 p-3 rounded-full mr-3">
-                <i data-feather="instagram" class="text-blue-600 w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-semibold">Socials</h3>
-            </div>
-            <p class="text-gray-700">@hobbyconnyc</p>
-          </div>
+          <a href="#" class="mt-4 inline-block text-purple-700 hover:text-purple-900 transition">
+            @hobbyconnyc
+          </a>
+        </div>
 
-          <!-- Location -->
-          <div
-            class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition"
-          >
-            <div class="flex items-center mb-3">
-              <div class="bg-blue-100 p-3 rounded-full mr-3">
-                <i data-feather="map-pin" class="text-blue-600 w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-semibold">Location</h3>
-            </div>
-            <p class="text-gray-700">
-              <a
-                href="https://www.google.com/maps/place/16083+N+75th+Ave,+Peoria,+AZ+85382"
-                target="_blank"
-                class="text-blue-600 hover:underline"
-              >
-              New York, New York
-              </a>
-            </p>
+        <!-- Location -->
+        <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 hover:shadow-md transition">
+          <div class="flex items-center gap-4">
+            <span class="h-12 w-12 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+              <i data-feather="map-pin" class="w-5 h-5 text-purple-700"></i>
+            </span>
+            <div class="font-semibold text-slate-900 text-lg">Location</div>
           </div>
+          <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block text-purple-700 hover:text-purple-900 transition"
+          >
+            New York, New York
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Vendor Section -->
-    <section id="rental-form" class="pt-16 pb-4 bg-white">
-      <div class="container mx-auto px-6">
-        <div
-          class="bg-gradient-to-r from-sky-400 to-blue-600 text-white rounded-3xl p-8 md:p-12 mb-8 shadow-xl"
-        >
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">
-            Be Our Next Vendor at HobbyCon!
+    <section id="vendor-cta" class="max-w-6xl mx-auto px-5 pt-16 pb-10">
+      <div
+        class="rounded-3xl p-10 md:p-14 shadow-xl text-white
+              bg-gradient-to-r
+              from-[#c7b6ff]
+              via-[#a5b9ff]
+              to-[#cbbcff]"
+      >
+        <div class="max-w-3xl">
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-5">
+            Vendors Welcome to HobbyCon!
           </h2>
-          <p class="text-xl mb-6">
-            We encourage inclusion of all hobbies and interests at HobbyCon. If you have a product, service, or experience that would resonate with our community, there's a place for you at our event.
+
+          <p class="text-white/90 text-base md:text-lg leading-relaxed mb-8">
+            HobbyCon celebrates curiosity across every category. If you create, teach, sell,
+            or inspire through your hobby, we invite you to share your passion
+            with our community.
           </p>
+
           <a
             href="vendors"
-            class="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-8 py-4 rounded-full shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
-            Vendor Application <i data-feather="arrow-right" class="ml-2"></i>
+            class="inline-flex items-center gap-2
+                  bg-white text-purple-700 font-semibold
+                  px-8 py-4 rounded-full
+                  shadow-md hover:shadow-2xl
+                  hover:scale-105 transition-all duration-300"
+          >
+            Vendor Application
+            <i data-feather="arrow-right" class="w-4 h-4"></i>
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-    <!-- Contact Form Section -->
-    <section class="py-16 px-6 bg-white text-gray-800" id="contact-form">
-  <div class="max-w-screen-md mx-auto animate-slide-up">
-    <h2 class="text-4xl font-bebas text-center mb-6 text-gray-900">
+<!-- Contact Form Section (HobbyCon style) -->
+<section id="contact-form" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center">
       Send Us a Message
     </h2>
+    <p class="mt-3 text-slate-600 text-center">
+      Have a question, idea, or partnership request? Connect with us!
+    </p>
+
     <form
       action="https://formspree.io/f/mykkzake"
       method="POST"
-      class="space-y-6"
       id="contactForm"
       aria-label="Contact form"
+      class="mt-10 hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-10 space-y-6"
     >
+      <!-- Hidden subject line -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="New contact form submission from HobbyCon!"
+      />
 
-          <!-- Hidden subject line -->
-          <input
-            type="hidden"
-            name="_subject"
-            value="New contact form submission from Solid Ground Arena!"
-          />
-
-          <!-- Name -->
-          <div>
-            <label for="name" class="block text-sm font-semibold mb-2"
-              >Name</label
-            >
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
-            />
-          </div>
-
-          <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-semibold mb-2"
-              >Email</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
-            />
-          </div>
-
-          <!-- Message -->
-          <div>
-            <label for="message" class="block text-sm font-semibold mb-2"
-              >Message</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5fbcff]"
-            ></textarea>
-          </div>
-
-          <!-- Submit -->
-          <button
-            type="submit"
-            class="bg-[#5fbcff] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition"
-        >
-            Send Message
-          </button>
-
-          <!-- Thank-you message placeholder -->
-          <p
-            id="thankYouMessage"
-            class="text-green-600 font-semibold mt-4 hidden"
-          >
-            Thanks! Your message has been sent.
-          </p>
-        </form>
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-sm font-semibold text-slate-900 mb-2">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          autocomplete="name"
+          class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+        />
       </div>
-    </section>
-    </section>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-semibold text-slate-900 mb-2">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+          class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+        />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-sm font-semibold text-slate-900 mb-2">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                 focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+        ></textarea>
+      </div>
+
+      <!-- Submit row -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <button type="submit" class="hc-btn hc-btn-primary px-8 py-4">
+          Send Message
+          <i data-feather="send" class="w-4 h-4"></i>
+        </button>
+
+        <p class="text-xs text-slate-500">
+          A member of our team will get back to you shortly.
+        </p>
+      </div>
+
+      <!-- Thank-you message placeholder -->
+      <div
+        id="thankYouMessage"
+        class="hidden rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-800 font-semibold"
+      >
+        Thanks! Your message has been sent.
+      </div>
+    </form>
+  </div>
+</section>
 
           <!-- COMMUNITY -->
       <section id="community" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
@@ -382,30 +386,6 @@
         </div>
       </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-purple-400 text-white">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="font-bebas text-4xl md:text-6xl mb-6">HOBBYCON</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto">
-          Join us at as an attendee or vendor at our next event. We can't wait to welcome you to the HobbyCon community!
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a 
-          href="tickets"
-          class="inline-block bg-gradient-to-r from-sky-400 to-blue-600 
-                text-white text-xl font-bold px-10 py-5 rounded-full shadow-lg 
-                hover:scale-105 transition transform !rounded-full">
-            TICKETS
-          </a>
-          <a
-            href="vendors"
-            class="bg-transparent border-2 border-white px-8 py-5 rounded-full text-white text-xl font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 inline-block"
-          >
-            VENDORS
-          </a>
-        </div>
-      </div>
-    </section>
 
          </section>
 

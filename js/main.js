@@ -811,44 +811,144 @@ document.addEventListener("DOMContentLoaded", function () {
   if (window.feather) feather.replace();
 });
 
-// 19. ===== Facility ONLINE form (AJAX submit, no redirect) =====
-const facilityOnlineForm = qs("#facilityOnlineForm");
-const facilityOnlineMsg = qs("#facilityOnlineMsg");
+// 17. Vendor form toggles (multiple)
+(function () {
+  const pairs = [
+    { btn: "#toggleHobbyconNYForm", panel: "#vendorFormHobbyconNY" },
+    { btn: "#toggleInlineHockeyAZForm", panel: "#vendorFormInlineHockeyAZ" },
+  ];
 
-if (facilityOnlineForm && facilityOnlineMsg) {
-  facilityOnlineForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  const getEl = (sel) => document.querySelector(sel);
 
-    if (!facilityOnlineForm.checkValidity()) {
-      facilityOnlineForm.reportValidity();
-      return;
-    }
+  pairs.forEach(({ btn, panel }) => {
+    const btnEl = getEl(btn);
+    const panelEl = getEl(panel);
+    if (!btnEl || !panelEl) return;
 
-    facilityOnlineMsg.classList.remove("hidden", "text-red-500");
-    facilityOnlineMsg.textContent = "Submitting...";
+    btnEl.addEventListener("click", () => {
+      const isOpen = !panelEl.classList.contains("hidden");
 
-    try {
-      const res = await fetch(facilityOnlineForm.action, {
-        method: "POST",
-        body: new FormData(facilityOnlineForm),
-        headers: { Accept: "application/json" },
+      // close all panels first
+      pairs.forEach(({ btn: b, panel: p }) => {
+        const bEl = getEl(b);
+        const pEl = getEl(p);
+        if (!bEl || !pEl) return;
+
+        pEl.classList.add("hidden");
+        bEl.setAttribute("aria-expanded", "false");
+
+        const caret = bEl.querySelector("span");
+        if (caret) caret.style.transform = "rotate(0deg)";
+        if (caret) caret.style.transition = "transform 200ms ease";
       });
 
-      if (res.ok) {
-        facilityOnlineForm.reset();
-        facilityOnlineMsg.classList.remove("text-red-500");
-        facilityOnlineMsg.textContent =
-          "Thank you! Your request has been submitted.";
-      } else {
-        facilityOnlineMsg.classList.add("text-red-500");
-        facilityOnlineMsg.textContent = "Oops! Something went wrong.";
+      // open the clicked one if it was closed
+      if (!isOpen) {
+        panelEl.classList.remove("hidden");
+        btnEl.setAttribute("aria-expanded", "true");
+
+        const caret = btnEl.querySelector("span");
+        if (caret) caret.style.transform = "rotate(180deg)";
+        if (caret) caret.style.transition = "transform 200ms ease";
+
+        // optional: scroll it into view nicely
+        // panelEl.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    } catch (err) {
-      facilityOnlineMsg.classList.add("text-red-500");
-      facilityOnlineMsg.textContent = "Network error — please try again.";
+    });
+  });
+})();
+
+(function () {
+  const configs = [
+    {
+      btn: "toggleVendorFormNY",
+      panel: "vendorFormPanelNY",
+      caret: "toggleVendorFormNYCaret",
+      form: "vendorFormNY",
+      thanks: "vendorFormNYThanks",
+      error: "vendorFormNYError"
+    },
+    {
+      btn: "toggleVendorFormAZ",
+      panel: "vendorFormPanelAZ",
+      caret: "toggleVendorFormAZCaret",
+      form: "vendorFormAZ",
+      thanks: "vendorFormAZThanks",
+      error: "vendorFormAZError"
+    }
+  ];
+
+  function closeAll() {
+    configs.forEach(c => {
+      const panel = document.getElementById(c.panel);
+      const btn = document.getElementById(c.btn);
+      const caret = document.getElementById(c.caret);
+
+      if (panel) panel.classList.add("hidden");
+      if (btn) btn.setAttribute("aria-expanded", "false");
+      if (caret) caret.style.transform = "rotate(0deg)";
+    });
+  }
+
+  configs.forEach(c => {
+    const btn = document.getElementById(c.btn);
+    const panel = document.getElementById(c.panel);
+    const caret = document.getElementById(c.caret);
+    const form = document.getElementById(c.form);
+    const thanks = document.getElementById(c.thanks);
+    const errorMsg = document.getElementById(c.error);
+
+    if (btn && panel) {
+      btn.addEventListener("click", () => {
+        const isOpen = !panel.classList.contains("hidden");
+        closeAll();
+
+        if (!isOpen) {
+          panel.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+          if (caret) caret.style.transform = "rotate(180deg)";
+          if (window.feather) window.feather.replace();
+        }
+      });
+    }
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (thanks) thanks.classList.add("hidden");
+        if (errorMsg) errorMsg.classList.add("hidden");
+
+        const submitBtn = form.querySelector("button[type='submit']");
+        if (submitBtn) submitBtn.disabled = true;
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" }
+          });
+
+          if (res.ok) {
+            form.reset();
+            if (thanks) thanks.classList.remove("hidden");
+          } else {
+            if (errorMsg) errorMsg.classList.remove("hidden");
+          }
+        } catch {
+          if (errorMsg) errorMsg.classList.remove("hidden");
+        }
+
+        if (submitBtn) submitBtn.disabled = false;
+      });
     }
   });
-}
+})();
 
 
 // =====================

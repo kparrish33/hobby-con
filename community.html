@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>HobbyCon – Community for Curious Hobbyists</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="description"
+      content="HobbyCon is an annual event and year-round community built for anyone exploring new interests. Try hobbies hands-on, meet welcoming people, and discover your next obsession."
+    />
+
+    <!-- Social / Open Graph -->
+    <meta
+      property="og:title"
+      content="HobbyCon – Community for Curious Hobbyists"
+    />
+    <meta
+      property="og:description"
+      content="HobbyCon is an annual event and year-round community built for anyone exploring new interests. Try hobbies hands-on, meet welcoming people, and discover your next obsession."
+    />
+    <meta
+      property="og:image"
+      content="https://hobbycon.com/images/logo-01.jpg"
+    />
+    <meta property="og:url" content="https://hobbycon.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="HobbyCon – Community for Curious Hobbyists"
+    />
+    <meta
+      name="twitter:description"
+      content="HobbyCon is an annual event and year-round community built for anyone exploring new interests. Try hobbies hands-on, meet welcoming people, and discover your next obsession."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hobbycon.com/images/logo-01.jpg"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body class="bg-glow text-slate-900">
+
+  <div class="relative">
+    <!-- NAV -->
+<header class="bg-white border-b border-slate-200 relative">
+  <div
+    class="absolute bottom-0 left-0 right-0 h-[2px]
+           bg-gradient-to-r from-purple-300 to-indigo-300"
+  ></div>
+</header>
+
+      <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <img
+            src="images/logo-01.png"
+            alt="HobbyCon"
+            id="logo"
+            class="h-32 transform transition-transform duration-500 ease-out select-none"
+            draggable="false"
+          />
+        </div>
+
+        </a>
+
+        <nav class="hidden md:flex items-center gap-7 text-base text-slate-700">
+          <!-- EVENTS DROPDOWN -->
+          <div class="relative group">
+            <button class="nav-link font-semibold flex items-center gap-1">
+              Events
+              <i data-feather="chevron-down" class="w-4 h-4"></i>
+            </button>
+
+            <div class="absolute left-0 top-full mt-0
+              w-56 bg-white shadow-lg rounded-lg z-[999]
+              opacity-0 pointer-tickets-none
+              group-hover:opacity-100 group-hover:pointer-tickets-auto
+              transition-opacity duration-150">
+              <a href="convention" class="block px-4 py-2 hover:bg-gray-100">Convention</a>
+              <a href="retreats" class="block px-4 py-2 hover:bg-gray-100">Retreats</a>
+              <a href="events" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">More Experiences</a>
+            </div>
+          </div>
+          <a class="nav-link font-semibold hover:text-slate-900" href="community">Community</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="vendors">Vendors</a>
+          <a class="nav-link font-semibold hover:text-slate-900" href="contact">Contact</a>
+          <a href="tickets" class="hc-btn hc-btn-primary px-7 py-3 text-base font-semibold text-white rounded-full">
+            Get Tickets
+          </a>
+
+        </nav>
+
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-xl hover:bg-slate-100 transition"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <i data-feather="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+     <!-- Mobile menu -->
+<div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-5 py-6">
+    <!-- Right-aligned stack (NOT full width) -->
+    <nav class="ml-auto w-fit flex flex-col items-end gap-3 text-base text-slate-700">
+
+    <!-- Events dropdown -->
+    <details class="w-fit">
+      <summary class="list-none cursor-pointer select-none font-semibold flex items-center justify-end gap-2 py-2 px-3 transition">
+        <span class="m-underline">
+          <span>Events</span>
+          <i data-feather="chevron-down" class="w-4 h-4"></i>
+        </span>
+      </summary>
+
+      <div class="mt-2 pr-3 border-r border-slate-200 flex flex-col items-end gap-1">
+        <a href="convention" class="w-fit px-3 py-2 transition">Convention</a>
+        <a href="retreats" class="w-fit px-3 py-2 transition">Retreats</a>
+        <a href="events" class="w-fit px-3 py-2 transition">More Experiences</a>
+      </div>
+    </details>
+
+      <a class="w-fit font-semibold py-2 px-3 transition" href="community">Community</a>
+      <a class="w-fit font-semibold py-2 px-3 transition" href="vendors">Vendors</a>
+      <a class="w-fit font-semibold py-2 px-3 transition" href="contact">Contact</a>
+
+      <!-- CTA (not full width) -->
+      <a href="tickets" class="hc-btn hc-btn-primary px-7 py-3 text-base font-semibold text-white rounded-full w-fit mt-1">
+        Get Tickets
+      </a>
+    </nav>
+  </div>
+</div>
+
+    <!-- HERO -->
+    <main>
+      <section class="max-w-6xl mx-auto px-5 pt-14 pb-10 md:pt-20 md:pb-16">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <!-- Pill becomes light: border + readable text -->
+            <div class="hc-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm">
+              <span class="h-2 w-2 rounded-full bg-purple-400"></span>
+              Coming Spring 2027
+            </div>
+            <h1 class="mt-5 text-4xl md:text-6xl font-bold text-white leading-[1.05] text-slate-900">
+              The community for
+              <span class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                curious hobbyists
+              </span>
+            </h1>
+
+            <p class="mt-5 text-slate-600 text-base md:text-lg leading-relaxed max-w-xl">
+              HobbyCon welcomes all hobbies from art to sports to science, creating a one-of-a-kind experience with personalization and playfulness in mind. HobbyCon is a space featuring exploration of interests, learning new skills, and connecting hobbyists together. 
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <a href="tickets" class="hc-btn hc-btn-primary px-6 py-3">
+                Explore the Event <i data-feather="arrow-right" class="w-4 h-4"></i>
+              </a>
+
+              <a href="community" class="hc-btn hc-btn-ghost px-6 py-3">
+                Join the Community <i data-feather="users" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Tags: light chips -->
+            <div class="mt-6 flex flex-wrap gap-3 text-xs text-slate-600">
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎨 Exhibitors</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🧠 Workshops</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🤝 Meetups</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">✨ Performances</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎤 Panelists</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🥤 Catering</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🏆 Competitions</span>
+              <span class="px-3 py-1 rounded-full bg-white border border-slate-200">🎮 Interactive Elements</span>
+            </div>
+          </div>
+        
+
+          <!-- HERO CARD (light surface) -->
+          <div class="hc-card p-6 md:p-7 bg-white border border-slate-200 rounded-3xl shadow-sm">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-sm text-slate-500">Memorial Day Weekend • Long Island, NY</div>
+                <div class="text-xl font-bold text-slate-900">Mahjong + Yoga Retreat 2026</div>
+              </div>
+              <div class="px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+                Few Spots Left
+              </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-4 text-sm">
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">MAHJONG</div>
+                <div class="mt-1 font-semibold text-slate-800">Workshops • Demos • Beginner Friendly</div>
+              </div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">YOGA</div>
+                <div class="mt-1 font-semibold text-slate-800">Guided Flows • Mindful Journaling • Exercise</div>
+              </div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">VALUE</div>
+                <div class="mt-1 font-semibold text-slate-800">All-Inclusive Experience • Luxury Accommodations</div>
+              </div>
+              <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">COMMUNITY</div>
+                <div class="mt-1 font-semibold text-slate-800">Group Activities • Excursions • Social Events </div>
+              </div>
+            </div>
+
+            <a href="retreats" class="hc-btn hc-btn-soft px-6 py-3 w-full justify-center mt-4">
+            View the Full Itinerary <i data-feather="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </section>
+
+     <!-- ABOUT -->
+<section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+  <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+    Come Curious, Leave Connected
+  </h2>
+  <p class="mt-4 text-base md:text-lg text-slate-600 max-w-4xl leading-relaxed">
+  Explore all our hobby categories designed to spark creativity, connection, and discovery.
+</p>
+
+  <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-art h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="edit-3" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Arts &amp; Design</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Explore hobbies rooted in aesthetics, visual storytelling, and personal
+        expression through drawing, painting, graphic design, or style-focused disciplines.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-collecting h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="archive" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Collecting &amp; Curating</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Celebrate the joy of preserving, organizing, and showcasing meaningful
+        objects, whether they hold historical, cultural, or nostalgic value.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-craft h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="tool" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">DIY &amp; Crafting</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Channel your drive to make things by hand. This category focuses on at-home projects, repair culture, and the pride of building something yourself.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-food h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="coffee" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Food &amp; Beverage</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Where flavor meets fascination. Whether you’re experimenting in the kitchen
+        or seeking finer techniques, this space celebrates edible hobbies of all kinds.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-games h-10 w-10 rounded-2xl flex items-center justify-center"
+        >
+          <i data-feather="slack" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Games &amp; Puzzles</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Dive into interactive worlds and brain-teasing challenges. This category includes
+        analog and digital play, logic, storytelling, and strategy.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-performance h-10 w-10 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center"
+        >
+          <i data-feather="mic" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Performance &amp; Stage</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Designed for expressive, theatrical, or audience-based hobbies. Whether you’re
+        performing or producing, this is a space for spotlight moments and audience connection.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-science h-10 w-10 rounded-2xl border flex items-center justify-center"
+        >
+          <i data-feather="cpu" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Science, Tech &amp; Tinkering</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        This is where experimentation, invention, and technical curiosity come to life.
+        Whether analog or digital, it’s about asking “what if?” and diving into the how.
+      </p>
+    </div>
+
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm">
+      <div class="flex items-center gap-3">
+        <div
+          class="zone-icon zone-sports h-10 w-10 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center"
+        >
+          <i data-feather="activity" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <div class="font-semibold text-slate-900">Sports &amp; Movement</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">
+        Where bodies are in motion for fun, fitness, or focus. Whether competitive or
+        meditative, movement-based hobbies belong here.
+      </p>
+    </div>
+    <div class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hidden lg:block">
+  <div class="flex items-center gap-3">
+    <div class="zone-icon zone-volunteering h-10 w-10 rounded-2xl flex items-center justify-center">
+      <i data-feather="heart" class="w-5 h-5 text-purple-600"></i>
+    </div>
+    <div class="font-semibold text-slate-900">Volunteering & Service</div>
+    </div>
+    <p class="mt-3 text-sm text-slate-600">
+      For those who turn hobbies into impact. This category supports community-minded efforts, skill-sharing, and acts of care and contribution.
+    </p>
+  </div>
+  </div>
+</section>
+
+      <!-- COMMUNITY -->
+      <section id="community" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+        <div class="hc-card p-8 md:p-10 bg-gradient-to-br from-purple-50 to-indigo-50 border border-purple-200 rounded-3xl">
+          <div class="grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7">
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">A community, not just an event</h2>
+              <p class="mt-4 text-slate-700 leading-relaxed">
+                HobbyCon is building year-round connection: hobby groups, local meetups, and ongoing discovery.
+              </p>
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href="community" class="hc-btn hc-btn-primary px-6 py-3 inline-flex items-center gap-2">
+                  Community Resources <i data-feather="users" class="w-4 h-4"></i>
+                </a>
+                <a href="" class="hc-btn hc-btn-ghost px-6 py-3 inline-flex items-center gap-2">
+                  Get updates <i data-feather="mail" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="md:col-span-5 grid gap-3">
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Community Patreon</div>
+                <div class="mt-1 font-semibold text-slate-900">Exclusive Access & Features</div>
+              </div>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Clubs & Meetups</div>
+                <div class="mt-1 font-semibold text-slate-900">Find your People</div>
+              </div>
+              <div class="rounded-2xl bg-white border border-slate-200 p-4">
+                <div class="text-xs text-slate-500">Retreats</div>
+                <div class="mt-1 font-semibold text-slate-900">Hobby-based Experiences</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mahjong + Yoga Retreat – Join Now Banner -->
+                <div class="full-bleed overflow-hidden pt-10 my-10">
+                  <a
+                    href="retreats"
+                    target="_blank"
+                    rel="noopener"
+                    class="block ring-1 ring-black/5 bg-gradient-to-r from-[#F6DCC7] via-[#F3CFB4] to-[#F0BE98]"
+                    aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
+                  >
+                    <!-- moving row; duplicate content for seamless loop -->
+                    <div class="marquee-track whitespace-nowrap py-3">
+                      <!-- GROUP A -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+                      </span>
+
+                      <!-- GROUP B (duplicate for seamless loop) -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+
+      <!-- TICKETS -->
+      <section id="tickets" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Tickets</h2>
+
+        <div class="mt-8 grid md:grid-cols-3 gap-4">
+          <a href="tickets" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Pass</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">General Admission</div>
+            <p class="mt-3 text-sm text-slate-600">Access to the expo floor, demos, and community zones.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
+              Buy now <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </div>
+          </a>
+
+          <a href="tickets" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Pass</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">VIP</div>
+            <p class="mt-3 text-sm text-slate-600">Early entry + lounge access + exclusive keepsakes.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
+              Buy now <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </div>
+          </a>
+
+          <a href="vendors" class="hc-card p-6 bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition block">
+            <div class="text-sm text-slate-500">Apply</div>
+            <div class="mt-1 text-xl font-bold text-slate-900">Exhibitor / Vendor</div>
+            <p class="mt-3 text-sm text-slate-600">Share your hobby, teach, demo, or sell products.</p>
+            <div class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-purple-700">
+              Apply <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+<footer class="mt-16">
+  <div class="bg-white/70 backdrop-blur border-t border-slate-200">
+    <div class="max-w-6xl mx-auto px-5 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        <!-- Column 1: Logo + Socials -->
+        <div class="flex flex-col items-start">
+          <a href="index.html" class="inline-flex items-center gap-3">
+            <img
+              src="images/logo-01.png"
+              alt="HobbyCon"
+              class="h-28 w-auto select-none"
+              draggable="false"
+            />
+          </a>
+          <div class="mt-5 flex items-center gap-3">
+            <a
+              href="#"
+              aria-label="Instagram"
+              class="h-10 w-10 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center
+                     hover:-translate-y-0.5 hover:shadow-md transition"
+            >
+              <i data-feather="instagram" class="w-5 h-5 text-slate-700"></i>
+            </a>
+
+            <a
+              href="#"
+              aria-label="Facebook"
+              class="h-10 w-10 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center
+                     hover:-translate-y-0.5 hover:shadow-md transition"
+            >
+              <i data-feather="facebook" class="w-5 h-5 text-slate-700"></i>
+            </a>
+
+              <a
+              href="#"
+              aria-label="TikTok"
+              class="h-10 w-10 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center
+                     hover:-translate-y-0.5 hover:shadow-md transition"
+            >
+              <i data-feather="video" class="w-5 h-5 text-slate-700"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Location -->
+        <div>
+          <h3 class="text-sm font-bold tracking-widest text-slate-900 uppercase">
+            Location
+          </h3>
+          <p class="mt-4 text-slate-600">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-purple-700 transition"
+            >
+              New York, NY
+            </a>
+          </p>
+          <p class="mt-2 text-sm text-slate-500">
+            Rotating Venues
+          </p>
+        </div>
+
+        <!-- Column 3: Links -->
+        <div>
+          <h3 class="text-sm font-bold tracking-widest text-slate-900 uppercase">
+            Links
+          </h3>
+          <ul class="mt-4 space-y-2 text-slate-600">
+            <li><a href="convention" class="hover:text-purple-700 transition">Convention</a></li>
+            <li><a href="vendors" class="hover:text-purple-700 transition">Vendors</a></li>
+            <li><a href="retreats" class="hover:text-purple-700 transition">Retreats</a></li>
+            <li><a href="tickets" class="hover:text-purple-700 transition">Tickets</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Policies -->
+        <div>
+          <h3 class="text-sm font-bold tracking-widest text-slate-900 uppercase">
+            Policies
+          </h3>
+          <ul class="mt-4 space-y-2 text-slate-600">
+            <li><a href="terms" class="hover:text-purple-700 transition">Terms &amp; Conditions</a></li>
+            <li><a href="privacy" class="hover:text-purple-700 transition">Privacy Policy</a></li>
+            <li><a href="refund-policy" class="hover:text-purple-700 transition">Refund Policy</a></li>
+            <li><a href="shipping-policy" class="hover:text-purple-700 transition">Shipping Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Contact -->
+        <div>
+          <h3 class="text-sm font-bold tracking-widest text-slate-900 uppercase">
+            Contact
+          </h3>
+
+          <div class="mt-4 space-y-3 text-slate-600">
+            <div class="flex items-center gap-3">
+              <span class="h-9 w-9 flex-shrink-0 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+                <i data-feather="mail" class="w-4 h-4 text-purple-700"></i>
+              </span>
+              <a href="mailto:info@hobbycon.com" class="hover:text-purple-700 transition min-w-0">
+                info@hobbycon.com
+              </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span class="h-9 w-9 flex-shrink-0 rounded-2xl bg-purple-50 border border-purple-200 flex items-center justify-center">
+                <i data-feather="phone" class="w-4 h-4 text-purple-700"></i>
+              </span>
+              <a href="tel:6318314843" class="hover:text-purple-700 transition min-w-0">
+                (631) 831-4843
+              </a>
+            </div>
+
+            <a href="contact" class="inline-flex items-center gap-2 text-sm font-semibold text-purple-700 hover:text-purple-900 transition">
+              Contact Us <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-2 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+        <div class="text-sm text-slate-500">
+          © <span id="year"></span> HobbyCon. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Keep your existing script setup -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

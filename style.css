@@ -83,15 +83,16 @@
   transform: scaleX(1);
 }
 
-/* Active page */
+/* Active page = underline only */
 .nav-link.active {
-  color: #7c3aed; /* purple-600 */
+  color: inherit; /* keep normal color */
 }
 
 .nav-link.active::after {
   opacity: 1;
   transform: scaleX(1);
 }
+
 
 /* =========================
    BUTTONS (Light theme)

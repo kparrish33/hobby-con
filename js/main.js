@@ -408,10 +408,18 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
   // 8. Highlight active nav link
-  const currentPage = window.location.pathname.split("/").pop();
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
   qsa(".nav-link").forEach((link) => {
     const href = link.getAttribute("href");
-    if (href === currentPage) link.classList.add("text-[#5fbcff]");
+    if (!href) return;
+
+    // supports "community" AND "community.html"
+    const match =
+      href === currentPage ||
+      href === currentPage.replace(".html", "") ||
+      href + ".html" === currentPage;
+
+    if (match) link.classList.add("active");
   });
 
   // 9. Form animation on scroll

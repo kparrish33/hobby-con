@@ -204,81 +204,115 @@
 }
 
 /* ---------------------------
-   Hobby Zones Icon Styling
+   Hobby Zones Icon Styling 
 --------------------------- */
 
 .zone-icon {
-  height: 48px;     
+  height: 48px;
   width: 48px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .zone-icon svg {
-  width: 22px;       
+  width: 22px;
   height: 22px;
-  stroke-width: 1.8; 
+  stroke-width: 1.8;
 }
 
-/* Art */
+/* Subtle hover polish */
+.zone-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   Individual Categories
+   ========================= */
+
+/* 🎨 Art */
 .zone-art {
-  background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+  background: #fdf2f8;         /* soft pink tint */
+  border-color: #fbcfe8;
+}
+.zone-art svg {
+  stroke: #db2777;
+}
+
+/* 🎮 Games */
+.zone-games {
+  background: #eef2ff;         /* soft indigo tint */
+  border-color: #c7d2fe;
+}
+.zone-games svg {
+  stroke: #6366f1;
+}
+
+/* 🧩 Collecting */
+.zone-collecting {
+  background: #fffcdf;         /* soft yellow tint */
+  border-color: #fde68a;
+}
+.zone-collecting svg {
+  stroke: #d9a806;
+}
+
+/* 🧵 Craft */
+.zone-craft {
+  background: #f0f9ff;         /* soft sky tint */
+  border-color: #bae6fd;
+}
+.zone-craft svg {
+  stroke: #0284c7;
+}
+
+/* 🔬 Science */
+.zone-science {
+  background: #ecfdf5;         /* soft emerald tint */
+  border-color: #bbf7d0;
+}
+.zone-science svg {
+  stroke: #059669;
+}
+
+/* 🏃 Sports & Movement */
+.zone-sports {
+  background: #fff3fc;         /* soft purple tint */
+  border-color: #fed6f6;
+}
+.zone-sports svg {
+  stroke: #ed3ab1;
+}
+
+/* 🍳 Food */
+.zone-food {
+  background: #faf5ff;         /* soft violet tint */
   border-color: #e9d5ff;
 }
-.zone-art svg { stroke: #db2777; }
-
-/* Games */
-.zone-games {
-  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+.zone-food svg {
+  stroke: #c026d3;
 }
-.zone-games svg { stroke: #6366f1; }
 
-/* Collecting */
-.zone-collecting {
-  background: linear-gradient(135deg, #fef3c7, #fde68a);
-}
-.zone-collecting svg { stroke: #d97706; }
-
-/* Craft */
-.zone-craft {
-  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-}
-.zone-craft svg { stroke: #0284c7; }
-
-/* Science */
-.zone-science {
-  background: linear-gradient(135deg, #d1fae5, #ccfbf1);
-}
-.zone-science svg { stroke: #059669; }
-
-/* Sports */
-.zone-games {
-  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
-}
-.zone-games svg { stroke: #6366f1; }
-
-/* Food */
-.zone-food {
-  background: linear-gradient(135deg, #f9d5ff, #f3e8ff);
-}
-.zone-food svg { stroke: #c026d3; }
-
-/* Performance */
+/* 🎭 Performance */
 .zone-performance {
-  background: linear-gradient(135deg, #f5f3ff, #e9d5ff);
+  background: #f5f3ff;         /* soft neutral tint */
+  border-color: #ddd6fe;
 }
-.zone-performance svg { stroke: #7e22ce; }
+.zone-performance svg {
+  stroke: #7c3aed;
+}
 
-/* Volunteering */
+/* 🤝 Volunteering (your orange example) */
 .zone-volunteering {
-  background: #ffedd5; 
+  background: #fff7ed;         /* very light orange tint */
+  border-color: #fed7aa;
 }
-
 .zone-volunteering svg {
-  stroke: #ea580c; 
+  stroke: #ea580c;
 }
 
 /* ---------------------------

@@ -151,468 +151,130 @@
   </div>
 </div>
 
-    <!-- Shop + Cart -->
-    <section id="shop" class="py-16 bg-gray-50">
-      <div class="container mx-auto px-6">
-        <div class="flex flex-col lg:flex-row gap-10">
-          <!-- Products -->
-          <div class="lg:w-2/3">
-            <h2 class="font-bebas text-4xl md:text-5xl mb-6">TICKETS</h2>
+<!-- Tickets (HobbyCon style) -->
+<section id="shop" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
+  <div class="grid lg:grid-cols-12 gap-10 items-start">
 
-            <p class="text-lg text-gray-700 mb-4 max-w-3xl">
-              Purchase tickets for upcoming events.
-            </p>
+    <!-- Left: Intro -->
+    <div class="lg:col-span-7">
 
-            <p class="text-sm text-gray-700 mb-10 max-w-3xl">
-              All ticket sales are final (no refunds after purchase unless the
-              venue cancels the event).
-            </p>
+      <h2 class="mt-5 text-3xl md:text-5xl font-bold text-slate-900 leading-[1.05]">
+        Tickets are coming soon.
+      </h2>
 
-            <div
-              id="productsGrid"
-              class="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            >
-              <!-- 1) Winter Festival -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="festival-2026-02-07"
-                data-title="Winter Festival"
-                data-session="Saturday, Feb 7 · 4:00 PM"
-                data-description="Open early until late with sessions for all schedules"
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      ❄️ Winter Festival
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Saturday, Feb 7 · 4:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Open early until late with sessions for all schedules
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+      <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
+        When tickets go live, be the first to know and secure your spot.
+      </p>
 
-              <!-- 2) Open Skate Night -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="convention-2026-02-13"
-                data-title="Open Skate Night"
-                data-session="Friday, Feb 13 · 8:00 PM"
-                data-description="Programs and events for all ages"
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      ✨ Open Skate Night
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Friday, Feb 13 · 8:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Programs and events for all ages
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+    </div>
 
-              <!-- 3) Inline Tournament -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="tournament-2026-02-19"
-                data-title="Inline Tournament"
-                data-session="Thursday, Feb 19 · 5:00 PM"
-                data-description="Professional equipment and surfaces"
-                data-price="25.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🏒 Inline Tournament
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Thursday, Feb 19 · 5:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$25.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Professional equipment and surfaces
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+          <!-- Policy note (soft callout) -->
+      <div class="lg:col-span-4 flex lg:justify-end">
+          <div class="hc-pill inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-600 text-sm w-fit">
+        <span class="h-2 w-2 rounded-full bg-purple-400"></span>
+        All ticket sales are final
+      </div>
+    </div>
 
-              <!-- 4) Live DJ Night -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="dj-night-2026-02-20"
-                data-title="Live DJ Night"
-                data-session="Friday, Feb 20 · 7:30 PM"
-                data-description="Music, lights, and skating all evening long"
-                data-price="20.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🎵 Live DJ Night
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Friday, Feb 20 · 7:30 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$20.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Music, lights, and skating all evening long
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+      
+<!-- Right: Ticket Cards (placeholders for now) -->
+<div class="lg:col-span-12 mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-2 items-stretch">
 
-              <!-- 5) Valentine's Skate Party -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="skate-party-2026-02-14"
-                data-title="Valentine's Skate Party"
-                data-session="Saturday, Feb 14 · 7:00 PM"
-                data-description="Festive skate celebration"
-                data-price="18.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      💖 Valentine's Skate Party
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Saturday, Feb 14 · 7:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$18.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">Festive skate celebration</p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
 
-              <!-- 6) Glow Party (March) -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="theme-glow-2026-03-07"
-                data-title="Glow Party"
-                data-session="Saturday, Mar 7 | 8:00 PM – 12:00 AM"
-                data-description="Lights, glow sticks, and UV-active gear! Shine bright all night long."
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🌈 Glow Party
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Saturday, Mar 7 | 8:00 PM – 12:00 AM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Lights, glow sticks, and UV-active gear! Shine bright all
-                  night long.
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+  <!-- Card: General Admission -->
+  <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-7">
+    <div class="flex items-center justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-sm text-slate-500">Pass</div>
+        <div class="mt-1 text-xl font-bold text-slate-900">General Admission</div>
+      </div>
+      <div class="shrink-0 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+        Coming Soon
+      </div>
+    </div>
 
-              <!-- 7) Rock & Roll (March) -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="theme-rock-2026-03-13"
-                data-title="Rock & Roll"
-                data-session="Friday, Mar 13 | 7:00 PM – 11:00 PM"
-                data-description="Skate to the greatest rock anthems and headbang on wheels."
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🎸 Rock &amp; Roll
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Friday, Mar 13 | 7:00 PM – 11:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Skate to the greatest rock anthems and headbang on wheels.
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
+    <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+      Access to the expo floor, demos, and community zones.
+    </p>
 
-              <!-- 8) Disco Fever (March) -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="theme-disco-2026-03-20"
-                data-title="Disco Fever"
-                data-session="Friday, Mar 20 | 7:00 PM – 11:00 PM"
-                data-description="Bell bottoms, platform shoes, and mirror balls! Boogie all night long."
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🕺 Disco Fever
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Friday, Mar 20 | 7:00 PM – 11:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Bell bottoms, platform shoes, and mirror balls! Boogie all
-                  night long.
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
-
-              <!-- 9) Retro Vibes (March) -->
-              <div
-                class="bg-white rounded-3xl shadow-lg p-6 flex flex-col"
-                data-product
-                data-id="theme-retro-2026-03-28"
-                data-title="Retro Vibes"
-                data-session="Saturday, Mar 28 | 6:00 PM – 10:00 PM"
-                data-description="Throwback classics from the 70s–90s. Bring your best retro outfit!"
-                data-price="15.00"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="font-bebas text-3xl leading-none">
-                      🕹️ Retro Vibes
-                    </h3>
-                    <p class="text-sm text-gray-600 mt-2">
-                      Saturday, Mar 28 | 6:00 PM – 10:00 PM
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-2xl font-bold text-gray-900">$15.00</p>
-                    <p class="text-xs text-gray-500">per ticket</p>
-                  </div>
-                </div>
-                <p class="mt-4 text-gray-600">
-                  Throwback classics from the 70s–90s. Bring your best retro
-                  outfit!
-                </p>
-                <p class="mt-2 text-sm text-gray-600">
-                  <strong>Refunds:</strong> No refunds after purchase unless the
-                  venue cancels the event.
-                </p>
-                <button
-                  type="button"
-                  class="mt-6 inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                  onclick="addToCartFromHtml(this)"
-                >
-                  ADD TO CART
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cart -->
-          <aside id="cartPanel" class="lg:w-1/3">
-            <div class="bg-white rounded-3xl shadow-lg p-6 lg:sticky lg:top-28">
-              <div class="flex items-center justify-between mb-4">
-                <h3 class="font-bebas text-3xl text-yellow-400">YOUR CART</h3>
-                <span
-                  id="cartCount"
-                  class="text-sm font-semibold bg-gray-100 px-3 py-1 rounded-full"
-                >
-                  0 items
-                </span>
-              </div>
-
-              <div id="cartItems" class="space-y-4">
-                <p class="text-gray-500">Your cart is empty.</p>
-              </div>
-
-              <div class="border-t border-gray-200 mt-6 pt-5">
-                <div class="flex justify-between text-base font-semibold">
-                  <span>Subtotal</span>
-                  <span id="cartSubtotal">$0.00</span>
-                </div>
-
-                <p class="text-xs text-gray-500 mt-2">
-                  Taxes/fees (if any) will be shown during checkout.
-                </p>
-
-                <!-- point-of-payment disclosure -->
-                <p class="mt-4 text-xs text-gray-600">
-                  By completing your purchase, you agree to our
-                  <a class="underline" href="/terms"
-                    >Terms &amp; Conditions</a
-                  >
-                  and acknowledge our
-                  <a class="underline" href="/privacy">Privacy Policy</a>.
-                  View our
-                  <a class="underline" href="/refund-policy"
-                    >Refund Policy</a
-                  >
-                  and
-                  <a class="underline" href="/shipping-policy"
-                    >Shipping Policy</a
-                  >.
-                </p>
-
-                <!-- Card logos (put svg/png files in /images/cards/) -->
-                <div class="mt-4 flex items-center gap-3 text-xs text-gray-500">
-                  <span>Accepted payments:</span>
-                  <div class="flex items-center gap-3 text-xl text-gray-700">
-                    <i class="fa-brands fa-cc-visa" aria-label="Visa"></i>
-                    <i
-                      class="fa-brands fa-cc-mastercard"
-                      aria-label="Mastercard"
-                    ></i>
-                    <i
-                      class="fa-brands fa-cc-amex"
-                      aria-label="American Express"
-                    ></i>
-                    <i
-                      class="fa-brands fa-cc-discover"
-                      aria-label="Discover"
-                    ></i>
-                  </div>
-                </div>
-
-                <button
-                  id="checkoutBtn"
-                  class="mt-6 w-full bg-gradient-to-r from-sky-400 to-blue-600 text-white text-lg font-bold px-6 py-4 rounded-full shadow-md hover:scale-[1.02] transition"
-                  type="button"
-                >
-                  CHECKOUT
-                </button>
-              </div>
-            </div>
-          </aside>
+    <div class="mt-6 grid gap-3">
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+        <div class="text-xs text-slate-500">INCLUDES</div>
+        <div class="mt-1 font-semibold text-slate-800">
+          Exhibitors • Workshops • Meetups
         </div>
       </div>
-    </section>
+
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+        <div class="text-xs text-slate-500">PERFECT FOR</div>
+        <div class="mt-1 font-semibold text-slate-800">First-time explorers</div>
+      </div>
+    </div>
+
+    <a
+      type="button"
+      href="community"
+      class="mt-6 w-full inline-flex items-center justify-center gap-2
+            rounded-full px-6 py-3 font-semibold whitespace-nowrap
+            border-2 border-purple-400 text-purple-700
+            transition-all duration-300
+            hover:bg-purple-500 hover:text-white hover:border-purple-500
+            hover:shadow-lg"
+    >
+      Notify me when live <i data-feather="bell" class="w-4 h-4"></i>
+    </a>
+
+  </div>
+
+  <!-- Card: VIP -->
+  <div class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-7">
+    <div class="flex items-center justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-sm text-slate-500">Pass</div>
+        <div class="mt-1 text-xl font-bold text-slate-900">VIP</div>
+      </div>
+      <div class="shrink-0 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+        Coming Soon
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+      Early entry + lounge access + exclusive keepsakes.
+    </p>
+
+    <!-- Optional: keep these to balance height with GA (edit later) -->
+    <div class="mt-6 grid gap-3">
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+        <div class="text-xs text-slate-500">INCLUDES</div>
+        <div class="mt-1 font-semibold text-slate-800">
+          Early Entry • VIP Lounge • Exclusive Keepsakes
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+        <div class="text-xs text-slate-500">PERFECT FOR</div>
+        <div class="mt-1 font-semibold text-slate-800">Superfans + planners</div>
+      </div>
+    </div>
+
+    <a
+      type="button"
+      href="community"
+      class="mt-6 w-full inline-flex items-center justify-center gap-2
+            rounded-full px-6 py-3 font-semibold whitespace-nowrap
+            border-2 border-purple-400 text-purple-700
+            transition-all duration-300
+            hover:bg-purple-500 hover:text-white hover:border-purple-500
+            hover:shadow-lg"
+    >
+      Notify me when live <i data-feather="bell" class="w-4 h-4"></i>
+    </a>
+  </div>
+
+</div>
+  </div>
+</section>
+
 
      <!-- FOOTER -->
 <footer class="mt-16">

@@ -950,6 +950,31 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 
+// 18. Community email form
+(function () {
+  const form = document.getElementById("communityEmailForm");
+  const thankYou = document.getElementById("communityThankYou");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+
+    if (response.ok) {
+      form.reset();
+      thankYou.classList.remove("hidden");
+    }
+  });
+})();
+
 
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)

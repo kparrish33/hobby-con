@@ -273,7 +273,7 @@
 /* 🔬 Science */
 .zone-science {
   background: #ecfdf5;         /* soft emerald tint */
-  border-color: #bbf7d0;
+  border-color: rgb(166, 229, 190);
 }
 .zone-science svg {
   stroke: #059669;
@@ -281,8 +281,8 @@
 
 /* 🏃 Sports & Movement */
 .zone-sports {
-  background: #ed3ab1;         /* soft purple tint */
-  border-color: #fed6f6;
+  background: #ffecf9;         /* soft purple tint */
+  border-color: #ffd3f0;
 }
 .zone-sports svg {
   stroke: #ed3ab1;
@@ -425,3 +425,9 @@
 
 
 html, body { overflow-x: clip; }
+
+@media (max-width: 640px) {
+  body.bg-glow {
+    padding-top: 2.5rem; /* adjust 2rem–4rem until it feels right */
+  }
+}

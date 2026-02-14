@@ -428,6 +428,6 @@ html, body { overflow-x: clip; }
 
 @media (max-width: 640px) {
   body.bg-glow {
-    padding-top: 2.5rem; /* adjust 2rem–4rem until it feels right */
+    padding-top: 3rem; /* adjust 2rem–4rem until it feels right */
   }
 }

@@ -983,6 +983,59 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 
+// 19) Retreat countdown (only runs if countdown exists)
+(function retreatCountdown() {
+  const cd = document.getElementById("countdown");
+  if (!cd) return;
+
+  // ✅ SET YOUR RETREAT START DATE/TIME HERE
+  // Example: Fri May 22, 2026 at 5:00 PM Eastern
+  const target = new Date("2026-05-22T17:00:00-04:00").getTime();
+
+  const elDays = document.getElementById("cdDays");
+  const elHours = document.getElementById("cdHours");
+  const elMins = document.getElementById("cdMins");
+  const elSecs = document.getElementById("cdSecs");
+  const done = document.getElementById("cdDone");
+
+  function pad(n) {
+    return String(n).padStart(2, "0");
+  }
+
+  function tick() {
+    const now = Date.now();
+    let diff = target - now;
+
+    if (diff <= 0) {
+      elDays.textContent = "0";
+      elHours.textContent = "00";
+      elMins.textContent = "00";
+      elSecs.textContent = "00";
+      if (done) done.classList.remove("hidden");
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * (1000 * 60 * 60 * 24);
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+
+    const mins = Math.floor(diff / (1000 * 60));
+    diff -= mins * (1000 * 60);
+
+    const secs = Math.floor(diff / 1000);
+
+    elDays.textContent = String(days);
+    elHours.textContent = pad(hours);
+    elMins.textContent = pad(mins);
+    elSecs.textContent = pad(secs);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
 
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)

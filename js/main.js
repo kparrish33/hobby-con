@@ -466,6 +466,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Retreat interest form Thank You
+(function () {
+  const form = document.getElementById("retreatInterestForm");
+  const thanks = document.getElementById("retreatInterestThanks");
+  const errorMsg = document.getElementById("retreatInterestError");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // Hide previous messages
+    if (thanks) thanks.classList.add("hidden");
+    if (errorMsg) errorMsg.classList.add("hidden");
+
+    // Native validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const submitBtn = form.querySelector("button[type='submit']");
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (thanks) thanks.classList.remove("hidden");
+      } else {
+        if (errorMsg) errorMsg.classList.remove("hidden");
+      }
+    } catch {
+      if (errorMsg) errorMsg.classList.remove("hidden");
+    }
+
+    if (submitBtn) submitBtn.disabled = false;
+  });
+})();
+
+
   // 11. Facility Event Form submission feedback
   const facilityForm = qs("#eventApplicationForm");
   const facilityThankYou = qs("#thankYouMsg");

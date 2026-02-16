@@ -431,3 +431,36 @@ html, body { overflow-x: clip; }
     padding-top: 4rem; /* adjust 2rem–4rem until it feels right */
   }
 }
+
+/* =========================
+   HobbyCon Checkbox Style
+========================= */
+
+.hc-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hc-check input {
+  accent-color: #7c3aed; /* purple-600 */
+  width: 16px;
+  height: 16px;
+}
+
+.hc-check:hover {
+  border-color: #c4b5fd;
+  background: #faf5ff;
+}
+
+.hc-check input:checked + span {
+  font-weight: 600;
+  color: #6d28d9;
+}

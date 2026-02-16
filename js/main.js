@@ -1297,3 +1297,23 @@ document.addEventListener("DOMContentLoaded", function () {
   renderCart();
   autoAddFromUrlOnce();
 })();
+
+// Limit secondary categories to 2
+(function () {
+  const boxes = document.querySelectorAll(
+    'input[name="second_category[]"]'
+  );
+
+  boxes.forEach(box => {
+    box.addEventListener("change", function () {
+      const checked = document.querySelectorAll(
+        'input[name="second_category[]"]:checked'
+      );
+
+      if (checked.length > 2) {
+        this.checked = false;
+        alert("You may select up to 2 categories.");
+      }
+    });
+  });
+})();

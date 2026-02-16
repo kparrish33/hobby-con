@@ -248,7 +248,7 @@
             aria-expanded="false"
             aria-controls="vendorFormPanelAZ"
           >
-            INLINE HOCKEY TOURNAMENT 2026 (AZ)
+            SOLID GROUND ARENA 2026 (AZ)
             <span id="toggleVendorFormAZCaret" class="text-lg leading-none transition-transform duration-200">▾</span>
           </button>
         </div>
@@ -270,14 +270,78 @@
                 <!-- Header -->
                 <div class="mb-8">
                   <h3 class="text-2xl md:text-3xl font-bold text-slate-900">
-                    Vendor Application — HobbyCon 2027 (NY)
+                    Vendor Application — HobbyCon 2027
                   </h3>
-                  <p class="mt-2 text-slate-600">
-                    Submit a quick application and we’ll follow up with next steps.
-                  </p>
+
+                  <div class="mt-2 text-slate-600 space-y-6 leading-relaxed">
+                    <p>
+                      Welcome to the HobbyCon Vendor Application! We are so excited to welcome a variety of hobbies to our event. If you have any questions or find any technical difficulties with this form, email
+                      <a href="mailto:info@hobbycon.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
+                        info@hobbycon.com
+                      </a>
+                      for assistance.
+                    </p>
+
+                    <p>
+                      HobbyCon is a one-of-a-kind gathering of learners and doers, where curiosity sparks discovery, passions are cultivated through practice, and communities form around shared interests. Designed for both the everyday enthusiast and the endlessly inquisitive, HobbyCon celebrates versatility in people and the unique hobbies they love. Our curated experience encourages personalized blends of hobbies where science meets art, sports meet storytelling, and hands-on skills thrive across every discipline.
+                    </p>
+
+                    <p class="font-semibold text-slate-900">
+                      At the heart of HobbyCon are three core values:
+                    </p>
+
+                    <div class="space-y-4">
+                      <div>
+                        <p class="font-bold text-slate-900">Curiosity</p>
+                        <p>The spark that drives us to explore new interests and revisit familiar ones with fresh eyes.</p>
+                      </div>
+
+                      <div>
+                        <p class="font-bold text-slate-900">Cultivation</p>
+                        <p>The lifelong process of learning, refining, and evolving through play, expression, and innovation.</p>
+                      </div>
+
+                      <div>
+                        <p class="font-bold text-slate-900">Community</p>
+                        <p>A space of connection, belonging, and shared joy where everyone from novice to expert, has a place for their niche interests.</p>
+                      </div>
+                    </div>
+
+                    <p>
+                      Whether trying something new or deepening a long-held passion, HobbyCon invites all to engage with hobbies as a path to growth, creativity, and meaningful connection. Through interactive workshops, live demos, expert Q&As, and diverse exhibitors, we aim to build a vibrant ecosystem of exploration and inclusiveness for every hobbyist.
+                    </p>
+
+                  <div class="space-y-2">
+                  <p class="font-bold text-slate-900">What to Expect</p>
+                  <p>As a vendor you choose how to experience HobbyCon! We offer spots to table (price varies for vendor types) and opportunities to do more!</p>
+
+                  <p class="pt-3 font-bold text-slate-900">Exhibitor</p>
+                  <p>Vendors who plan to table can expect a 10x10 space in the HobbyCon exhibit hall and 2 free exhibitor badges. In order to encourage our small clubs and local groups, pricing will vary:</p>
+
+                  <ul class="mt-2 space-y-2 text-slate-600 list-disc pl-6">
+                    <li><span class="font-semibold text-slate-900">Organizations/clubs/Non-profits</span> $50/day</li>
+                    <li><span class="font-semibold text-slate-900">Businesses</span> $200/day</li>
+                    <li><span class="font-semibold text-slate-900">Caterer</span> $300/day</li>
+                    <li><span class="font-semibold text-slate-900">Extra space, chairs, electricity, additional badges, etc.</span> will be available at an additional cost</li>
+                  </ul>
+
+                  <p class="pt-3 font-bold text-slate-900">Workshop</p>
+                  <p>Workshops are evaluated on a case-by-case basis. While hosting a workshop with HobbyCon is a great opportunity to advertise to new and existing hobbyists, we understand the costs that come with providing the tools, expertise, and time of a workshop. We're excited to hear your ideas and help bring them to life! Assistance may be provided by HobbyCon but is not guaranteed.</p>
+
+                  <p class="pt-3 font-bold text-slate-900">Live Performances, Panels, and Demos</p>
+                  <p>Take the stage and showcase your hobby!</p>
+
+                  <p class="pt-3 font-bold text-slate-900">Competitions and Meetups</p>
+                  <p>Host events for your hobby community at HobbyCon!</p>
                 </div>
 
-                <!-- Sample Questions -->
+                    <p class="font-semibold italic text-slate-700">
+                      ***Please note, date and location are still TBD. Expect HobbyCon Spring 2027 in NYC***
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Questions -->
                 <div class="space-y-6">
                   <!-- Contact Name (required) -->
                   <div>
@@ -314,7 +378,7 @@
                   <!-- Business / Brand Name (required) -->
                   <div>
                     <label for="ny_brand_name" class="block text-sm font-semibold text-slate-900 mb-2">
-                      Business / Brand Name *
+                      Vendor / Brand Name *
                     </label>
                     <input
                       type="text"
@@ -326,10 +390,91 @@
                     />
                   </div>
 
+                  <!-- Phone (required) -->
+                  <div>
+                    <label for="ny_phone" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_phone"
+                      name="phone"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Website (optional) -->
+                  <div>
+                    <label for="ny_website" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Website
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_website"
+                      name="website"
+                      placeholder="https://..."
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Location (optional) -->
+                  <div>
+                    <label for="ny_location" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Location
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_location"
+                      name="location"
+                      placeholder="Business Address or City, State"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Social Media Handles (optional) -->
+                  <div>
+                    <label for="ny_socials" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Social Media Handle(s)
+                    </label>
+                    <input
+                      type="text"
+                      id="ny_socials"
+                      name="socials"
+                      placeholder="@handle"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- How Did You Hear of Us? (required) -->
+                  <div>
+                    <label for="ny_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
+                      How did you hear about HobbyCon? *
+                    </label>
+                    <select
+                      id="ny_hear_about"
+                      name="hear_about"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="direct">Contacted Directly by HobbyCon</option>
+                      <option value="social">Social Media</option>
+                      <option value="web">Google/Web Search</option>
+                      <option value="referral">Referral</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
                   <!-- Vendor Type (required) -->
                   <div>
                     <label for="ny_vendor_type" class="block text-sm font-semibold text-slate-900 mb-2">
-                      What best describes you? *
+                    Please select your vendor type *
                     </label>
                     <select
                       id="ny_vendor_type"
@@ -338,11 +483,121 @@
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     >
-                      <option value="">Select one</option>
-                      <option value="seller">I sell products</option>
-                      <option value="teacher">I teach / run workshops</option>
-                      <option value="demo">I offer demos / experiences</option>
-                      <option value="sponsor">I’m interested in sponsoring</option>
+                      <option value=""></option>
+                      <option value="club">Club/Community Organization</option>
+                      <option value="business">Business (Selling a product, service and/or promoting a brand)</option>
+                      <option value="nonprofit">Non-profit (501(c)(3) organization)</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Primary Hobby Category (required) -->
+                  <div>
+                    <label for="ny_hobby_category" class="block text-sm font-semibold text-slate-900 mb-2">
+                    Please select a PRIMARY vendor category *
+                    </label>
+                    <select
+                      id="ny_hobby_category"
+                      name="hobby_category"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="art">Arts & Design</option>
+                      <option value="collecting">Collecting & Curating</option>
+                      <option value="crafting">DIY & Crafting</option>
+                      <option value="food">Food & Beverage</option>
+                      <option value="meetups">Meetups & Connections</option>
+                      <option value="performance">Performance & Stage</option>
+                      <option value="science">Science, Tech & Tinkering</option>
+                      <option value="sports">Sports & Movement</option>
+                      <option value="volunteering">Volunteering & Service</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                <!-- Secondary Hobby Categories -->
+                <div>
+                  <label class="block text-sm font-semibold text-slate-900 mb-3">
+                    Only if necessary, select SECONDARY vendor categories (skip question or select up to 2)
+                  </label>
+
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="art">
+                      <span>Arts & Design</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="collecting">
+                      <span>Collecting & Curating</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="crafting">
+                      <span>DIY & Crafting</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="food">
+                      <span>Food & Beverage</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="meetups">
+                      <span>Meetups & Connections</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="performance">
+                      <span>Performance & Stage</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="science">
+                      <span>Science, Tech & Tinkering</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="sports">
+                      <span>Sports & Movement</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="volunteering">
+                      <span>Volunteering & Service</span>
+                    </label>
+
+                    <label class="hc-check">
+                      <input type="checkbox" name="second_category[]" value="other">
+                      <span>Other</span>
+                    </label>
+
+                  </div>
+                </div>
+
+                  <!-- Experience Type (required) -->
+                  <div>
+                    <label for="ny_experience_type" class="block text-sm font-semibold text-slate-900 mb-2">
+                    Please select how you want to participate in HobbyCon *
+                    </label>
+                    <select
+                      id="ny_experience_type"
+                      name="experience_type"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="exhibitor">Exhibitor (Table on exhibit floor)</option>
+                      <option value="workshop">Workshop Host (Teach your hobby)</option>
+                      <option value="panelist">Panelist (Host or speak about your hobby - live or podcast)</option>
+                      <option value="performance">Performance (Take the stage to showcase your art live)</option>
+                      <option value="caterer">Cater (Serve food and beverages)</option>
+                      <option value="competition">Competition (Host or contribute to a competitive event for your hobby)</option>
+                      <option value="meetup">Meetup Host (Gather hobbyists with a common interest)</option>
+                      <option value="volunteering">Volunteering (Service activty)</option>
                       <option value="other">Other</option>
                     </select>
                   </div>
@@ -350,7 +605,7 @@
                   <!-- Description (required) -->
                   <div>
                     <label for="ny_vendor_description" class="block text-sm font-semibold text-slate-900 mb-2">
-                      Tell us what you want to bring to HobbyCon *
+                      Please tell us more about your idea(s) for HobbyCon based on your previous selection(s). Describe interactive or unique ideas you hope to bring to HobbyCon with your participation. *
                     </label>
                     <textarea
                       id="ny_vendor_description"
@@ -361,24 +616,25 @@
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     ></textarea>
                     <p class="mt-2 text-xs text-slate-500">
-                      Example: what you sell/teach, your audience, and what your booth/activation would look like.
+                      Example: what you sell/teach, your audience, previous experience and what your booth/activation would look like.
                     </p>
                   </div>
 
-                  <!-- Website / IG (optional) -->
+                  <!-- Additional (optional) -->
                   <div>
-                    <label for="ny_links" class="block text-sm font-semibold text-slate-900 mb-2">
-                      Website / Instagram (optional)
+                    <label for="ny_additional" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please include any additional questions, comments, or information here.
                     </label>
                     <input
                       type="text"
-                      id="ny_links"
-                      name="links"
-                      placeholder="https://... or @handle"
+                      id="ny_additional"
+                      name="additional"
+                      placeholder=""
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
                   </div>
+
                 </div>
 
                 <!-- Submit -->
@@ -420,41 +676,201 @@
 
                 <div class="mb-8">
                   <h3 class="text-2xl md:text-3xl font-bold text-slate-900">
-                    Vendor Application — Inline Hockey Tournament 2026 (AZ)
+                    Vendor Application — Inline Hockey Tournament 2026
                   </h3>
                   <p class="mt-2 text-slate-600">
-                    Apply to be part of this tournament experience.
+                    Join us at <a href="solidgroundarena.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
+                        Solid Ground Arena
+                      </a>in Peoria, AZ for the 2026 Roller Hockey Tournament! 
                   </p>
                 </div>
 
                 <div class="space-y-6">
+
+                  <!-- Contact Name (required) -->
                   <div>
-                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                    <label for="az_contact_name" class="block text-sm font-semibold text-slate-900 mb-2">
                       Contact Name *
                     </label>
-                    <input type="text" name="contact_name" required
-                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
-                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                    <input
+                      type="text"
+                      id="az_contact_name"
+                      name="contact_name"
+                      required
+                      autocomplete="name"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
                   </div>
 
+                  <!-- Email (required) -->
                   <div>
-                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                    <label for="az_contact_email" class="block text-sm font-semibold text-slate-900 mb-2">
                       Email *
                     </label>
-                    <input type="email" name="contact_email" required
-                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
-                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                    <input
+                      type="email"
+                      id="az_contact_email"
+                      name="contact_email"
+                      required
+                      autocomplete="email"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Business / Brand Name (required) -->
+                  <div>
+                    <label for="az_brand_name" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Vendor / Brand Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="az_brand_name"
+                      name="brand_name"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Phone (required) -->
+                  <div>
+                    <label for="az_phone" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="text"
+                      id="az_phone"
+                      name="phone"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Website (optional) -->
+                  <div>
+                    <label for="az_website" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Website
+                    </label>
+                    <input
+                      type="text"
+                      id="az_website"
+                      name="website"
+                      placeholder="https://..."
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Location (optional) -->
+                  <div>
+                    <label for="az_location" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Location
+                    </label>
+                    <input
+                      type="text"
+                      id="az_location"
+                      name="location"
+                      placeholder="business address"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- Social Media Handles (optional) -->
+                  <div>
+                    <label for="az_socials" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Social Media Handle(s)
+                    </label>
+                    <input
+                      type="text"
+                      id="az_socials"
+                      name="socials"
+                      placeholder="@handle"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
+                  </div>
+
+                  <!-- How Did You Hear of Us? (required) -->
+                  <div>
+                    <label for="az_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
+                      How did you hear about us? *
+                    </label>
+                    <select
+                      id="az_hear_about"
+                      name="hear_about"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="direct">Contacted Directly by HobbyCon</option>
+                      <option value="social">Social Media</option>
+                      <option value="web">Google/Web Search</option>
+                      <option value="referral">Referral</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Vendor Type (required) -->
+                  <div>
+                    <label for="az_vendor_type" class="block text-sm font-semibold text-slate-900 mb-2">
+                    Please select your vendor type *
+                    </label>
+                    <select
+                      id="az_vendor_type"
+                      name="vendor_type"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="club">Club/Community Organization</option>
+                      <option value="business">Business (Selling a product, service and/or promoting a brand)</option>
+                      <option value="nonprofit">Non-profit (501(c)(3) organization)</option>
+                      <option value="caterer">Caterer (Serving food & beverage)</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <!-- Description (required) -->
+                  <div>
+                    <label for="az_vendor_description" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please tell us more about your brand and what you hope to bring to the tournament event. *
+                    </label>
+                    <textarea
+                      id="az_vendor_description"
+                      name="vendor_description"
+                      rows="5"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    ></textarea>
+                    <p class="mt-2 text-xs text-slate-500">
+                      Example: what you sell/provide, your audience, previous experience and what your booth/activation would look like.
+                    </p>
+                  </div>
+
+                  <!-- Additional (optional) -->
+                  <div>
+                    <label for="az_additional" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please include any additional questions, comments, or information here.
+                    </label>
+                    <input
+                      type="text"
+                      id="az_additional"
+                      name="additional"
+                      placeholder=""
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    />
                   </div>
 
                   <div>
-                    <label class="block text-sm font-semibold text-slate-900 mb-2">
-                      What will you be selling or offering? *
-                    </label>
-                    <textarea name="vendor_description" rows="4" required
-                      class="w-full px-4 py-3 rounded-2xl border border-slate-200
-                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"></textarea>
-                  </div>
-                </div>
+   
 
                 <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <button type="submit" class="hc-btn hc-btn-primary px-8 py-4">

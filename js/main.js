@@ -1004,6 +1004,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 
+// Limit secondary categories to 2
+(function () {
+  const boxes = document.querySelectorAll(
+    'input[name="second_category[]"]'
+  );
+
+  boxes.forEach(box => {
+    box.addEventListener("change", function () {
+      const checked = document.querySelectorAll(
+        'input[name="second_category[]"]:checked'
+      );
+
+      if (checked.length > 2) {
+        this.checked = false;
+        alert("You may select up to 2 categories.");
+      }
+    });
+  });
+})();
+
+// Other Toggle
+(function () {
+  document.querySelectorAll("select[data-other-select]").forEach((sel) => {
+    const targetSel = sel.getAttribute("data-other-target");
+    const panel = targetSel ? document.querySelector(targetSel) : null;
+    const input = panel ? panel.querySelector("input, textarea") : null;
+
+    function sync() {
+      const isOn = sel.value === "other";
+      if (panel) panel.classList.toggle("hidden", !isOn);
+      if (input) {
+        input.required = isOn;
+        if (!isOn) input.value = "";
+      }
+    }
+
+    sync();
+    sel.addEventListener("change", sync);
+  });
+})();
+
 // 18. Community email form
 (function () {
   const form = document.getElementById("communityEmailForm");
@@ -1298,22 +1339,4 @@ document.addEventListener("DOMContentLoaded", function () {
   autoAddFromUrlOnce();
 })();
 
-// Limit secondary categories to 2
-(function () {
-  const boxes = document.querySelectorAll(
-    'input[name="second_category[]"]'
-  );
 
-  boxes.forEach(box => {
-    box.addEventListener("change", function () {
-      const checked = document.querySelectorAll(
-        'input[name="second_category[]"]:checked'
-      );
-
-      if (checked.length > 2) {
-        this.checked = false;
-        alert("You may select up to 2 categories.");
-      }
-    });
-  });
-})();

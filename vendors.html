@@ -429,7 +429,7 @@
                       type="text"
                       id="ny_location"
                       name="location"
-                      placeholder="Business Address or City, State"
+                      placeholder="Business address or City, State"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
@@ -450,26 +450,45 @@
                     />
                   </div>
 
-                  <!-- How Did You Hear of Us? (required) -->
-                  <div>
-                    <label for="ny_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
-                      How did you hear about HobbyCon? *
+
+                <!-- How Did You Hear of Us? (required) -->
+                <div>
+                  <label for="ny_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
+                    How did you hear about us? *
+                  </label>
+
+                  <select
+                    id="ny_hear_about"
+                    name="hear_about"
+                    required
+                    data-other-select
+                    data-other-target="#ny_hear_about_other_wrap"
+                    class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                          focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                  >
+                    <option value=""></option>
+                    <option value="direct">Contacted Directly by HobbyCon</option>
+                    <option value="social">Social Media</option>
+                    <option value="web">Google/Web Search</option>
+                    <option value="referral">Referral</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                  <!-- Only shows when "Other" is selected -->
+                  <div id="ny_hear_about_other_wrap" class="mt-3 hidden">
+                    <label for="ny_hear_about_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please specify *
                     </label>
-                    <select
-                      id="ny_hear_about"
-                      name="hear_about"
-                      required
+                    <input
+                      id="ny_hear_about_other"
+                      name="hear_about_other"
+                      type="text"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                    >
-                      <option value=""></option>
-                      <option value="direct">Contacted Directly by HobbyCon</option>
-                      <option value="social">Social Media</option>
-                      <option value="web">Google/Web Search</option>
-                      <option value="referral">Referral</option>
-                      <option value="other">Other</option>
-                    </select>
+                      placeholder="Tell us where you found us…"
+                    />
                   </div>
+                </div>
 
                   <!-- Vendor Type (required) -->
                   <div>
@@ -480,6 +499,8 @@
                       id="ny_vendor_type"
                       name="vendor_type"
                       required
+                      data-other-select
+                      data-other-target="#ny_vendor_type_other_wrap"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     >
@@ -489,38 +510,71 @@
                       <option value="nonprofit">Non-profit (501(c)(3) organization)</option>
                       <option value="other">Other</option>
                     </select>
+
+                      <!-- Only appears when "Other" is selected -->
+                    <div id="ny_vendor_type_other_wrap" class="mt-3 hidden">
+                      <label for="ny_vendor_type_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                        Please specify *
+                      </label>
+                      <input
+                        id="ny_vendor_type_other"
+                        name="vendor_type_other"
+                        type="text"
+                        class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                        placeholder="Describe your vendor type…"
+                      />
+                    </div>
                   </div>
 
-                  <!-- Primary Hobby Category (required) -->
-                  <div>
-                    <label for="ny_hobby_category" class="block text-sm font-semibold text-slate-900 mb-2">
-                    Please select a PRIMARY vendor category *
-                    </label>
-                    <select
-                      id="ny_hobby_category"
-                      name="hobby_category"
-                      required
-                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                    >
-                      <option value=""></option>
-                      <option value="art">Arts & Design</option>
-                      <option value="collecting">Collecting & Curating</option>
-                      <option value="crafting">DIY & Crafting</option>
-                      <option value="food">Food & Beverage</option>
-                      <option value="meetups">Meetups & Connections</option>
-                      <option value="performance">Performance & Stage</option>
-                      <option value="science">Science, Tech & Tinkering</option>
-                      <option value="sports">Sports & Movement</option>
-                      <option value="volunteering">Volunteering & Service</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
+              <!-- Primary Hobby Category (required) -->
+              <div>
+                <label for="ny_hobby_category" class="block text-sm font-semibold text-slate-900 mb-2">
+                  Please select a PRIMARY hobby category *
+                </label>
+
+                <select
+                  id="ny_hobby_category"
+                  name="hobby_category"
+                  required
+                  data-other-select
+                  data-other-target="#ny_hobby_category_other_wrap"
+                  class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                >
+                  <option value=""></option>
+                  <option value="art">Arts & Design</option>
+                  <option value="collecting">Collecting & Curating</option>
+                  <option value="crafting">DIY & Crafting</option>
+                  <option value="food">Food & Beverage</option>
+                  <option value="meetups">Meetups & Connections</option>
+                  <option value="performance">Performance & Stage</option>
+                  <option value="science">Science, Tech & Tinkering</option>
+                  <option value="sports">Sports & Movement</option>
+                  <option value="volunteering">Volunteering & Service</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <!-- Only appears if "Other" selected -->
+                <div id="ny_hobby_category_other_wrap" class="mt-3 hidden">
+                  <label for="ny_hobby_category_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                    Please specify *
+                  </label>
+                  <input
+                    id="ny_hobby_category_other"
+                    name="hobby_category_other"
+                    type="text"
+                    class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                          focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    placeholder="Describe your primary category…"
+                  />
+                </div>
+              </div>
 
                 <!-- Secondary Hobby Categories -->
                 <div>
                   <label class="block text-sm font-semibold text-slate-900 mb-3">
-                    Only if necessary, select SECONDARY vendor categories (skip question or select up to 2)
+                    Only if necessary, select SECONDARY hobby categories (skip question or select up to 2)
                   </label>
 
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -679,7 +733,7 @@
                     Vendor Application — Inline Hockey Tournament 2026
                   </h3>
                   <p class="mt-2 text-slate-600">
-                    Join us at <a href="solidgroundarena.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
+                    Join us at <a href="https://solidgroundarena.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
                         Solid Ground Arena
                       </a>in Peoria, AZ for the 2026 Roller Hockey Tournament! 
                   </p>
@@ -773,7 +827,7 @@
                       type="text"
                       id="az_location"
                       name="location"
-                      placeholder="business address"
+                      placeholder="Business address"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
@@ -794,26 +848,44 @@
                     />
                   </div>
 
-                  <!-- How Did You Hear of Us? (required) -->
-                  <div>
-                    <label for="az_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
-                      How did you hear about us? *
+                <!-- How Did You Hear of Us? (required) -->
+                <div>
+                  <label for="az_hear_about" class="block text-sm font-semibold text-slate-900 mb-2">
+                    How did you hear about us? *
+                  </label>
+
+                  <select
+                    id="az_hear_about"
+                    name="hear_about"
+                    required
+                    data-other-select
+                    data-other-target="#az_hear_about_other_wrap"
+                    class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                          focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                  >
+                    <option value=""></option>
+                    <option value="direct">Contacted Directly by HobbyCon</option>
+                    <option value="social">Social Media</option>
+                    <option value="web">Google/Web Search</option>
+                    <option value="referral">Referral</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                  <!-- Only shows when "Other" is selected -->
+                  <div id="az_hear_about_other_wrap" class="mt-3 hidden">
+                    <label for="az_hear_about_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please specify *
                     </label>
-                    <select
-                      id="az_hear_about"
-                      name="hear_about"
-                      required
+                    <input
+                      id="az_hear_about_other"
+                      name="hear_about_other"
+                      type="text"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                    >
-                      <option value=""></option>
-                      <option value="direct">Contacted Directly by HobbyCon</option>
-                      <option value="social">Social Media</option>
-                      <option value="web">Google/Web Search</option>
-                      <option value="referral">Referral</option>
-                      <option value="other">Other</option>
-                    </select>
+                      placeholder="Tell us where you found us…"
+                    />
                   </div>
+                </div>
 
                   <!-- Vendor Type (required) -->
                   <div>
@@ -824,6 +896,8 @@
                       id="az_vendor_type"
                       name="vendor_type"
                       required
+                      data-other-select
+                      data-other-target="#az_vendor_type_other_wrap"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     >
@@ -834,6 +908,21 @@
                       <option value="caterer">Caterer (Serving food & beverage)</option>
                       <option value="other">Other</option>
                     </select>
+
+                    <!-- Only appears when "Other" is selected -->
+                    <div id="az_vendor_type_other_wrap" class="mt-3 hidden">
+                      <label for="az_vendor_type_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                        Please specify *
+                      </label>
+                      <input
+                        id="az_vendor_type_other"
+                        name="vendor_type_other"
+                        type="text"
+                        class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                        placeholder="Describe your vendor type…"
+                      />
+                    </div>
                   </div>
 
                   <!-- Description (required) -->

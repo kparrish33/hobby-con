@@ -865,264 +865,236 @@ document.addEventListener("DOMContentLoaded", function () {
   if (window.feather) feather.replace();
 });
 
-// 17. Vendor form toggles (multiple)
-(function () {
-  const pairs = [
-    { btn: "#toggleHobbyconNYForm", panel: "#vendorFormHobbyconNY" },
-    { btn: "#toggleInlineHockeyAZForm", panel: "#vendorFormInlineHockeyAZ" },
-  ];
+// ===============================
+// 17+) VENDOR + FORM LOGIC (FIXED)
+// ===============================
 
-  const getEl = (sel) => document.querySelector(sel);
+// Run AFTER the DOM exists
+document.addEventListener("DOMContentLoaded", () => {
 
-  pairs.forEach(({ btn, panel }) => {
-    const btnEl = getEl(btn);
-    const panelEl = getEl(panel);
-    if (!btnEl || !panelEl) return;
+  // -----------------------------
+  // A) Vendor form toggles (multiple) - version 1
+  // -----------------------------
+  (function () {
+    const pairs = [
+      { btn: "#toggleHobbyconNYForm", panel: "#vendorFormHobbyconNY" },
+      { btn: "#toggleInlineHockeyAZForm", panel: "#vendorFormInlineHockeyAZ" },
+    ];
 
-    btnEl.addEventListener("click", () => {
-      const isOpen = !panelEl.classList.contains("hidden");
+    const getEl = (sel) => document.querySelector(sel);
 
-      // close all panels first
-      pairs.forEach(({ btn: b, panel: p }) => {
-        const bEl = getEl(b);
-        const pEl = getEl(p);
-        if (!bEl || !pEl) return;
+    pairs.forEach(({ btn, panel }) => {
+      const btnEl = getEl(btn);
+      const panelEl = getEl(panel);
+      if (!btnEl || !panelEl) return;
 
-        pEl.classList.add("hidden");
-        bEl.setAttribute("aria-expanded", "false");
+      btnEl.addEventListener("click", () => {
+        const isOpen = !panelEl.classList.contains("hidden");
 
-        const caret = bEl.querySelector("span");
-        if (caret) caret.style.transform = "rotate(0deg)";
-        if (caret) caret.style.transition = "transform 200ms ease";
-      });
+        // close all panels first
+        pairs.forEach(({ btn: b, panel: p }) => {
+          const bEl = getEl(b);
+          const pEl = getEl(p);
+          if (!bEl || !pEl) return;
 
-      // open the clicked one if it was closed
-      if (!isOpen) {
-        panelEl.classList.remove("hidden");
-        btnEl.setAttribute("aria-expanded", "true");
+          pEl.classList.add("hidden");
+          bEl.setAttribute("aria-expanded", "false");
 
-        const caret = btnEl.querySelector("span");
-        if (caret) caret.style.transform = "rotate(180deg)";
-        if (caret) caret.style.transition = "transform 200ms ease";
+          const caret = bEl.querySelector("span");
+          if (caret) {
+            caret.style.transition = "transform 200ms ease";
+            caret.style.transform = "rotate(0deg)";
+          }
+        });
 
-        // optional: scroll it into view nicely
-        // panelEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
-  });
-})();
-
-(function () {
-  const configs = [
-    {
-      btn: "toggleVendorFormNY",
-      panel: "vendorFormPanelNY",
-      caret: "toggleVendorFormNYCaret",
-      form: "vendorFormNY",
-      thanks: "vendorFormNYThanks",
-      error: "vendorFormNYError"
-    },
-    {
-      btn: "toggleVendorFormAZ",
-      panel: "vendorFormPanelAZ",
-      caret: "toggleVendorFormAZCaret",
-      form: "vendorFormAZ",
-      thanks: "vendorFormAZThanks",
-      error: "vendorFormAZError"
-    }
-  ];
-
-  function closeAll() {
-    configs.forEach(c => {
-      const panel = document.getElementById(c.panel);
-      const btn = document.getElementById(c.btn);
-      const caret = document.getElementById(c.caret);
-
-      if (panel) panel.classList.add("hidden");
-      if (btn) btn.setAttribute("aria-expanded", "false");
-      if (caret) caret.style.transform = "rotate(0deg)";
-    });
-  }
-
-  configs.forEach(c => {
-    const btn = document.getElementById(c.btn);
-    const panel = document.getElementById(c.panel);
-    const caret = document.getElementById(c.caret);
-    const form = document.getElementById(c.form);
-    const thanks = document.getElementById(c.thanks);
-    const errorMsg = document.getElementById(c.error);
-
-    if (btn && panel) {
-      btn.addEventListener("click", () => {
-        const isOpen = !panel.classList.contains("hidden");
-        closeAll();
-
+        // open clicked one
         if (!isOpen) {
-          panel.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-          if (caret) caret.style.transform = "rotate(180deg)";
+          panelEl.classList.remove("hidden");
+          btnEl.setAttribute("aria-expanded", "true");
+
+          const caret = btnEl.querySelector("span");
+          if (caret) {
+            caret.style.transition = "transform 200ms ease";
+            caret.style.transform = "rotate(180deg)";
+          }
+
           if (window.feather) window.feather.replace();
         }
       });
-    }
+    });
+  })();
 
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  // -----------------------------
+  // B) Vendor form toggles + submissions - version 2
+  // (leave it if your HTML uses these IDs)
+  // -----------------------------
+  (function () {
+    const configs = [
+      {
+        btn: "toggleVendorFormNY",
+        panel: "vendorFormPanelNY",
+        caret: "toggleVendorFormNYCaret",
+        form: "vendorFormNY",
+        thanks: "vendorFormNYThanks",
+        error: "vendorFormNYError"
+      },
+      {
+        btn: "toggleVendorFormAZ",
+        panel: "vendorFormPanelAZ",
+        caret: "toggleVendorFormAZCaret",
+        form: "vendorFormAZ",
+        thanks: "vendorFormAZThanks",
+        error: "vendorFormAZError"
+      }
+    ];
 
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+    function closeAll() {
+      configs.forEach(c => {
+        const panel = document.getElementById(c.panel);
+        const btn = document.getElementById(c.btn);
+        const caret = document.getElementById(c.caret);
 
-        if (thanks) thanks.classList.add("hidden");
-        if (errorMsg) errorMsg.classList.add("hidden");
-
-        const submitBtn = form.querySelector("button[type='submit']");
-        if (submitBtn) submitBtn.disabled = true;
-
-        try {
-          const res = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { Accept: "application/json" }
-          });
-
-          if (res.ok) {
-            form.reset();
-            if (thanks) thanks.classList.remove("hidden");
-          } else {
-            if (errorMsg) errorMsg.classList.remove("hidden");
-          }
-        } catch {
-          if (errorMsg) errorMsg.classList.remove("hidden");
-        }
-
-        if (submitBtn) submitBtn.disabled = false;
+        if (panel) panel.classList.add("hidden");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+        if (caret) caret.style.transform = "rotate(0deg)";
       });
     }
-  });
-})();
 
-// Limit secondary categories to 2
-(function () {
-  const boxes = document.querySelectorAll(
-    'input[name="second_category[]"]'
-  );
+    configs.forEach(c => {
+      const btn = document.getElementById(c.btn);
+      const panel = document.getElementById(c.panel);
+      const caret = document.getElementById(c.caret);
+      const form = document.getElementById(c.form);
+      const thanks = document.getElementById(c.thanks);
+      const errorMsg = document.getElementById(c.error);
 
-  boxes.forEach(box => {
-    box.addEventListener("change", function () {
-      const checked = document.querySelectorAll(
-        'input[name="second_category[]"]:checked'
-      );
+      if (btn && panel) {
+        btn.addEventListener("click", () => {
+          const isOpen = !panel.classList.contains("hidden");
+          closeAll();
 
-      if (checked.length > 2) {
-        this.checked = false;
-        alert("You may select up to 2 categories.");
+          if (!isOpen) {
+            panel.classList.remove("hidden");
+            btn.setAttribute("aria-expanded", "true");
+            if (caret) caret.style.transform = "rotate(180deg)";
+            if (window.feather) window.feather.replace();
+          }
+        });
+      }
+
+      if (form) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          if (thanks) thanks.classList.add("hidden");
+          if (errorMsg) errorMsg.classList.add("hidden");
+
+          const submitBtn = form.querySelector("button[type='submit']");
+          if (submitBtn) submitBtn.disabled = true;
+
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              body: new FormData(form),
+              headers: { Accept: "application/json" }
+            });
+
+            if (res.ok) {
+              form.reset();
+              if (thanks) thanks.classList.remove("hidden");
+            } else {
+              if (errorMsg) errorMsg.classList.remove("hidden");
+            }
+          } catch {
+            if (errorMsg) errorMsg.classList.remove("hidden");
+          }
+
+          if (submitBtn) submitBtn.disabled = false;
+        });
       }
     });
-  });
-})();
+  })();
 
-// Other Toggle
-(function () {
-  document.querySelectorAll("select[data-other-select]").forEach((sel) => {
-    const targetSel = sel.getAttribute("data-other-target");
-    const panel = targetSel ? document.querySelector(targetSel) : null;
-    const input = panel ? panel.querySelector("input, textarea") : null;
+  // -----------------------------
+  // C) Limit secondary categories to 2
+  // -----------------------------
+  (function () {
+    const boxes = document.querySelectorAll('input[name="second_category[]"]');
+    if (!boxes.length) return;
+
+    boxes.forEach(box => {
+      box.addEventListener("change", function () {
+        const checked = document.querySelectorAll('input[name="second_category[]"]:checked');
+        if (checked.length > 2) {
+          this.checked = false;
+          alert("You may select up to 2 categories.");
+        }
+      });
+    });
+  })();
+
+  // -----------------------------
+  // D) "Other" select reveals a textbox/textarea
+  // (expects: select[data-other-select] + data-other-target="#somePanel")
+  // -----------------------------
+  (function () {
+    document.querySelectorAll("select[data-other-select]").forEach((sel) => {
+      const targetSel = sel.getAttribute("data-other-target");
+      const panel = targetSel ? document.querySelector(targetSel) : null;
+      const input = panel ? panel.querySelector("input, textarea") : null;
+
+      function sync() {
+        const isOn = sel.value === "other";
+        if (panel) panel.classList.toggle("hidden", !isOn);
+        if (input) {
+          input.required = isOn;
+          if (!isOn) input.value = "";
+        }
+      }
+
+      sync(); // ✅ run once on load
+      sel.addEventListener("change", sync);
+    });
+  })();
+
+  // -----------------------------
+  // E) Subcategory toggle based on primary category (NY)
+  // (expects sections like: <div data-subcat-section="art">...</div>)
+  // -----------------------------
+  (function () {
+    const primary = document.getElementById("ny_hobby_category");
+    if (!primary) return;
+
+    const sections = document.querySelectorAll("[data-subcat-section]");
+    if (!sections.length) return;
 
     function sync() {
-      const isOn = sel.value === "other";
-      if (panel) panel.classList.toggle("hidden", !isOn);
-      if (input) {
-        input.required = isOn;
-        if (!isOn) input.value = "";
-      }
+      const selected = primary.value;
+
+      sections.forEach(section => {
+        const match = section.getAttribute("data-subcat-section") === selected;
+
+        section.classList.toggle("hidden", !match);
+
+        // Toggle required only on visible select(s)
+        const selects = section.querySelectorAll("select");
+        selects.forEach((s) => {
+          s.required = match;
+          if (!match) s.value = "";
+        });
+      });
     }
 
-    sync();
-    sel.addEventListener("change", sync);
-  });
-})();
+    primary.addEventListener("change", sync);
+    sync(); // ✅ run once on load (important if value preselected)
+  })();
 
-// 18. Community email form
-(function () {
-  const form = document.getElementById("communityEmailForm");
-  const thankYou = document.getElementById("communityThankYou");
-
-  if (!form) return;
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: { Accept: "application/json" }
-    });
-
-    if (response.ok) {
-      form.reset();
-      thankYou.classList.remove("hidden");
-    }
-  });
-})();
-
-// 19) Retreat countdown (only runs if countdown exists)
-(function retreatCountdown() {
-  const cd = document.getElementById("countdown");
-  if (!cd) return;
-
-  // ✅ SET YOUR RETREAT START DATE/TIME HERE
-  // Example: Fri May 22, 2026 at 5:00 PM Eastern
-  const target = new Date("2026-05-22T17:00:00-04:00").getTime();
-
-  const elDays = document.getElementById("cdDays");
-  const elHours = document.getElementById("cdHours");
-  const elMins = document.getElementById("cdMins");
-  const elSecs = document.getElementById("cdSecs");
-  const done = document.getElementById("cdDone");
-
-  function pad(n) {
-    return String(n).padStart(2, "0");
-  }
-
-  function tick() {
-    const now = Date.now();
-    let diff = target - now;
-
-    if (diff <= 0) {
-      elDays.textContent = "0";
-      elHours.textContent = "00";
-      elMins.textContent = "00";
-      elSecs.textContent = "00";
-      if (done) done.classList.remove("hidden");
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-
-    const mins = Math.floor(diff / (1000 * 60));
-    diff -= mins * (1000 * 60);
-
-    const secs = Math.floor(diff / 1000);
-
-    elDays.textContent = String(days);
-    elHours.textContent = pad(hours);
-    elMins.textContent = pad(mins);
-    elSecs.textContent = pad(secs);
-  }
-
-  tick();
-  setInterval(tick, 1000);
-})();
-
+});
 
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)

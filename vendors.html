@@ -279,7 +279,7 @@
 
         <!-- Panel: Event 1 Vendor Form (Hidden by default) -->
         <div id="vendorFormPanelNY" class="hidden mb-1">
-          <section class="max-w-6xl mx-auto px-5 pb-10">
+          <section class="max-w-6xl mx-auto px-3 sm:px-5 py-10px">
             <div class="max-w-4xl mx-auto">
               <form
                 id="vendorFormNY"
@@ -301,8 +301,7 @@
                     <p>
                       Welcome to the HobbyCon Vendor Application! We are so excited to welcome a variety of hobbies to our event. If you have any questions or find any technical difficulties with this form, email
                       <a href="mailto:info@hobbycon.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
-                        info@hobbycon.com
-                      </a>
+                        info@hobbycon.com</a>
                       for assistance.
                     </p>
 
@@ -551,49 +550,182 @@
                     </div>
                   </div>
 
-              <!-- Primary Hobby Category (required) -->
-              <div>
-                <label for="ny_hobby_category" class="block text-sm font-semibold text-slate-900 mb-2">
-                  Please select a PRIMARY hobby category *
-                </label>
+                  <!-- Primary Hobby Category (required) -->
+                  <div>
+                    <label for="ny_hobby_category" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Please select a PRIMARY hobby category *
+                    </label>
 
-                <select
-                  id="ny_hobby_category"
-                  name="hobby_category"
-                  required
-                  data-other-select
-                  data-other-target="#ny_hobby_category_other_wrap"
-                  class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                >
-                  <option value=""></option>
-                  <option value="art">Arts & Design</option>
-                  <option value="collecting">Collecting & Curating</option>
-                  <option value="crafting">DIY & Crafting</option>
-                  <option value="food">Food & Beverage</option>
-                  <option value="meetups">Meetups & Connections</option>
-                  <option value="performance">Performance & Stage</option>
-                  <option value="science">Science, Tech & Tinkering</option>
-                  <option value="sports">Sports & Movement</option>
-                  <option value="volunteering">Volunteering & Service</option>
-                  <option value="other">Other</option>
-                </select>
+                    <select
+                      id="ny_hobby_category"
+                      name="hobby_category"
+                      required
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                    >
+                      <option value=""></option>
+                      <option value="art">Arts & Design</option>
+                      <option value="collecting">Collecting & Curating</option>
+                      <option value="crafting">DIY & Crafting</option>
+                      <option value="food">Food & Beverage</option>
+                      <option value="meetups">Meetups & Connections</option>
+                      <option value="performance">Performance & Stage</option>
+                      <option value="science">Science, Tech & Tinkering</option>
+                      <option value="sports">Sports & Movement</option>
+                      <option value="volunteering">Volunteering & Service</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
 
-                <!-- Only appears if "Other" selected -->
-                <div id="ny_hobby_category_other_wrap" class="mt-3 hidden">
-                  <label for="ny_hobby_category_other" class="block text-sm font-semibold text-slate-900 mb-2">
-                    Please specify *
-                  </label>
-                  <input
-                    id="ny_hobby_category_other"
-                    name="hobby_category_other"
-                    type="text"
-                    class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                          focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                    placeholder="Describe your primary category…"
-                  />
-                </div>
-              </div>
+                  <!-- Subcategory (conditional) -->
+                  <div id="ny_subcategory_wrap" class="mt-4 space-y-4">
+                    <label class="block text-sm font-semibold text-slate-900 mb-2" for="ny_subcategory_active">
+                      Hobby Selection
+                    </label>
+
+                    <!-- Add button ALWAYS visible -->
+                    <button
+                      type="button"
+                      id="nyAddSubcategoryBtn"
+                      class="mt-3 text-sm font-semibold text-purple-700 hover:text-purple-900 underline underline-offset-4"
+                    >
+                      + Add a hobby (subcategory)
+                    </button>
+
+                    <p class="mt-2 text-xs text-slate-500">
+                      Add one or more hobbies under your primary category.
+                    </p>
+
+                    <!-- ARTS -->
+                    <div data-subcat-section="art" class="hidden">
+                      <label class="block text-sm font-semibold text-slate-900 mb-2">
+                        Select your Arts & Design hobby *
+                      </label>
+                      <select
+                        name="primary_detail_art[]"
+                        required
+                        class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                      >
+                      <option value="">Select an Arts & Design option</option>
+                      <option value="anime">Anime/Manga</option>
+                      <option value="calligraphy">Calligraphy</option>
+                      <option value="comics">Comic/Character Sketching</option>
+                      <option value="digital">Digital Illustration/Animation</option>
+                      <option value="dj">DJ Mixing/Beat Making</option>
+                      <option value="drawing">Drawing/Illustration</option>
+                      <option value="engraving">Engraving</option>
+                      <option value="facepainting">Face Painting</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="glass">Glass Blowing & Art</option>
+                      <option value="graffiti">Graffiti/Street Art</option>
+                      <option value="instrument">Musical Instrument</option>
+                      <option value="musicproducing">Music Producing</option>
+                      <option value="nails">Nail Art</option>
+                      <option value="painting">Painting</option>
+                      <option value="photography">Photography/Film</option>
+                      <option value="printmaking">Printmaking</option>
+                      <option value="reading">Reading/Books</option>
+                      <option value="screenwriting">Screenwriting</option>
+                      <option value="sculpting">Sculpting</option>
+                      <option value="sewing">Sewing</option>
+                      <option value="musiccomposing">Song Composing/Music Theory</option>
+                      <option value="ambientsound">Sound Bath/Ambient Creation</option>
+                      <option value="tattoo">Tattoo Art</option>
+                      <option value="welding">Welding/Soldering/Metalworking</option>
+                      <option value="woodworking">Wood Turning/Working</option>
+                      <option value="journaling">Writing & Journaling</option>
+                      <option value="other">Other</option>
+                    </select>
+                    </div>
+
+      <!-- COLLECTING -->
+      <select data-subcat="collecting" name="primary_detail_collecting" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Collecting option</option>
+        <option value="cards">Trading Cards</option>
+        <option value="vintage">Vintage / Antiques</option>
+        <option value="figures">Figures / Toys</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- DIY & CRAFTING -->
+      <select data-subcat="crafting" name="primary_detail_crafting" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a DIY & Crafting option</option>
+        <option value="sewing">Sewing / Textile</option>
+        <option value="crochet">Knitting / Crochet</option>
+        <option value="wood">Woodworking</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- FOOD -->
+      <select data-subcat="food" name="primary_detail_food" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Food & Beverage option</option>
+        <option value="baking">Baking</option>
+        <option value="coffee">Coffee / Tea</option>
+        <option value="specialty">Specialty Foods</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- MEETUPS -->
+      <select data-subcat="meetups" name="primary_detail_meetups" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Meetups option</option>
+        <option value="clubs">Clubs / Groups</option>
+        <option value="networking">Networking</option>
+        <option value="community">Community Building</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- PERFORMANCE -->
+      <select data-subcat="performance" name="primary_detail_performance" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Performance option</option>
+        <option value="music">Music</option>
+        <option value="dance">Dance</option>
+        <option value="theater">Theater</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- SCIENCE/TECH -->
+      <select data-subcat="science" name="primary_detail_science" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Science/Tech option</option>
+        <option value="robotics">Robotics</option>
+        <option value="coding">Coding</option>
+        <option value="electronics">Electronics</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- SPORTS -->
+      <select data-subcat="sports" name="primary_detail_sports" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+        <option value="">Select a Sports option</option>
+        <option value="fitness">Fitness</option>
+        <option value="outdoor">Outdoor</option>
+        <option value="team">Team Sports</option>
+        <option value="other">Other</option>
+      </select>
+
+      <!-- VOLUNTEERING -->
+      <select data-subcat="volunteering" name="primary_detail_volunteering" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+
+        <option value="other">Other</option>
+      </select>
+
+      <!-- Optional: one tiny "Other" text input, used ONLY when sub-select chooses other -->
+      <input
+        id="ny_primary_detail_other"
+        name="primary_detail_other"
+        type="text"
+        placeholder="Other (please specify)"
+        class="hidden mt-3 w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+      />
+    </div>
 
                 <!-- Secondary Hobby Categories -->
                 <div>
@@ -758,8 +890,8 @@
                   </h3>
                   <p class="mt-2 text-slate-600">
                     Join us at <a href="https://solidgroundarena.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
-                        Solid Ground Arena
-                      </a>in Peoria, AZ for the 2026 Roller Hockey Tournament! 
+                        Solid Ground Arena</a>
+                        in Peoria, AZ for the 2026 Roller Hockey Tournament! 
                   </p>
                 </div>
 

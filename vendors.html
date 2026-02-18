@@ -577,36 +577,36 @@
                     </select>
                   </div>
 
-                  <!-- Subcategory (conditional) -->
-                  <div id="ny_subcategory_wrap" class="mt-4 space-y-4">
-                    <label class="block text-sm font-semibold text-slate-900 mb-2" for="ny_subcategory_active">
-                      Hobby Selection
+                  <!-- Hobby Subcategory (conditional) -->
+                  <div id="nyPrimaryDetailArtWrap" class="hidden mt-4">
+
+                    <label class="block text-sm font-semibold text-slate-900 mb-2">
+                      Select your Arts &amp; Design subcategory *
                     </label>
 
-                    <!-- Add button ALWAYS visible -->
+                    <!-- Holds the added dropdown rows -->
+                    <div id="nyArtSubcatList" class="space-y-3">
+                      <!-- first row will be injected by JS on show -->
+                    </div>
+
+                    <!-- + button (only shows when Arts is the primary) -->
                     <button
                       type="button"
-                      id="nyAddSubcategoryBtn"
+                      id="nyAddArtSubcategoryBtn"
                       class="mt-3 text-sm font-semibold text-purple-700 hover:text-purple-900 underline underline-offset-4"
                     >
-                      + Add a hobby (subcategory)
+                      + Add another subcategory
                     </button>
 
-                    <p class="mt-2 text-xs text-slate-500">
-                      Add one or more hobbies under your primary category.
-                    </p>
-
-                    <!-- ARTS -->
-                    <div data-subcat-section="art" class="hidden">
-                      <label class="block text-sm font-semibold text-slate-900 mb-2">
-                        Select your Arts & Design hobby *
-                      </label>
-                      <select
-                        name="primary_detail_art[]"
-                        required
-                        class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                      >
+                    <!-- Hidden template used to clone more dropdowns -->
+                    <template id="nyArtSubcatTemplate">
+                      <div class="flex items-start gap-2">
+                        <select
+                          name="primary_detail_art[]"
+                          class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                                focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                          required
+                        >
                       <option value="">Select an Arts & Design option</option>
                       <option value="anime">Anime/Manga</option>
                       <option value="calligraphy">Calligraphy</option>
@@ -636,8 +636,29 @@
                       <option value="woodworking">Wood Turning/Working</option>
                       <option value="journaling">Writing & Journaling</option>
                       <option value="other">Other</option>
-                    </select>
-                    </div>
+      </select>
+
+      <!-- tiny remove button (optional but helpful once there are 2+) -->
+      <button
+        type="button"
+        class="nyRemoveArtSubcat shrink-0 mt-1 h-10 w-10 rounded-xl border border-slate-200
+              bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900
+              inline-flex items-center justify-center"
+        aria-label="Remove subcategory"
+        title="Remove"
+      >
+        ×
+      </button>
+    </div>
+  </template>
+
+  <!-- Optional: keep this tiny note or delete it -->
+  <p class="mt-2 text-xs text-slate-500">
+    Add as many subcategories as you need.
+  </p>
+</div>
+
+
 
       <!-- COLLECTING -->
       <select data-subcat="collecting" name="primary_detail_collecting" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
@@ -826,7 +847,7 @@
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     ></textarea>
                     <p class="mt-2 text-xs text-slate-500">
-                      Example: what you sell/teach, your audience, previous experience and what your booth/activation would look like.
+                      Example: what you sell/teach, your audience, previous experience and what your booth would look like.
                     </p>
                   </div>
 

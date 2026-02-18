@@ -535,8 +535,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 13. Livestream Auto-Detection & Glow Animation (FULL REWRITE)
   (function initLivestreamBadge() {
-    const LIVE_PORTAL_URL = "https://impactenvi.watch.pixellot.tv/";
-    const LIVE_LIST_URL = "https://impactenvi.watch.pixellot.tv/api/event/list";
+    const LIVE_PORTAL_URL = "";
+    const LIVE_LIST_URL = "";
     const POLL_MS = 90000;
 
     let liveEventUrl = LIVE_PORTAL_URL;
@@ -866,7 +866,60 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===============================
-// 17+) VENDOR + FORM LOGIC (FIXED)
+// 17) COUNTDOWN TIMER (RETREAT)
+// ========================
+function startCountdown(targetISO) {
+  const daysEl = document.getElementById("cdDays");
+  const hoursEl = document.getElementById("cdHours");
+  const minsEl = document.getElementById("cdMins");
+  const secsEl = document.getElementById("cdSecs");
+  const doneEl = document.getElementById("cdDone");
+
+  // If any element is missing (or duplicate ID confusion), don't crash the page.
+  if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+  const target = new Date(targetISO).getTime();
+  if (Number.isNaN(target)) return;
+
+  function tick() {
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      daysEl.textContent = "0";
+      hoursEl.textContent = "0";
+      minsEl.textContent = "0";
+      secsEl.textContent = "0";
+      if (doneEl) doneEl.classList.remove("hidden");
+      clearInterval(timer);
+      return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const mins = Math.floor((totalSeconds % 3600) / 60);
+    const secs = totalSeconds % 60;
+
+    daysEl.textContent = String(days);
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minsEl.textContent = String(mins).padStart(2, "0");
+    secsEl.textContent = String(secs).padStart(2, "0");
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+}
+
+// Run AFTER the page is loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Retreat start (ISO, with timezone offset for NY)
+  startCountdown("2026-05-22T15:00:00-04:00");
+});
+
+
+// ===============================
+// 18) VENDOR + FORM LOGIC (FIXED)
 // ===============================
 
 // Run AFTER the DOM exists

@@ -166,8 +166,8 @@
       </section>
 
         <!-- Highlights -->
-        <div class="max-w-6xl mx-auto px-6 md:px-8 py-12">
-         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="max-w-6xl mx-auto px-6 md:px-8 py-2">
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
 
           <div
             class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition duration-300"
@@ -229,6 +229,73 @@
         </div>
       </div>
     </div>
+
+      <!-- Mahjong + Yoga Retreat – Join Now Banner -->
+                <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden pt-2 my-1">
+                  <a
+                    href="retreats"
+                    class="block ring-1 ring-black/5 bg-gradient-to-r from-[#F6DCC7] via-[#F3CFB4] to-[#F0BE98]"
+                    aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
+                  >
+                    <!-- moving row; duplicate content for seamless loop -->
+                    <div class="marquee-track whitespace-nowrap py-3">
+                      <!-- GROUP A -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+                      </span>
+
+                      <!-- GROUP B (duplicate for seamless loop) -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+
 
     <!-- VENDOR APPS -->
       <section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
@@ -511,6 +578,21 @@
                       placeholder="Tell us where you found us…"
                     />
                   </div>
+
+                  <!-- Only shows when "Referral" is selected -->
+                  <div id="ny_hear_about_referral_wrap" class="mt-3 hidden">
+                    <label for="ny_hear_about_referral" class="block text-sm font-semibold text-slate-900 mb-2">
+                      Who referred you? *
+                    </label>
+                    <input
+                      id="ny_hear_about_referral"
+                      name="hear_about_referral"
+                      type="text"
+                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                      placeholder="Name, Organization"
+                    />
+                  </div>
                 </div>
 
                   <!-- Vendor Type (required) -->
@@ -577,182 +659,281 @@
                     </select>
                   </div>
 
-                  <!-- Hobby Subcategory (conditional) -->
-                  <div id="nyPrimaryDetailArtWrap" class="hidden mt-4">
+              <!-- Hobby Subcategories (conditional) -->
+              <div id="nySubcategoryWrap" class="hidden mt-4">
+                <label class="block text-sm font-semibold text-slate-900 mb-2">
+                  Please select one or more hobby subcategories *
+                </label>
 
-                    <label class="block text-sm font-semibold text-slate-900 mb-2">
-                      Select your Arts &amp; Design subcategory *
-                    </label>
+                <p class="mt-2 mb-4 text-xs text-slate-500">
+                  At least one hobby is required. Add as many as you need.
+                </p>
 
-                    <!-- Holds the added dropdown rows -->
-                    <div id="nyArtSubcatList" class="space-y-3">
-                      <!-- first row will be injected by JS on show -->
-                    </div>
+                <!-- rows get injected here -->
+                <div id="nySubcatList" class="space-y-3"></div>
 
-                    <!-- + button (only shows when Arts is the primary) -->
-                    <button
-                      type="button"
-                      id="nyAddArtSubcategoryBtn"
-                      class="mt-3 text-sm font-semibold text-purple-700 hover:text-purple-900 underline underline-offset-4"
-                    >
-                      + Add another subcategory
-                    </button>
+                <button
+                  type="button"
+                  id="nyAddSubcategoryBtn"
+                  class="mt-3 text-sm font-semibold text-purple-700 hover:text-purple-900 underline underline-offset-4"
+                >
+                  + Add another subcategory
+                </button>
 
-                    <!-- Hidden template used to clone more dropdowns -->
-                    <template id="nyArtSubcatTemplate">
-                      <div class="flex items-start gap-2">
-                        <select
-                          name="primary_detail_art[]"
-                          class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                                focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                          required
-                        >
-                      <option value="">Select an Arts & Design option</option>
-                      <option value="anime">Anime/Manga</option>
-                      <option value="calligraphy">Calligraphy</option>
-                      <option value="comics">Comic/Character Sketching</option>
-                      <option value="digital">Digital Illustration/Animation</option>
-                      <option value="dj">DJ Mixing/Beat Making</option>
-                      <option value="drawing">Drawing/Illustration</option>
-                      <option value="engraving">Engraving</option>
-                      <option value="facepainting">Face Painting</option>
-                      <option value="fashion">Fashion</option>
-                      <option value="glass">Glass Blowing & Art</option>
-                      <option value="graffiti">Graffiti/Street Art</option>
-                      <option value="instrument">Musical Instrument</option>
-                      <option value="musicproducing">Music Producing</option>
-                      <option value="nails">Nail Art</option>
-                      <option value="painting">Painting</option>
-                      <option value="photography">Photography/Film</option>
-                      <option value="printmaking">Printmaking</option>
-                      <option value="reading">Reading/Books</option>
-                      <option value="screenwriting">Screenwriting</option>
-                      <option value="sculpting">Sculpting</option>
-                      <option value="sewing">Sewing</option>
-                      <option value="musiccomposing">Song Composing/Music Theory</option>
-                      <option value="ambientsound">Sound Bath/Ambient Creation</option>
-                      <option value="tattoo">Tattoo Art</option>
-                      <option value="welding">Welding/Soldering/Metalworking</option>
-                      <option value="woodworking">Wood Turning/Working</option>
-                      <option value="journaling">Writing & Journaling</option>
-                      <option value="other">Other</option>
-      </select>
+                <p class="mt-2 text-xs text-slate-500">
+                      
+                </p>
+              </div>
 
-      <!-- tiny remove button (optional but helpful once there are 2+) -->
-      <button
-        type="button"
-        class="nyRemoveArtSubcat shrink-0 mt-1 h-10 w-10 rounded-xl border border-slate-200
-              bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900
-              inline-flex items-center justify-center"
-        aria-label="Remove subcategory"
-        title="Remove"
-      >
-        ×
-      </button>
-    </div>
-  </template>
+              <!-- Hidden “option libraries” (you already have these; keep them hidden) -->
+              <div id="nySubcategoryLibraries" class="hidden">
+                
+                <!-- ARTS & DESIGN -->
+                <select data-subcat="art" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                                    <option value="anime">Anime/Manga</option>
+                                    <option value="calligraphy">Calligraphy</option>
+                                    <option value="comics">Comic/Character Sketching</option>
+                                    <option value="digital">Digital Illustration/Animation</option>
+                                    <option value="dj">DJ Mixing/Beat Making</option>
+                                    <option value="illustrations">Drawing/Illustration</option>
+                                    <option value="engraving">Engraving</option>
+                                    <option value="facepainting">Face Painting</option>
+                                    <option value="fashion">Fashion</option>
+                                    <option value="glass">Glass Blowing & Art</option>
+                                    <option value="graffiti">Graffiti/Street Art</option>
+                                    <option value="jewelry">Jewelry Making & Design</option>
+                                    <option value="instrument">Musical Instrument</option>
+                                    <option value="musicproducing">Music Producing</option>
+                                    <option value="nails">Nail Art</option>
+                                    <option value="painting">Painting</option>
+                                    <option value="photography">Photography/Film</option>
+                                    <option value="printmaking">Printmaking</option>
+                                    <option value="reading">Reading/Books</option>
+                                    <option value="screenwriting">Screenwriting</option>
+                                    <option value="sculpting">Sculpting</option>
+                                    <option value="sewing">Sewing</option>
+                                    <option value="musiccomposing">Song Composing/Music Theory</option>
+                                    <option value="ambientsound">Sound Bath/Ambient Creation</option>
+                                    <option value="tattoo">Tattoo Art</option>
+                                    <option value="welding">Welding/Soldering/Metalworking</option>
+                                    <option value="woodworking">Wood Turning/Working</option>
+                                    <option value="journaling">Writing & Journaling</option>
+                                    <option value="other">Other</option>
+                </select>
 
-  <!-- Optional: keep this tiny note or delete it -->
-  <p class="mt-2 text-xs text-slate-500">
-    Add as many subcategories as you need.
-  </p>
-</div>
+                <!-- COLLECTING -->
+                <select data-subcat="collecting" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="figurines">Action Figures & Toys</option>
+                  <option value="birdwatching">Bird Watching</option>
+                  <option value="flowerarranging">Flower Arranging</option>
+                  <option value="flowers">Flower Arranging</option>
+                  <option value="birdwatching">Bird Watching</option>
+                  <option value="flowerarranging">Flower Arranging</option>
+                  <option value="foraging">Foraging</option>
+                  <option value="gardening">Gardening</option>
+                  <option value="minerals">Minerals & Crystals</option>
+                  <option value="modelsminiatures">Model Building & Miniature Painting</option>
+                  <option value="paperarchiving">Paper Archiving</option>
+                  <option value="pinsstickers">Pins & Stickers</option>
+                  <option value="stamps">Postcards & Stamps</option>
+                  <option value="retrogames">Retro Games & Consoles</option>
+                  <option value="thifting">Thrifting/Vintage Collecting</option>
+                  <option value="tradingcards">Trading Cards (Sports, Games, etc.)</option>
+                  <option value="vintagecameras">Vintage Cameras</option>
+                  <option value="vinylrecords">Vinyl Records & Music</option>
+                  <option value="other">Other</option>
+                </select>
 
+                <!-- DIY & CRAFTING -->
+                <select data-subcat="crafting" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="bedazzling">Bedazzling & Rhinestone Art</option>
+                  <option value="bookbinding">Bookbinding</option>
+                  <option value="candle">Candle Making</option>
+                  <option value="scrapbooking">Collage/Scrapbooking/Vision Boards</option>
+                  <option value="embroidery">Embroidery</option>
+                  <option value="glass">Glass Blowing & Art</option>
+                  <option value="assortedhandmade">Handmade Assorted Crafts</option>
+                  <option value="clay">Handmade Clay Creations</option>
+                  <option value="beauty">Homemade Beauty Products</option>
+                  <option value="illustrations">Illustrations & Paper Goods</option>
+                  <option value="incense">Incense Crafts</option>
+                  <option value="charmbar">Jewelry Charm Bar</option>
+                  <option value="jewelry">Jewelry Making & Design</option>
+                  <option value="crochet">Knitting/Crochet/Macrame/Weaving</option>
+                  <option value="leather">Leather Craft</option>
+                  <option value="origami">Origami</option>
+                  <option value="papermaking">Papermaking</option>
+                  <option value="perfume">Perfume/Fragrance Design</option>
+                  <option value="pipecleaner">Pipe Cleaner Art</option>
+                  <option value="resin">Polymer Clay & Resin Art</option>
+                  <option value="pottery">Pottery/Ceramics</option>
+                  <option value="resin">Polymer Clay & Resin Art</option>
+                  <option value="pottery">Pottery/Ceramics</option>
+                  <option value="slime">Slime Making</option>
+                  <option value="stationary">Stationary Design/Planners & Journals</option>
+                  <option value="tufting">Tufting</option>
+                  <option value="welding">Welding/Soldering/Metalworking</option>
+                  <option value="woodoworking">Wood Turning/Working</option>
+                  <option value="other">Other</option>
+                </select>
 
+                <!-- FOOD -->
+                <select data-subcat="food" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="caterer">I am applying as a caterer</option>
+                  <option value="beverages">Beverages</option>
+                  <option value="baking">Baking</option>
+                  <option value="coffee">Cooking</option>
+                  <option value="specialty">Specialty Foods</option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- COLLECTING -->
-      <select data-subcat="collecting" name="primary_detail_collecting" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Collecting option</option>
-        <option value="cards">Trading Cards</option>
-        <option value="vintage">Vintage / Antiques</option>
-        <option value="figures">Figures / Toys</option>
-        <option value="other">Other</option>
-      </select>
+                <!-- MEETUPS -->
+                <select data-subcat="meetups" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="clubs">Social Clubs (gather people locally with a common interest/specific hobby)</option>
+                  <option value="networking">Networking Clubs (selective groups, dinner clubs, focus on relationship building)</option>
+                  <option value="community">Volunteering (gather for community service projects)</option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- DIY & CRAFTING -->
-      <select data-subcat="crafting" name="primary_detail_crafting" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a DIY & Crafting option</option>
-        <option value="sewing">Sewing / Textile</option>
-        <option value="crochet">Knitting / Crochet</option>
-        <option value="wood">Woodworking</option>
-        <option value="other">Other</option>
-      </select>
+                <!-- PERFORMANCE -->
+                <select data-subcat="performance" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="acting">Acting</option>
+                  <option value="balloons">Balloon Twisting & Entertainment</option>
+                  <option value="circus">Circus & Trapeze</option>
+                  <option value="comedy">Comedy/Stand Up</option>
+                  <option value="costume">Costume Design</option>
+                  <option value="dance">Dance Studio/Company</option>
+                  <option value="drag">Drag</option>
+                  <option value="gameshow">Game Show</option>
+                  <option value="improv">Improv</option>
+                  <option value="band">Live Music</option>
+                  <option value="magic">Magic</option>
+                  <option value="band">Marching Band</option>
+                  <option value="miming">Miming</option>
+                  <option value="instrument">Musical Instrument</option>
+                  <option value="aerial">Pole & Aerial Arts </option>
+                  <option value="puppetry">Puppetry</option>
+                  <option value="vocals">Singing & Vocals</option>
+                  <option value="poetry">Slam Poetry</option>
+                  <option value="streetshow">Street Performance</option>
+                  <option value="tarot">Tarot & Palm Reading</option>
+                  <option value="theater">Theater Arts</option>
+                  <option value="screenwriting">Screenwriting & Scripts</option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- FOOD -->
-      <select data-subcat="food" name="primary_detail_food" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Food & Beverage option</option>
-        <option value="baking">Baking</option>
-        <option value="coffee">Coffee / Tea</option>
-        <option value="specialty">Specialty Foods</option>
-        <option value="other">Other</option>
-      </select>
+                <!-- SCIENCE/TECH -->
+                <select data-subcat="science" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="3d">3D Printing</option>
+                  <option value="animals">Animal Education</option>
+                  <option value="astronomy">Astronomy, Stargazing & Telescopes</option>
+                  <option value="coding">Coding Languages & Basics</option>
+                  <option value="electronics">Computer & Gaming Accessories</option>
+                  <option value="digitalsculpt">Digital Sculpting</option>
+                  <option value="drone">Drone Piloting</option>
+                  <option value="ecosystems">Ecosystem Conservation</option>
+                  <option value="ai">AI & Automation</option>
+                  <option value="keyboards">Mechanical Keyboard Modding</option>
+                  <option value="mods">Modding Game Systems</option>
+                  <option value="speciesplants">Native Species & Plant Identification</option>
+                  <option value="robotics">Robotics Kits</option>
+                  <option value="geology">Rock Tumbling & Geology</option>
+                  <option value="sciencefair">Science Fair</option>
+                  <option value="space">Space Exploration</option>
+                  <option value="survivialist">Survivalist Training</option>
+                  <option value="virtualreality">Virtual Reality</option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- MEETUPS -->
-      <select data-subcat="meetups" name="primary_detail_meetups" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Meetups option</option>
-        <option value="clubs">Clubs / Groups</option>
-        <option value="networking">Networking</option>
-        <option value="community">Community Building</option>
-        <option value="other">Other</option>
-      </select>
+                <!-- SPORTS -->
+                <select data-subcat="sports" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="archery">Archery</option>
+                  <option value="axe">Axe Throwing</option>
+                  <option value="billiards">Billiards/Pool</option>
+                  <option value="bowling">Bowling</option>
+                  <option value="dance">Dance</option>
+                  <option value="darts">Darts</option>
+                  <option value="hiking">Hiking/Backpacking</option>
+                  <option value="kickball">Kickball</option>
+                  <option value="pickleball">Pickleball</option>
+                  <option value="pilates">Pilates</option>
+                  <option value="pingpong">Ping Pong/Table Tennis</option>
+                  <option value="climbing">Rock Climbing/Bouldering</option>
+                  <option value="roller">Roller Skating & Inline Hockey</option>
+                  <option value="running">Running/Walking</option>
+                  <option value="sailing">Sailing</option>
+                  <option value="softball">Softball</option>
+                  <option value="surfing">Surfing</option>
+                  <option value="team">Team Sports</option>
+                  <option value="tennis">Tennis</option>
+                  <option value="frisbee">Frisbee</option>
+                  <option value="yoga">Yoga</option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- PERFORMANCE -->
-      <select data-subcat="performance" name="primary_detail_performance" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Performance option</option>
-        <option value="music">Music</option>
-        <option value="dance">Dance</option>
-        <option value="theater">Theater</option>
-        <option value="other">Other</option>
-      </select>
+                <!-- VOLUNTEERING -->
+                <select data-subcat="volunteering" class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                        focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+                  <option value=""></option>
+                  <option value="other">Other</option>
+                </select>
 
-      <!-- SCIENCE/TECH -->
-      <select data-subcat="science" name="primary_detail_science" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Science/Tech option</option>
-        <option value="robotics">Robotics</option>
-        <option value="coding">Coding</option>
-        <option value="electronics">Electronics</option>
-        <option value="other">Other</option>
-      </select>
+              </div>
 
-      <!-- SPORTS -->
-      <select data-subcat="sports" name="primary_detail_sports" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
-        <option value="">Select a Sports option</option>
-        <option value="fitness">Fitness</option>
-        <option value="outdoor">Outdoor</option>
-        <option value="team">Team Sports</option>
-        <option value="other">Other</option>
-      </select>
+              <!-- Optional "Other" free-text (shared across rows) -->
+              <input
+                id="ny_primary_detail_other"
+                name="primary_detail_other"
+                type="text"
+                placeholder="Other (please specify)"
+                class="hidden mt-3 w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                      focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+              />
 
-      <!-- VOLUNTEERING -->
-      <select data-subcat="volunteering" name="primary_detail_volunteering" class="hidden w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300">
+              <!-- Row template -->
+              <template id="nySubcatRowTemplate">
+                <div class="flex items-start gap-2 ny-subcat-row">
+                  <!-- select gets injected here -->
+                  <div class="flex-1"></div>
 
-        <option value="other">Other</option>
-      </select>
-
-      <!-- Optional: one tiny "Other" text input, used ONLY when sub-select chooses other -->
-      <input
-        id="ny_primary_detail_other"
-        name="primary_detail_other"
-        type="text"
-        placeholder="Other (please specify)"
-        class="hidden mt-3 w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-      />
-    </div>
+                  <button
+                    type="button"
+                    class="nyRemoveSubcat shrink-0 mt-1 h-10 w-10 rounded-xl border border-slate-200
+                          bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900
+                          inline-flex items-center justify-center"
+                    aria-label="Remove subcategory"
+                    title="Remove"
+                  >
+                    ×
+                  </button>
+                </div>
+              </template>
 
                 <!-- Secondary Hobby Categories -->
                 <div>
                   <label class="block text-sm font-semibold text-slate-900 mb-3">
-                    Only if necessary, select SECONDARY hobby categories (skip question or select up to 2)
+                    Only if necessary, select additional hobby categories
                   </label>
+
+                    <p class="mt-2 mb-4 text-xs text-slate-500">
+                  Additional hobby categories are not required. Skip or add up to 2.
+                </p>
 
                   <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
 
@@ -809,28 +990,76 @@
                   </div>
                 </div>
 
-                  <!-- Experience Type (required) -->
-                  <div>
-                    <label for="ny_experience_type" class="block text-sm font-semibold text-slate-900 mb-2">
-                    Please select how you want to participate in HobbyCon *
-                    </label>
-                    <select
-                      id="ny_experience_type"
-                      name="experience_type"
-                      class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
-                            focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
-                    >
-                      <option value=""></option>
-                      <option value="exhibitor">Exhibitor (Table on exhibit floor)</option>
-                      <option value="workshop">Workshop Host (Teach your hobby)</option>
-                      <option value="panelist">Panelist (Host or speak about your hobby - live or podcast)</option>
-                      <option value="performance">Performance (Take the stage to showcase your art live)</option>
-                      <option value="caterer">Cater (Serve food and beverages)</option>
-                      <option value="competition">Competition (Host or contribute to a competitive event for your hobby)</option>
-                      <option value="meetup">Meetup Host (Gather hobbyists with a common interest)</option>
-                      <option value="volunteering">Volunteering (Service activty)</option>
-                      <option value="other">Other</option>
-                    </select>
+            <!-- Experience Type (required) -->
+            <div>
+              <label for="ny_experience_type" class="block text-sm font-semibold text-slate-900 mb-2">
+                Please select how you want to participate in HobbyCon *
+              </label>
+
+              <!-- FIRST dropdown is always visible -->
+              <select
+                id="ny_experience_type"
+                name="experience_type[]"
+                required
+                class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                      focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+              >
+                <option value=""></option>
+                <option value="exhibitor">Exhibitor (Table on exhibit floor)</option>
+                <option value="workshop">Workshop Host (Teach your hobby)</option>
+                <option value="panelist">Panelist (Host or speak about your hobby - live or podcast)</option>
+                <option value="performance">Performance (Take the stage to showcase your art live)</option>
+                <option value="caterer">Cater (Serve food and beverages)</option>
+                <option value="competition">Competition (Host or contribute to a competitive event for your hobby)</option>
+                <option value="meetup">Meetup Host (Gather hobbyists with a common interest)</option>
+                <option value="volunteering">Volunteering (Service activity)</option>
+                <option value="other">Other</option>
+              </select>
+
+              <!-- EXTRA rows get added here -->
+              <div id="nyExperienceExtraList" class="mt-3 space-y-3"></div>
+
+              <button
+                type="button"
+                id="nyAddExperienceBtn"
+                class="mt-3 mb-6 text-sm font-semibold text-purple-700 hover:text-purple-900 underline underline-offset-4 relative z-10 pointer-events-auto"
+              >
+                + Add another participation type
+              </button>
+
+              <template id="nyExperienceRowTemplate">
+                <div class="flex items-start gap-2 ny-exp-row">
+                  <select
+                    name="experience_type[]"
+                    class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                          focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                  >
+                    <option value=""></option>
+                    <option value="exhibitor">Exhibitor (Table on exhibit floor)</option>
+                    <option value="workshop">Workshop Host (Teach your hobby)</option>
+                    <option value="panelist">Panelist (Host or speak about your hobby - live or podcast)</option>
+                    <option value="performance">Performance (Take the stage to showcase your art live)</option>
+                    <option value="caterer">Cater (Serve food and beverages)</option>
+                    <option value="competition">Competition (Host or contribute to a competitive event for your hobby)</option>
+                    <option value="meetup">Meetup Host (Gather hobbyists with a common interest)</option>
+                    <option value="volunteering">Volunteering (Service activity)</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                  <button
+                    type="button"
+                    class="nyRemoveExperience shrink-0 mt-1 h-10 w-10 rounded-xl border border-slate-200
+                          bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900
+                          inline-flex items-center justify-center"
+                    aria-label="Remove participation type"
+                    title="Remove"
+                  >
+                    ×
+                  </button>
+                </div>
+              </template>
+            </div>
+
                   </div>
 
                   <!-- Description (required) -->
@@ -846,7 +1075,7 @@
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     ></textarea>
-                    <p class="mt-2 text-xs text-slate-500">
+                    <p class="mt-2 mb-6 text-xs text-slate-500">
                       Example: what you sell/teach, your audience, previous experience and what your booth would look like.
                     </p>
                   </div>
@@ -865,8 +1094,6 @@
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
                   </div>
-
-                </div>
 
                 <!-- Submit -->
                 <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -891,6 +1118,7 @@
             </div>
           </section>
         </div>
+    </div>
 
         <!-- Panel: Event 2 Vendor Form -->
         <div id="vendorFormPanelAZ" class="hidden mb-1">
@@ -912,8 +1140,28 @@
                   <p class="mt-2 text-slate-600">
                     Join us at <a href="https://solidgroundarena.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
                         Solid Ground Arena</a>
-                        in Peoria, AZ for the 2026 Roller Hockey Tournament! 
+                        in Peoria, AZ for the 2026 Roller Hockey Tournament! If you have any questions or find any technical difficulties with this form, email
+                      <a href="mailto:info@hobbycon.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
+                        info@hobbycon.com</a>
+                      for assistance.
                   </p>
+
+                  <div class="space-y-2">
+
+                  <p class="pt-3 font-bold text-slate-900">What to Expect</p>
+                  <p>Vendors who plan to table can expect a 10x10 space at Solid Ground Arena (indoor or outdoor) and 2 free tournament tickets. In order to encourage our small clubs and local groups, pricing will vary:</p>
+
+                  <ul class="mt-2 space-y-2 text-slate-600 list-disc pl-6">
+                    <li><span class="font-semibold text-slate-900">Community Organizations/Clubs/Non-profits</span> $50/day</li>
+                    <li><span class="font-semibold text-slate-900">Businesses</span> $200/day</li>
+                    <li><span class="font-semibold text-slate-900">Caterer</span> $300/day</li>
+                    <li><span class="font-semibold text-slate-900">Extra space, chairs, electricity, additional badges, etc.</span> will be available at an additional cost</li>
+                  </ul>
+
+                    <p class="font-semibold italic text-slate-700">
+                      ***Please note, date is still TBD. Expect Fall 2026 at Solid Ground Arena***
+                    </p>
+                  </div>
                 </div>
 
                 <div class="space-y-6">
@@ -1062,6 +1310,7 @@
                       placeholder="Tell us where you found us…"
                     />
                   </div>
+
                 </div>
 
                   <!-- Vendor Type (required) -->
@@ -1080,7 +1329,7 @@
                     >
                       <option value=""></option>
                       <option value="club">Club/Community Organization</option>
-                      <option value="business">Business (Selling a product, service and/or promoting a brand)</option>
+                      <option value="business">Business (Selling products, services, and/or promoting a registered buisness)</option>
                       <option value="nonprofit">Non-profit (501(c)(3) organization)</option>
                       <option value="caterer">Caterer (Serving food & beverage)</option>
                       <option value="other">Other</option>
@@ -1159,71 +1408,6 @@
 
         </section>
 
-        <!-- Mahjong + Yoga Retreat – Join Now Banner -->
-                <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden pt-2 my-1">
-                  <a
-                    href="retreats"
-                    class="block ring-1 ring-black/5 bg-gradient-to-r from-[#F6DCC7] via-[#F3CFB4] to-[#F0BE98]"
-                    aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
-                  >
-                    <!-- moving row; duplicate content for seamless loop -->
-                    <div class="marquee-track whitespace-nowrap py-3">
-                      <!-- GROUP A -->
-                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-                      </span>
-
-                      <!-- GROUP B (duplicate for seamless loop) -->
-                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-                      </span>
-                    </div>
-                  </a>
-                </div>
 
         <!-- CTA Section (HobbyCon style) -->
         <section class="max-w-6xl mx-auto px-5 pt-20 pb-0">

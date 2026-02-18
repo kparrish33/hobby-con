@@ -1038,61 +1038,209 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 
-  // -----------------------------
-  // D) "Other" select reveals a textbox/textarea
-  // (expects: select[data-other-select] + data-other-target="#somePanel")
-  // -----------------------------
-  (function () {
-    document.querySelectorAll("select[data-other-select]").forEach((sel) => {
-      const targetSel = sel.getAttribute("data-other-target");
-      const panel = targetSel ? document.querySelector(targetSel) : null;
-      const input = panel ? panel.querySelector("input, textarea") : null;
+// -----------------------------
+// D) "Other" + "Referral" select reveals textbox
+// -----------------------------
+(function () {
+  const sel = document.getElementById("ny_hear_about");
+  if (!sel) return;
 
-      function sync() {
-        const isOn = sel.value === "other";
-        if (panel) panel.classList.toggle("hidden", !isOn);
-        if (input) {
-          input.required = isOn;
-          if (!isOn) input.value = "";
-        }
-      }
+  const otherWrap = document.getElementById("ny_hear_about_other_wrap");
+  const otherInput = document.getElementById("ny_hear_about_other");
 
-      sync(); // ✅ run once on load
-      sel.addEventListener("change", sync);
+  const referralWrap = document.getElementById("ny_hear_about_referral_wrap");
+  const referralInput = document.getElementById("ny_hear_about_referral");
+
+  function sync() {
+    const val = sel.value;
+
+    const isOther = val === "other";
+    const isReferral = val === "referral";
+
+    // OTHER
+    if (otherWrap) otherWrap.classList.toggle("hidden", !isOther);
+    if (otherInput) {
+      otherInput.required = isOther;
+      if (!isOther) otherInput.value = "";
+    }
+
+    // REFERRAL
+    if (referralWrap) referralWrap.classList.toggle("hidden", !isReferral);
+    if (referralInput) {
+      referralInput.required = isReferral;
+      if (!isReferral) referralInput.value = "";
+    }
+  }
+
+  sel.addEventListener("change", sync);
+  sync(); // run once on load
+})();
+
+
+// -----------------------------
+// E) Primary category -> dynamic subcategory rows (NY)
+// - 1st subcategory required
+// - + adds more rows
+// - options depend on primary
+// Uses hidden "library" selects: <select data-subcat="art">...</select>
+// -----------------------------
+(function () {
+  const primary = document.getElementById("ny_hobby_category");
+  if (!primary) return;
+
+  const wrap = document.getElementById("nySubcategoryWrap");
+  const list = document.getElementById("nySubcatList");
+  const addBtn = document.getElementById("nyAddSubcategoryBtn");
+  const libraries = document.getElementById("nySubcategoryLibraries");
+  const rowTemplate = document.getElementById("nySubcatRowTemplate");
+  const otherInput = document.getElementById("ny_primary_detail_other"); // optional
+
+  if (!wrap || !list || !addBtn || !libraries || !rowTemplate) return;
+
+  let activePrimary = "";
+
+  function getLibrarySelect(categoryValue) {
+    return libraries.querySelector(`select[data-subcat="${categoryValue}"]`);
+  }
+
+  function clearRows() {
+    list.innerHTML = "";
+    if (otherInput) {
+      otherInput.classList.add("hidden");
+      otherInput.value = "";
+      otherInput.required = false;
+    }
+  }
+
+  function syncOtherVisibility() {
+    if (!otherInput) return;
+    const anyOtherSelected = [...list.querySelectorAll("select")].some(
+      (s) => s.value === "other"
+    );
+    otherInput.classList.toggle("hidden", !anyOtherSelected);
+    otherInput.required = anyOtherSelected;
+    if (!anyOtherSelected) otherInput.value = "";
+  }
+
+  function updateRowRules() {
+    const rows = list.querySelectorAll(".ny-subcat-row");
+    rows.forEach((row, idx) => {
+      const sel = row.querySelector("select");
+      const removeBtn = row.querySelector(".nyRemoveSubcat");
+
+      // only first row required
+      if (sel) sel.required = idx === 0;
+
+      // can't remove last remaining row
+      if (removeBtn) removeBtn.style.display = rows.length > 1 ? "inline-flex" : "none";
     });
-  })();
+  }
 
-  // -----------------------------
-  // E) Subcategory toggle based on primary category (NY)
-  // (expects sections like: <div data-subcat-section="art">...</div>)
-  // -----------------------------
-  (function () {
-    const primary = document.getElementById("ny_hobby_category");
-    if (!primary) return;
+  function createRow() {
+    const lib = getLibrarySelect(activePrimary);
+    if (!lib) return null;
 
-    const sections = document.querySelectorAll("[data-subcat-section]");
-    if (!sections.length) return;
+    const row = rowTemplate.content.firstElementChild.cloneNode(true);
+    const slot = row.querySelector(".flex-1") || row.querySelector("div");
 
-    function sync() {
-      const selected = primary.value;
+    // clone library select (options included)
+    const sel = lib.cloneNode(true);
 
-      sections.forEach(section => {
-        const match = section.getAttribute("data-subcat-section") === selected;
+    // IMPORTANT: each row name uses [] so multiple values submit
+    sel.name = `primary_detail_${activePrimary}[]`;
 
-        section.classList.toggle("hidden", !match);
+    // ensure visible (library is hidden)
+    sel.classList.remove("hidden");
 
-        // Toggle required only on visible select(s)
-        const selects = section.querySelectorAll("select");
-        selects.forEach((s) => {
-          s.required = match;
-          if (!match) s.value = "";
-        });
+    sel.addEventListener("change", syncOtherVisibility);
+
+    // inject select into row
+    if (slot) slot.appendChild(sel);
+
+    // remove handler
+    const removeBtn = row.querySelector(".nyRemoveSubcat");
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        row.remove();
+        updateRowRules();
+        syncOtherVisibility();
       });
     }
 
-    primary.addEventListener("change", sync);
-    sync(); // ✅ run once on load (important if value preselected)
-  })();
+    return row;
+  }
+
+  function showForCategory(categoryValue) {
+    activePrimary = categoryValue;
+
+    // hide for empty/other
+    if (!activePrimary || activePrimary === "other") {
+      wrap.classList.add("hidden");
+      clearRows();
+      return;
+    }
+
+    // require that a library exists for that category
+    const lib = getLibrarySelect(activePrimary);
+    if (!lib) {
+      wrap.classList.add("hidden");
+      clearRows();
+      return;
+    }
+
+    wrap.classList.remove("hidden");
+    clearRows();
+
+    // inject FIRST row (required)
+    const first = createRow();
+    if (first) list.appendChild(first);
+
+    updateRowRules();
+    syncOtherVisibility();
+  }
+
+  primary.addEventListener("change", () => showForCategory(primary.value));
+
+  addBtn.addEventListener("click", () => {
+    if (!activePrimary) return;
+    const row = createRow();
+    if (row) {
+      list.appendChild(row);
+      updateRowRules();
+    }
+  });
+
+  // run once on load (handles back button / prefilled)
+  if (primary.value) showForCategory(primary.value);
+})();
+
+// -----------------------------
+// F) Experience Type (NY) - first dropdown stays, + adds extra rows
+// -----------------------------
+(function () {
+  const addBtn = document.getElementById("nyAddExperienceBtn");
+  const list = document.getElementById("nyExperienceExtraList");
+  const template = document.getElementById("nyExperienceRowTemplate");
+
+  // quick sanity log
+  console.log("[Experience] elements:", { addBtn: !!addBtn, list: !!list, template: !!template });
+
+  if (!addBtn || !list || !template) return;
+
+  function addRow() {
+    const row = template.content.firstElementChild.cloneNode(true);
+
+    const removeBtn = row.querySelector(".nyRemoveExperience");
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => row.remove());
+    }
+
+    list.appendChild(row);
+  }
+
+  addBtn.addEventListener("click", addRow);
+})();
+
 
 });
 

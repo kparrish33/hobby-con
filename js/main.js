@@ -1241,6 +1241,29 @@ document.addEventListener("DOMContentLoaded", () => {
   addBtn.addEventListener("click", addRow);
 })();
 
+// G. RETREAT ACKNOWLEDGEMENT: require "Open PDF" click before enabling agreement checkbox
+(() => {
+  const openBtn = document.getElementById("openWaiverPdf");
+  const agree = document.getElementById("agreeTerms");
+  const dateSigned = document.getElementById("dateSigned");
+
+  // Default date signed = today
+  if (dateSigned && !dateSigned.value) {
+    dateSigned.value = new Date().toISOString().split("T")[0];
+  }
+
+  if (!openBtn || !agree) return;
+
+  // Keep it locked until user opens PDF
+  agree.disabled = true;
+
+  openBtn.addEventListener("click", () => {
+    // "Open PDF" was clicked — unlock checkbox
+    agree.disabled = false;
+    agree.focus();
+  });
+})();
+
 
 });
 

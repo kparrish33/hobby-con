@@ -1320,6 +1320,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// -----------------------------
+// Retreat page: collapsible signup form
+// -----------------------------
+(function () {
+  const btn = document.getElementById("toggleRetreatFormBtn");
+  const panel = document.getElementById("retreatFormPanel");
+  const caret = document.getElementById("toggleRetreatFormCaret");
+
+  if (!btn || !panel) return;
+
+  function openPanel() {
+    panel.classList.remove("hidden");
+    btn.setAttribute("aria-expanded", "true");
+    if (caret) caret.style.transform = "rotate(180deg)";
+  }
+
+  function closePanel() {
+    panel.classList.add("hidden");
+    btn.setAttribute("aria-expanded", "false");
+    if (caret) caret.style.transform = "rotate(0deg)";
+  }
+
+  btn.addEventListener("click", () => {
+    const isOpen = !panel.classList.contains("hidden");
+    if (isOpen) closePanel();
+    else openPanel();
+
+    if (window.feather) window.feather.replace();
+
+    // optional: when opening, scroll into view
+    if (!isOpen) {
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+  // Auto-open if arriving at #interest
+  if (location.hash === "#interest") {
+    openPanel();
+  }
+})();
+
+
+// ===============================
+// Retreat: Accommodations Toggle (hardened)
+// ===============================
+(function () {
+  function initAccomToggle() {
+    try {
+      const btn = document.getElementById("toggleAccomBtn");
+      const panel = document.getElementById("accomPanel");
+      const caret = document.getElementById("toggleAccomCaret");
+
+      if (!btn || !panel) return false;
+
+      // prevent double-binding if init runs twice
+      if (btn.dataset.bound === "1") return true;
+      btn.dataset.bound = "1";
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const isOpen = !panel.classList.contains("hidden");
+        panel.classList.toggle("hidden", isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        if (caret) caret.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
+      });
+
+      return true;
+    } catch (err) {
+      // don't let this kill the rest of your file
+      return false;
+    }
+  }
+
+  // Try now, and also after full load (covers ordering issues)
+  initAccomToggle();
+  window.addEventListener("load", initAccomToggle);
+})();
+
+
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)
 // Requirements:

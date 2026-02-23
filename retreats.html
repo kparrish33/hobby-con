@@ -150,7 +150,6 @@
     </nav>
   </div>
 </div>
-
    
     <!-- HERO -->
     <section class="max-w-6xl mx-auto px-5 pt-10 pb-8 md:pt-14 md:pb-10">
@@ -162,7 +161,7 @@
 
         <div class="grid lg:grid-cols-12 gap-10 items-center relative">
           <!-- Left -->
-          <div class="lg:col-span-7">
+          <div class="lg:col-span-7 space-y-6">
             <div class="inline-flex flex-wrap gap-2 mb-5">
               <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/80 border border-slate-200">
                 Memorial Day Weekend 2026
@@ -210,7 +209,7 @@
             </div>
 
             <div class="rounded-2xl bg-white border border-slate-200 p-4">
-              <div class="text-xs text-slate-500">VIBE</div>
+              <div class="text-xs text-slate-500">COMMUNITY</div>
               <div class="mt-1 font-semibold text-slate-900">
                 Play • Unwind • Connect
               </div>
@@ -228,10 +227,10 @@
           <!-- Overview -->
           <div class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
             <h2 class="text-2xl md:text-3xl font-bold text-slate-900">
-              What this retreat is
+              A Weekend Escape
             </h2>
             <p class="mt-4 text-slate-700 leading-relaxed">
-              This is a weekend escape designed for connection, structured learning,
+              Designed for connection, structured learning,
               and plenty of play time. You’ll learn American Mahjong
               step-by-step, flow through yoga sessions suitable for all levels,
               and spend the weekend with other beginner players.
@@ -243,7 +242,7 @@
                   <i data-feather="check" class="w-4 h-4"></i> Beginner-friendly
                 </div>
                 <p class="mt-2 text-sm text-slate-600">
-                  No Mahjong set, no rule card, no problem.
+                  No Mahjong set, no problem. We’ll teach you and practice with you!
                 </p>
               </div>
 
@@ -252,7 +251,7 @@
                   <i data-feather="check" class="w-4 h-4"></i> Yoga for all levels
                 </div>
                 <p class="mt-2 text-sm text-slate-600">
-                  Options for gentle flow + restorative.
+                  Optional gentle sunrise flows and meditative sound baths each day.
                 </p>
               </div>
 
@@ -261,7 +260,7 @@
                   <i data-feather="check" class="w-4 h-4"></i> Community-first
                 </div>
                 <p class="mt-2 text-sm text-slate-600">
-                  Curated and no pressure-added group activities.
+                  Curated and no pressure-added group activities and workshops.
                 </p>
               </div>
 
@@ -270,68 +269,183 @@
                   <i data-feather="check" class="w-4 h-4"></i> On the water
                 </div>
                 <p class="mt-2 text-sm text-slate-600">
-                  Peaceful coastal Long Island vibes.
+                  Peaceful coastal Long Island setting with luxury accomodations.
                 </p>
               </div>
             </div>
           </div>
 
+<!-- ACCOMMODATIONS (Expandable Card) -->
+<div class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 mt-8">
+  <!-- Header row -->
+  <div class="flex items-start justify-between gap-4">
+    <div class="min-w-0">
+      <h3 class="text-2xl md:text-3xl font-bold text-slate-900">Accommodations</h3>
+      <p class="mt-2 text-sm text-slate-600">
+        See the property, room options, and pricing.
+      </p>
+    </div>
 
-          <!-- Itinerary -->
-          <div id="itinerary" class="mt-8 hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">
-                  Weekend Itinerary
-                </h2>
-                <p class="mt-2 text-slate-600">
-                  Take a look at the details we have planned.
-                </p>
-              </div>
-              <div class="shrink-0 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
-                Subject to Change
+    <button
+      type="button"
+      id="toggleAccomBtn"
+      aria-expanded="false"
+      aria-controls="accomPanel"
+      class="shrink-0 hc-btn hc-btn-ghost px-5 py-3 text-sm md:text-base"
+    >
+      View
+      <span id="toggleAccomCaret" class="inline-block transition-transform duration-300">▾</span>
+    </button>
+  </div>
+
+  <!-- Collapsible panel -->
+  <div id="accomPanel" class="hidden mt-6 space-y-8">
+
+    <!-- Property gallery -->
+    <div>
+      <h4 class="text-base font-bold text-slate-900">Property Gallery</h4>
+      <p class="mt-1 text-sm text-slate-600">
+        Mahjong room, waterfront views, common areas, and more.
+      </p>
+
+      <div class="mt-4 grid grid-cols-2 gap-3">
+        <!-- Big tile -->
+        <a href="#" class="col-span-2 block rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+          <div class="aspect-[16/9] w-full flex items-center justify-center text-slate-400 text-sm">
+            Property photo (hero)
+          </div>
+        </a>
+
+        <!-- Small tiles -->
+        <a href="#" class="block rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+          <div class="aspect-square w-full flex items-center justify-center text-slate-400 text-sm">
+            Pool / Exterior
+          </div>
+        </a>
+
+        <a href="#" class="block rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+          <div class="aspect-square w-full flex items-center justify-center text-slate-400 text-sm">
+            Common area
+          </div>
+        </a>
+      </div>
+
+      <p class="mt-3 text-xs text-slate-500">
+        Note: The featured main property has 3 bedrooms. The remaining rooms are across the street in the guest house.
+      </p>
+    </div>
+
+    <!-- Room options -->
+    <div>
+      <h4 class="text-base font-bold text-slate-900">Room Types & Pricing</h4>
+      <p class="mt-1 text-sm text-slate-600">
+        Multiple room options to fit your preferences and budget.
+      </p>
+
+      <div class="mt-4 grid gap-4">
+        <!-- Room card -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <div class="font-bold text-slate-900">Shared Room (2 guests)</div>
+              <div class="text-sm text-slate-600">Two beds • Shared bath • Best value</div>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-lg font-extrabold text-slate-900">$XXX</div>
+              <div class="text-xs text-slate-500">per person</div>
+            </div>
+          </div>
+
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+              <div class="aspect-square w-full flex items-center justify-center text-slate-400 text-xs">
+                Room photo
               </div>
             </div>
-
-            <div class="mt-6 grid gap-4">
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <div class="text-sm font-bold text-slate-900">Friday (Arrival Night)</div>
-                <ul class="mt-3 space-y-2 text-slate-700">
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Check-in + welcome mocktail</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Intro to American Mahjong (basics)</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Light community mixer</li>
-                </ul>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <div class="text-sm font-bold text-slate-900">Saturday (Learn + Play)</div>
-                <ul class="mt-3 space-y-2 text-slate-700">
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Morning yoga + coffee</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong lesson: hands, jokers, strategy</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Guided play tables + free play</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Sunset hang on the water</li>
-                </ul>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <div class="text-sm font-bold text-slate-900">Sunday (Community Day)</div>
-                <ul class="mt-3 space-y-2 text-slate-700">
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Gentle yoga / stretch + breath</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Vineyard tour + tasting</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong mini-tourney (friendly)</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Group meal + story shares</li>
-                </ul>
-              </div>
-
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <div class="text-sm font-bold text-slate-900">Monday (Wrap + Depart)</div>
-                <ul class="mt-3 space-y-2 text-slate-700">
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Closing circle + take-home resources</li>
-                  <li class="flex gap-2"><span class="text-slate-400">•</span> Checkout</li>
-                </ul>
+            <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+              <div class="aspect-square w-full flex items-center justify-center text-slate-400 text-xs">
+                Bathroom / view
               </div>
             </div>
           </div>
+
+          <ul class="mt-4 text-sm text-slate-700 space-y-1">
+            <li>• Includes: linens, towels, Wi-Fi</li>
+            <li>• Check-in: X:XX PM • Check-out: X:XX AM</li>
+            <li>• Notes: add any rules / quiet hours</li>
+          </ul>
+        </div>
+
+        <!-- Room card -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <div class="font-bold text-slate-900">Private Room (1 guest)</div>
+              <div class="text-sm text-slate-600">One bed • Private bath (if applicable)</div>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-lg font-extrabold text-slate-900">$XXX</div>
+              <div class="text-xs text-slate-500">per person</div>
+            </div>
+          </div>
+
+          <div class="mt-4 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+            <div class="aspect-[16/9] w-full flex items-center justify-center text-slate-400 text-sm">
+              Private room photo
+            </div>
+          </div>
+
+          <ul class="mt-4 text-sm text-slate-700 space-y-1">
+            <li>• Includes: linens, towels, Wi-Fi</li>
+            <li>• Recommended for: early sleepers / privacy</li>
+            <li>• Notes: add any upgrade details</li>
+          </ul>
+        </div>
+
+        <!-- Room card -->
+        <div class="rounded-3xl border border-slate-200 bg-white p-5">
+          <div class="flex items-start justify-between gap-3">
+            <div class="min-w-0">
+              <div class="font-bold text-slate-900">VIP Suite (limited)</div>
+              <div class="text-sm text-slate-600">Largest room • Premium amenities</div>
+            </div>
+            <div class="text-right shrink-0">
+              <div class="text-lg font-extrabold text-slate-900">$XXX</div>
+              <div class="text-xs text-slate-500">per person</div>
+            </div>
+          </div>
+
+          <div class="mt-4 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+            <div class="aspect-[16/9] w-full flex items-center justify-center text-slate-400 text-sm">
+              Suite photo
+            </div>
+          </div>
+
+          <ul class="mt-4 text-sm text-slate-700 space-y-1">
+            <li>• Includes: add premium perks</li>
+            <li>• Great for: hosts / special occasions</li>
+            <li>• Notes: add availability details</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- What’s included / Policies -->
+    <div class="rounded-3xl border border-slate-200 bg-slate-50/60 p-5">
+      <h4 class="text-base font-bold text-slate-900">What’s Included</h4>
+      <ul class="mt-3 text-sm text-slate-700 space-y-1">
+        <li>• 3 nights lodging, hot tub, waterview</li>
+        <li>• Mahjong sessions + yoga classes</li>
+        <li>• Meals, drinks, and snacks</li>
+      </ul>
+
+      <div class="mt-4 text-xs text-slate-500">
+        Pricing + availability subject to change. Rooms cannot be guaranteed until deposit is paid. Cancellation policies apply. Contact us for details.
+      </div>
+    </div>
+
+  </div>
+</div>
 
           <!-- FAQ -->
           <div class="mt-8 hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
@@ -360,6 +474,16 @@
 
               <details class="rounded-2xl border border-slate-200 bg-white p-5">
                 <summary class="cursor-pointer font-semibold text-slate-900 flex items-center justify-between">
+                  How do I get there?
+                  <span class="text-slate-400"><i data-feather="chevron-down" class="w-4 h-4"></i></span>
+                </summary>
+                <p class="mt-3 text-slate-700 leading-relaxed">
+                  The retreat is located in Poquott, New York on the North Shore of Long Island. It's easily accessible by car, plane, train (LIRR Port Jefferson Station), or the Port Jefferson ferry. We offer pickup/drop-off arrangements for the ferry and train, making it the perfect weekend gateaway for those in New York City, Conneticut, and the surrounding area. We'll share more detailed travel guides with registered participants.
+                </p>
+              </details>
+
+              <details class="rounded-2xl border border-slate-200 bg-white p-5">
+                <summary class="cursor-pointer font-semibold text-slate-900 flex items-center justify-between">
                   Do I need to bring my own yoga mat?
                   <span class="text-slate-400"><i data-feather="chevron-down" class="w-4 h-4"></i></span>
                 </summary>
@@ -377,6 +501,18 @@
                   Yes. There will be light alcohol included (wine, seltzers, and signature cocktails/mocktails). You’re also welcome to bring your own beverages or purchase from local stores. The vineyard excursion is an optional experience available at an additional cost.
                 </p>
               </details>
+
+              <div class="mt-10 text-center">
+                <p class="text-slate-700 text-base">
+                  Still have more questions?
+                  <a
+                    href="/contact"
+                    class="font-semibold text-purple-600 hover:text-purple-800 underline underline-offset-4 transition"
+                  >
+                    Contact us
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -413,19 +549,155 @@
             </div>
           </div>
 
-          <!-- Sign Up Form -->
-          <div id="interest" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
-            <h3 class="text-xl font-bold text-slate-900">Mahjong Retreat Form</h3>
-            <p class="mt-2 text-sm text-slate-600">
-              Interested in joining this retreat? Sign up to secure your spot!
-            </p>
+          <!-- Countdown + Instagram Row -->
+          <div class="mt-8 flex items-center justify-between gap-6">
 
-            <form
-              class="mt-5 space-y-4"
-              action="https://formspree.io/f/mlgwbere"
-              method="POST"
-              id="retreatInterestForm"
+            <!-- Countdown -->
+            <div id="countdown"
+                class="hc-card bg-white/80 backdrop-blur border border-slate-200 rounded-3xl px-6 sm:px-12 py-4 shadow-sm">
+              <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
+                <div>
+                  <div id="cdDays" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Days</div>
+                </div>
+                <div>
+                  <div id="cdHours" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Hours</div>
+                </div>
+                <div>
+                  <div id="cdMins" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Min</div>
+                </div>
+                <div>
+                  <div id="cdSecs" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
+                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Sec</div>
+                </div>
+              </div>
+
+              <p id="cdDone" class="hidden mt-3 text-sm font-semibold text-purple-700">
+                It's retreat weekend 🎉
+              </p>
+            </div>
+
+            <!-- Instagram Button -->
+            <a
+              href="https://instagram.com/hobbyconretreats"
+              target="_blank"
+              rel="noopener"
+              class="flex-shrink-0 inline-flex items-center justify-center
+                    w-20 h-20 rounded-3xl
+                    bg-white border border-purple-200
+                    text-purple-600
+                    shadow-sm hover:shadow-md
+                    hover:bg-purple-50 transition-all duration-300"
             >
+              <i data-feather="instagram" class="w-10 h-10"></i>
+            </a>
+          </div>
+
+           <!-- Itinerary -->
+          <div id="itinerary" class="mt-8 hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h2 class="text-xl font-bold text-slate-900">
+                  Weekend Itinerary
+                </h2>
+                <p class="mt-2 text-slate-600">
+                  Take a look at the details we have planned.
+                </p>
+              </div>
+              <div class="shrink-0 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-semibold">
+                Subject to Change
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-4">
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div class="text-sm font-bold text-slate-900">Friday (Arrival Night)</div>
+                <ul class="mt-3 space-y-2 text-slate-700">
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Check-in + Welcome Drinks</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Opening Circle</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Slumber Party Social</li>
+                </ul>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div class="text-sm font-bold text-slate-900">Saturday (Learn + Play)</div>
+                <ul class="mt-3 space-y-2 text-slate-700">
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Sunrise-ish Yoga & Sound Bath</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Bagel Bar Breakfast</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong Session 1: Basics & Rules</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Vineyard Excursion + Lunch</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong Session 2: Play & Practice</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Sunset Hibachi Dinner</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Fire Pit</li>
+                </ul>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div class="text-sm font-bold text-slate-900">Sunday (Workshops + Town)</div>
+                <ul class="mt-3 space-y-2 text-slate-700">
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Gentle yoga: stretch + breath</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Tea & Tiles Breakfast</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong Session 3: Chinese Mahjong</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mahjong Style DIY Workshop + Lunch</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Mini Mahjong Tournament</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> “Tiles & Tasting” Pairing Night</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Farewell Dinner + Closing Circle</li>
+                </ul>
+              </div>
+
+              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                <div class="text-sm font-bold text-slate-900">Monday (Wrap + Depart)</div>
+                <ul class="mt-3 space-y-2 text-slate-700">
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Breakfast To-Go</li>
+                  <li class="flex gap-2"><span class="text-slate-400">•</span> Checkout</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mahjong Retreat Form Card -->
+<div class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8">
+
+  <!-- Header Row -->
+  <div class="flex items-start justify-between gap-4">
+    <div class="min-w-0">
+      <h3 class="text-xl font-bold text-slate-900">Mahjong Retreat Form</h3>
+      <p class="mt-2 text-sm text-slate-600">
+        Interested in joining this retreat? Sign up to secure your spot!
+      </p>
+    </div>
+
+    <!-- Toggle Button -->
+    <button
+      type="button"
+      id="toggleRetreatFormBtn"
+      aria-expanded="false"
+      aria-controls="retreatFormPanel"
+      class="shrink-0 hc-btn hc-btn-primary
+            px-6 py-3 md:px-6 md:py-3
+            text-base md:text-base"
+    >
+      Sign up
+      <span
+        id="toggleRetreatFormCaret"
+        class="inline-block transition-transform duration-300"
+      >
+        ▾
+      </span>
+    </button>
+</div>
+
+  <!-- Collapsible Form Panel -->
+  <div id="retreatFormPanel" class="hidden mt-6">
+
+    <form
+      class="space-y-4"
+      action="https://formspree.io/f/mlgwbere"
+      method="POST"
+      id="retreatInterestForm"
+    >
           <!-- CONTACT INFO HEADER -->
           <div class="pt-6">
             <h3 class="text-base md:text-xl font-bold text-slate-900">Contact Information</h3>
@@ -598,7 +870,7 @@
 
               <!-- Mahjong Experience (required) -->
               <div>
-                <label class="block text-sm font-semibold mb-2" for="ri-experience">Mahjong experience</label>
+                <label class="block text-sm font-semibold mb-2" for="ri-experience">Mahjong Experience</label>
                 <p class="mt-2 mb-4 text-xs text-slate-500">
                   Note: this retreat is tailored to new/beginner players but everyone is welcome!
                 </p>
@@ -670,7 +942,7 @@
 
                    <!-- Travel Plans (required) -->
               <div>
-                <label class="block text-sm font-semibold mb-2" for="ri-travel">Please let us know how you are getting to the retreat and your expected time of arrival on Friday, May 22nd. If you're arriving later than Friday, please let us know</label>
+                <label class="block text-sm font-semibold mb-2" for="ri-travel">Please let us know your travel plans to the retreat and your expected time of arrival.</label>
                 <input
                   id="ri-travel"
                   name="travel_plans"
@@ -815,53 +1087,8 @@
             </form>
 
           </div>
+        </div>
 
-          <!-- Countdown + Instagram Row -->
-          <div class="mt-8 flex items-center justify-between gap-6">
-
-            <!-- Countdown -->
-            <div id="countdown"
-                class="hc-card bg-white/80 backdrop-blur border border-slate-200 rounded-3xl px-6 sm:px-12 py-4 shadow-sm">
-              <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center">
-                <div>
-                  <div id="cdDays" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
-                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Days</div>
-                </div>
-                <div>
-                  <div id="cdHours" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
-                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Hours</div>
-                </div>
-                <div>
-                  <div id="cdMins" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
-                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Min</div>
-                </div>
-                <div>
-                  <div id="cdSecs" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tabular-nums">--</div>
-                  <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Sec</div>
-                </div>
-              </div>
-
-              <p id="cdDone" class="hidden mt-3 text-sm font-semibold text-purple-700">
-                It's retreat weekend 🎉
-              </p>
-            </div>
-
-            <!-- Instagram Button -->
-            <a
-              href="https://instagram.com/hobbyconretreats"
-              target="_blank"
-              rel="noopener"
-              class="flex-shrink-0 inline-flex items-center justify-center
-                    w-20 h-20 rounded-3xl
-                    bg-white border border-purple-200
-                    text-purple-600
-                    shadow-sm hover:shadow-md
-                    hover:bg-purple-50 transition-all duration-300"
-            >
-              <i data-feather="instagram" class="w-10 h-10"></i>
-            </a>
-
-          </div>
 
           <!-- CTA -->
           <div class="hc-card rounded-3xl p-7 md:p-8 border border-purple-200 bg-gradient-to-br from-purple-50 to-indigo-50">

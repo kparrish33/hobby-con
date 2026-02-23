@@ -465,3 +465,12 @@ html, body { overflow-x: clip; }
   font-weight: 600;
   color: #6d28d9;
 }
+
+/* ========================= Retreat toggle button — slightly larger on mobile ========================= */
+@media (max-width: 768px) {
+  #toggleRetreatFormBtn {
+    padding: 1.1rem 1.9rem;   /* bigger tap area */
+    font-size: 1.05rem;       /* slightly larger text */
+  }
+}
+

@@ -51,6 +51,9 @@
     0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
+html { scroll-behavior: smooth; }
+
+
 /* -----------------------------
    Navigation links – HobbyCon
 -------------------------------- */

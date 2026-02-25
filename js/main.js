@@ -1321,7 +1321,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // -----------------------------
-// Retreat page: collapsible signup form
+// Retreat page: collapsible signup form (auto-opens via #interest + button click)
 // -----------------------------
 (function () {
   const btn = document.getElementById("toggleRetreatFormBtn");
@@ -1334,6 +1334,7 @@ document.addEventListener("DOMContentLoaded", () => {
     panel.classList.remove("hidden");
     btn.setAttribute("aria-expanded", "true");
     if (caret) caret.style.transform = "rotate(180deg)";
+    if (window.feather) window.feather.replace();
   }
 
   function closePanel() {
@@ -1342,23 +1343,30 @@ document.addEventListener("DOMContentLoaded", () => {
     if (caret) caret.style.transform = "rotate(0deg)";
   }
 
+  // Toggle via the in-card button
   btn.addEventListener("click", () => {
     const isOpen = !panel.classList.contains("hidden");
     if (isOpen) closePanel();
     else openPanel();
-
-    if (window.feather) window.feather.replace();
-
-    // optional: when opening, scroll into view
-    if (!isOpen) {
-      panel.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
   });
 
-  // Auto-open if arriving at #interest
-  if (location.hash === "#interest") {
-    openPanel();
+  // ✅ If user clicks "Sign Up Now" (or any link to #interest), open immediately
+  document.querySelectorAll('a[href="#interest"]').forEach((a) => {
+    a.addEventListener("click", () => {
+      // let the browser jump to the anchor first, then open
+      setTimeout(openPanel, 50);
+    });
+  });
+
+  // ✅ Also open when arriving at /page#interest (or hash changes)
+  function syncToHash() {
+    if (location.hash === "#interest") {
+      setTimeout(openPanel, 50);
+    }
   }
+
+  syncToHash();
+  window.addEventListener("hashchange", syncToHash);
 })();
 
 

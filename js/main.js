@@ -926,59 +926,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   // -----------------------------
-  // A) Vendor form toggles (multiple) - version 1
-  // -----------------------------
-  (function () {
-    const pairs = [
-      { btn: "#toggleHobbyconNYForm", panel: "#vendorFormHobbyconNY" },
-      { btn: "#toggleInlineHockeyAZForm", panel: "#vendorFormInlineHockeyAZ" },
-    ];
-
-    const getEl = (sel) => document.querySelector(sel);
-
-    pairs.forEach(({ btn, panel }) => {
-      const btnEl = getEl(btn);
-      const panelEl = getEl(panel);
-      if (!btnEl || !panelEl) return;
-
-      btnEl.addEventListener("click", () => {
-        const isOpen = !panelEl.classList.contains("hidden");
-
-        // close all panels first
-        pairs.forEach(({ btn: b, panel: p }) => {
-          const bEl = getEl(b);
-          const pEl = getEl(p);
-          if (!bEl || !pEl) return;
-
-          pEl.classList.add("hidden");
-          bEl.setAttribute("aria-expanded", "false");
-
-          const caret = bEl.querySelector("span");
-          if (caret) {
-            caret.style.transition = "transform 200ms ease";
-            caret.style.transform = "rotate(0deg)";
-          }
-        });
-
-        // open clicked one
-        if (!isOpen) {
-          panelEl.classList.remove("hidden");
-          btnEl.setAttribute("aria-expanded", "true");
-
-          const caret = btnEl.querySelector("span");
-          if (caret) {
-            caret.style.transition = "transform 200ms ease";
-            caret.style.transform = "rotate(180deg)";
-          }
-
-          if (window.feather) window.feather.replace();
-        }
-      });
-    });
-  })();
-
-  // -----------------------------
-  // B) Vendor form toggles + submissions - version 2
+  // A+B) Vendor form toggles + submissions - version 2
   // (leave it if your HTML uses these IDs)
   // -----------------------------
   (function () {

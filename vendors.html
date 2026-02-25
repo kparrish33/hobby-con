@@ -311,38 +311,31 @@
 
       </section>    
 
-
-        <div class="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 mb-10">
-        <!-- Button: Event 1 Vendor Form -->
-          <button
-            type="button"
-            id="toggleVendorFormNY"
-            class="inline-flex items-center gap-2
-                  border-2 border-purple-300 text-purple-700
-                  px-8 py-3 rounded-full font-semibold
-                  hover:bg-purple-50 transition-all duration-300"
-            aria-expanded="false"
-            aria-controls="vendorFormPanelNY"
-          >
-            HOBBYCON 2027 (NY)
-            <span id="toggleVendorFormNYCaret" class="text-lg leading-none transition-transform duration-200">▾</span>
-          </button>
-          
-          <!-- Button: Event 2 Vendor Form -->
-          <button
-            type="button"
-            id="toggleVendorFormAZ"
-            class="inline-flex items-center gap-2
-                  border-2 border-purple-300 text-purple-700
-                  px-8 py-3 rounded-full font-semibold
-                  hover:bg-purple-50 transition-all duration-300"
-            aria-expanded="false"
-            aria-controls="vendorFormPanelAZ"
-          >
-            SOLID GROUND ARENA 2026 (AZ)
-            <span id="toggleVendorFormAZCaret" class="text-lg leading-none transition-transform duration-200">▾</span>
-          </button>
+<div class="mt-8 grid gap-6 max-w-4xl mx-auto">
+  <!-- CARD 1: HobbyCon NY -->
+  <div id="vendorCardNY" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
+    <div class="flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
+          Vendor Application
         </div>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">HobbyCon 2027 (NY)</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Spring 2027 (TBD) | New York, NY
+        </p>
+      </div>
+
+      <button
+        type="button"
+        id="toggleVendorFormNY"
+        class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
+        aria-expanded="false"
+        aria-controls="vendorFormPanelNY"
+      >
+        Apply
+        <span id="toggleVendorFormNYCaret" class="inline-block transition-transform duration-200">▾</span>
+      </button>
+    </div>
 
         <!-- Panel: Event 1 Vendor Form (Hidden by default) -->
         <div id="vendorFormPanelNY" class="hidden mb-1">
@@ -352,7 +345,7 @@
                 id="vendorFormNY"
                 action="https://formspree.io/f/xaqdowrr"
                 method="POST"
-                class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-10"
+                class="mt-6 rounded-3xl shadow-sm p-6 md:p-10"
               >
                 <!-- Identifies which event this submission is for -->
                 <input type="hidden" name="eventType" value="HobbyCon 2027 (NY)" />
@@ -424,10 +417,6 @@
                   <p class="pt-3 font-bold text-slate-900">Competitions and Meetups</p>
                   <p>Host events for your hobby community at HobbyCon!</p>
                 </div>
-
-                    <p class="font-semibold italic text-slate-700">
-                      ***Please note, date and location are still TBD. Expect HobbyCon Spring 2027 in NYC***
-                    </p>
                   </div>
                 </div>
 
@@ -1127,6 +1116,32 @@
             </div>
           </section>
         </div>
+      </div>
+
+
+  <!-- CARD 2: Solid Ground Arena AZ -->
+  <div id="vendorCardAZ" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
+    <div class="flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
+          Vendor Application
+        </div>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">Solid Ground Arena 2026 (AZ)</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          October 2026 (TBD) | Peoria, AZ
+        </p>
+      </div>
+
+      <button
+        type="button"
+        id="toggleVendorFormAZ"
+        class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
+        aria-expanded="false"
+        aria-controls="vendorFormPanelAZ"
+      >
+        Apply
+        <span id="toggleVendorFormAZCaret" class="inline-block transition-transform duration-200">▾</span>
+      </button>
     </div>
 
         <!-- Panel: Event 2 Vendor Form -->
@@ -1137,7 +1152,7 @@
                 id="vendorFormAZ"
                 action="https://formspree.io/f/mqedqkzz"
                 method="POST"
-                class="hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-6 md:p-10"
+                class="mt-6 rounded-3xl shadow-sm p-6 md:p-10"
               >
                 <input type="hidden" name="eventType" value="Inline Hockey Tournament 2026 (AZ)" />
                 <input type="hidden" name="_subject" value="Vendor Application — Inline Hockey Tournament 2026 (AZ)" />
@@ -1392,8 +1407,6 @@
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
                   </div>
-
-                  <div>
    
 
                 <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -1413,7 +1426,8 @@
             </div>
           </section>
         </div>
-
+      </div>
+</div>
 
         </section>
 

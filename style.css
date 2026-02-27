@@ -477,3 +477,16 @@ html, body { overflow-x: clip; }
   }
 }
 
+/* ========================= Vendor app width — slightly larger on mobile ========================= */
+@media (max-width: 640px) {
+  #vendorCardNY,
+  #vendorCardAZ {
+    padding: 1.25rem; /* instead of p-7 (1.75rem) */
+  }
+
+  #vendorFormPanelNY section,
+  #vendorFormPanelAZ section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

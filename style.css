@@ -477,6 +477,42 @@ html, body { overflow-x: clip; }
   }
 }
 
+/* ========================= Retreat gallery clicks ========================= */
+/* Simple lightbox */
+.lb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75); /* slate-ish */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+}
+.lb-overlay.is-open { display: flex; }
+
+.lb-img {
+  max-width: min(1100px, 100%);
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.lb-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  border: 1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.12);
+  color: white;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* ========================= Vendor app width — slightly larger on mobile ========================= */
 @media (max-width: 640px) {
   #vendorCardNY,

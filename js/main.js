@@ -1355,6 +1355,55 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", initAccomToggle);
 })();
 
+// ===============================
+// Retreat: Gallery Images
+// ===============================
+(function () {
+  const lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lightboxImg");
+  const lbClose = document.getElementById("lightboxClose");
+  if (!lb || !lbImg || !lbClose) return;
+
+  const isImageHref = (href) => /\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(href);
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || "";
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  // Intercept clicks on image links (your gallery anchors)
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+
+    const href = a.getAttribute("href");
+    if (!href || !isImageHref(href)) return;
+
+    e.preventDefault();
+    const img = a.querySelector("img");
+    openLightbox(href, img?.alt || a.getAttribute("aria-label") || "");
+  });
+
+  // Close behaviors
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", (e) => {
+    if (e.target === lb) closeLightbox(); // click outside image
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+})();
+
 
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)

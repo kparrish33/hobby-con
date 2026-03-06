@@ -526,3 +526,17 @@ html, body { overflow-x: clip; }
     padding-right: 0;
   }
 }
+
+/* Safari: remove default <summary> marker */
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::marker {
+  display: none;
+  content: "";
+}

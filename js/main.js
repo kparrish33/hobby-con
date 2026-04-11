@@ -917,9 +917,61 @@ document.addEventListener("DOMContentLoaded", () => {
   startCountdown("2026-05-22T15:00:00-04:00");
 });
 
+// ===============================
+// 18) HOMEPAGE HERO WORD SWAP
+// ===============================
+// Hero word swap animation
+const heroWordSwap = document.getElementById("heroWordSwap");
+
+if (heroWordSwap) {
+  const words = [
+    "artists",
+    "puzzlers",
+    "makers",
+    "collectors",
+    "campers",
+    "performers",
+    "scientists",
+    "explorers"
+  ];
+
+  const finalWord = "curious hobbyists";
+  let index = 0;
+
+  function swapWord(word) {
+    heroWordSwap.style.opacity = "0";
+    heroWordSwap.style.transform = "translateY(6px)";
+
+    setTimeout(() => {
+      heroWordSwap.textContent = word;
+      heroWordSwap.style.opacity = "1";
+      heroWordSwap.style.transform = "translateY(0)";
+    }, 180);
+  }
+
+  heroWordSwap.style.display = "inline-block";
+  heroWordSwap.style.transition = "opacity 420ms ease, transform 420ms ease";
+
+  function runHeroSequence() {
+    if (index < words.length) {
+      swapWord(words[index]);
+      index++;
+
+      // SAME speed for all words
+      setTimeout(runHeroSequence, 520);
+    } else {
+      // clean final pause (no slow buildup)
+      setTimeout(() => {
+        swapWord(finalWord);
+      }, 700);
+    }
+  }
+
+  setTimeout(runHeroSequence, 900);
+}
 
 // ===============================
-// 18) VENDOR + FORM LOGIC (FIXED)
+// 19) VENDOR + FORM LOGIC (FIXED)
 // ===============================
 
 // Run AFTER the DOM exists

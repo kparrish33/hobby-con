@@ -632,6 +632,8 @@
                       id="ny_hobby_category"
                       name="hobby_category"
                       required
+                      data-other-select
+                      data-other-target="#ny_hobby_category_other_wrap"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     >
@@ -648,6 +650,22 @@
                       <option value="volunteering">Volunteering & Service</option>
                       <option value="other">Other</option>
                     </select>
+                  </div>
+
+                    <!-- Only appears when "Other" is selected -->
+                    <div id="ny_hobby_category_other_wrap" class="mt-3 hidden">
+                      <label for="ny_hobby_category_other" class="block text-sm font-semibold text-slate-900 mb-2">
+                        Please specify *
+                      </label>
+                      <input
+                        id="ny_hobby_category_other"
+                        name="hobby_category_other"
+                        type="text"
+                        class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
+                              focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
+                        placeholder="Describe your hobby category…"
+                      />
+                    </div>
                   </div>
 
               <!-- Hobby Subcategories (conditional) -->

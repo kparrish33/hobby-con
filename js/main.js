@@ -1092,43 +1092,34 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
 // -----------------------------
-// D) "Other" + "Referral" select reveals textbox
+// D) Universal "Other" select reveals textbox
+// Works with:
+// data-other-select
+// data-other-target="#some_wrap"
 // -----------------------------
 (function () {
-  const sel = document.getElementById("ny_hear_about");
-  if (!sel) return;
+  document.querySelectorAll("[data-other-select]").forEach((sel) => {
+    const targetSelector = sel.getAttribute("data-other-target");
+    const wrap = targetSelector ? document.querySelector(targetSelector) : null;
+    const input = wrap ? wrap.querySelector("input, textarea, select") : null;
 
-  const otherWrap = document.getElementById("ny_hear_about_other_wrap");
-  const otherInput = document.getElementById("ny_hear_about_other");
+    if (!wrap) return;
 
-  const referralWrap = document.getElementById("ny_hear_about_referral_wrap");
-  const referralInput = document.getElementById("ny_hear_about_referral");
+    function sync() {
+      const isOther = sel.value === "other";
 
-  function sync() {
-    const val = sel.value;
+      wrap.classList.toggle("hidden", !isOther);
 
-    const isOther = val === "other";
-    const isReferral = val === "referral";
-
-    // OTHER
-    if (otherWrap) otherWrap.classList.toggle("hidden", !isOther);
-    if (otherInput) {
-      otherInput.required = isOther;
-      if (!isOther) otherInput.value = "";
+      if (input) {
+        input.required = isOther;
+        if (!isOther) input.value = "";
+      }
     }
 
-    // REFERRAL
-    if (referralWrap) referralWrap.classList.toggle("hidden", !isReferral);
-    if (referralInput) {
-      referralInput.required = isReferral;
-      if (!isReferral) referralInput.value = "";
-    }
-  }
-
-  sel.addEventListener("change", sync);
-  sync(); // run once on load
+    sel.addEventListener("change", sync);
+    sync();
+  });
 })();
-
 
 // -----------------------------
 // E) Primary category -> dynamic subcategory rows (NY)

@@ -914,7 +914,7 @@ function startCountdown(targetISO) {
 // Run AFTER the page is loaded
 document.addEventListener("DOMContentLoaded", () => {
   // Retreat start (ISO, with timezone offset for NY)
-  startCountdown("2026-09-042T15:00:00-04:00");
+  startCountdown("2026-09-04T15:00:00-04:00");
 });
 
 // ===============================

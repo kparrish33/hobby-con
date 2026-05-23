@@ -559,6 +559,7 @@ details > summary::marker {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
+  padding: 0 1.25rem;
 }
 
 @media (max-width: 899px) {
@@ -569,11 +570,12 @@ details > summary::marker {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 0.75rem;
-    padding: 0 0.75rem 1rem;
+    padding: 0 1rem 1rem;
+    margin: 1rem 0 0;
   }
   .event-grid::-webkit-scrollbar { display: none; }
   .event-grid > a {
-    flex: 0 0 calc(100% - 1.5rem);
+    flex: 0 0 92%;
     scroll-snap-align: start;
   }
 }

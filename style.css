@@ -552,3 +552,60 @@ details > summary::marker {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ========================= SGA Carousel ========================= */
+.sga-carousel { position: relative; }
+
+.sga-viewport {
+  overflow: hidden;
+}
+
+/* Mobile: native scroll snapping */
+@media (max-width: 899px) {
+  .sga-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sga-viewport::-webkit-scrollbar { display: none; }
+
+  .sga-track {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1.25rem;
+  }
+
+  .sga-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    max-width: 340px;
+  }
+}
+
+/* Desktop: flex row, JS controls transform */
+@media (min-width: 900px) {
+  .sga-track {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .sga-card {
+    flex: 0 0 320px;
+  }
+}
+
+/* Dots */
+.sga-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d1d5db;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+  padding: 0;
+}
+.sga-dot.is-active {
+  background: #7c3aed;
+  width: 24px;
+}

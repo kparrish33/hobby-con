@@ -865,6 +865,25 @@ document.addEventListener("DOMContentLoaded", function () {
   if (window.feather) feather.replace();
 });
 
+// Event grid dots {NOT SGA, CAROUSEL DOTS}
+const eventGrid = document.querySelector('.event-grid');
+const eventDots = document.querySelectorAll('.event-dot');
+
+if (eventGrid && eventDots.length) {
+  eventGrid.addEventListener('scroll', () => {
+    const index = Math.round(eventGrid.scrollLeft / eventGrid.offsetWidth);
+    eventDots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === index);
+    });
+  }, { passive: true });
+
+  eventDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      eventGrid.scrollTo({ left: eventGrid.offsetWidth * i, behavior: 'smooth' });
+    });
+  });
+}
+
 // ===============================
 // 17) COUNTDOWN TIMER (RETREAT)
 // ========================

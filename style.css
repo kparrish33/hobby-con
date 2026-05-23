@@ -554,7 +554,6 @@ details > summary::marker {
 }
 
 /* ========================= Carousel ========================= */
-/* Event grid: 3 cols desktop, swipe on mobile */
 .event-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -574,7 +573,34 @@ details > summary::marker {
   }
   .event-grid::-webkit-scrollbar { display: none; }
   .event-grid > a {
-    flex: 0 0 88%;
+    flex: 0 0 95%;
     scroll-snap-align: start;
   }
+}
+
+.event-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+@media (max-width: 899px) {
+  .event-dots { display: flex; }
+}
+
+.event-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d1d5db;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+
+.event-dot.is-active {
+  background: #7c3aed;
+  width: 24px;
 }

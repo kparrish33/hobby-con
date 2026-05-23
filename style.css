@@ -569,14 +569,18 @@ details > summary::marker {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    gap: 1rem;
-    padding: 0 1.25rem 1rem;
-    width: 100vw;
+    gap: 0;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding: 0 0 1rem;
+    width: calc(100% + 2.5rem);
   }
   .event-grid::-webkit-scrollbar { display: none; }
   .event-grid > a {
-    flex: 0 0 calc(100vw - 2.5rem);
+    flex: 0 0 100%;
     scroll-snap-align: start;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
   }
 }
 

@@ -610,3 +610,9 @@ details > summary::marker {
   background: #7c3aed;
   width: 24px;
 }
+
+.hc-card.past-event {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  pointer-events: none; /* disables clicks on links */
+}

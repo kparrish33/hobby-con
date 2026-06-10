@@ -614,5 +614,9 @@ details > summary::marker {
 .hc-card.past-event {
   opacity: 0.5;
   filter: grayscale(100%);
-  pointer-events: none; /* disables clicks on links */
+  pointer-events: none;
+  -webkit-filter: grayscale(100%); /* Safari/iOS fix */
+  transform: translateZ(0);        /* forces GPU layer, fixes compositing on mobile */
+  -webkit-transform: translateZ(0);
 }
+

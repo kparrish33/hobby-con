@@ -196,13 +196,21 @@
       <div class="md:col-span-5">
         <form
           id="communityEmailForm"
-          action="https://formspree.io/f/xreaqzjr"
+          action="/subscribe.php"
           method="POST"
           class="flex flex-col sm:flex-row gap-3"
         >
-
-          <input type="hidden" name="_subject" value="New HobbyCon Community Signup" />
           <input type="hidden" name="source" value="Community Page Top Banner" />
+
+          <!-- Honeypot spam trap: real users will not see this -->
+          <input
+            type="text"
+            name="website"
+            autocomplete="off"
+            tabindex="-1"
+            class="hidden"
+            aria-hidden="true"
+          />
 
           <input
             type="email"
@@ -228,6 +236,11 @@
         <p id="communityThankYou"
            class="mt-4 text-sm font-semibold text-white hidden">
           🎉 You're in! We'll keep you updated.
+        </p>
+
+        <p id="communityError"
+           class="mt-4 text-sm font-semibold text-white hidden">
+          Something went wrong. Please try again.
         </p>
       </div>
 

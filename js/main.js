@@ -511,6 +511,58 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 
+// Community email signup → Sender via subscribe.php
+const communityEmailForm = document.getElementById("communityEmailForm");
+const communityThankYou = document.getElementById("communityThankYou");
+const communityError = document.getElementById("communityError");
+
+if (communityEmailForm) {
+  communityEmailForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const submitButton = communityEmailForm.querySelector("button[type='submit']");
+    const originalButtonText = submitButton.textContent;
+
+    if (communityThankYou) communityThankYou.classList.add("hidden");
+    if (communityError) communityError.classList.add("hidden");
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Adding...";
+
+    try {
+      const formData = new FormData(communityEmailForm);
+
+      const response = await fetch(communityEmailForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Signup failed");
+      }
+
+      communityEmailForm.reset();
+
+      if (communityThankYou) {
+        communityThankYou.classList.remove("hidden");
+      }
+    } catch (error) {
+      console.error("Community signup error:", error);
+
+      if (communityError) {
+        communityError.classList.remove("hidden");
+      }
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
 
   // 11. Facility Event Form submission feedback
   const facilityForm = qs("#eventApplicationForm");

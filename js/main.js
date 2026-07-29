@@ -1,3 +1,38 @@
+/* =============================================================================
+   main.js - BLOCK MAP
+
+   Read this before editing. The numbered comments below (0, 5.-16., 17, 18,
+   19) are historical and DO NOT run in that order - they are scattered across
+   three separate DOMContentLoaded handlers with unwrapped code in between.
+   Section 19) is NOT the last block; five more follow it.
+
+   Every block is independently guarded (early return when its element is
+   missing), so all pages load the whole file safely.
+
+   Line numbers are accurate as of the last edit. If they drift, search the
+   block name instead - the banner comments are unique.
+
+   LINES         BLOCK                                    NOTES
+   -----------------------------------------------------------------------------
+   36-38         0) Small utilities                       banner only
+   39-75         qs / qsa / clamp / rafThrottle / flipLogo top-level helper fns
+   95-396        initCarousels()                          declared here, CALLED inside block below
+   401-953       DOMContentLoaded  #1 of 3                holds numbered items 5. - 16.
+   956-972       Event grid dots                          bare top-level vars + if, no wrapper
+   977-1018      17) startCountdown()  - retreat          declared here, CALLED by block below
+   1021-1024     DOMContentLoaded  #2 of 3                boots the countdown only
+   1030-1077     18) Homepage hero word swap              
+   1084-1418     DOMContentLoaded  #3 of 3                19) vendor + form logic, sub-blocks A - G
+   1423-1467     Retreat: collapsible signup form         also binds every a[href='#interest']
+   1473-1505     Retreat: accommodations toggle           
+   1510-1554     Retreat: gallery lightbox                
+   1562-1623     Retreat: shared room discount popup      
+   1633-1839     Shop page: products + cart               exposes 3 window.* fns for inline onclick
+
+   NOTE: main.js is loaded at the END of <body>, so blocks written as bare
+   IIFEs (the retreat + shop ones) do not need DOMContentLoaded. Match that
+   convention for anything new.
+============================================================================= */
 /* ---------------------------
    0) Small utilities
 --------------------------- */
@@ -1516,6 +1551,75 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightbox();
   });
+})();
+
+
+// ===============================
+// Retreat: Shared Room Discount Popup
+// Fires 30s after load, once per browser session.
+// Retreats-only: exits immediately if #roomDiscountPopup is absent.
+// ===============================
+(function () {
+  const popup = document.getElementById("roomDiscountPopup");
+  if (!popup) return;
+
+  const closeBtn = document.getElementById("roomDiscountClose");
+  const bookBtn = document.getElementById("roomDiscountBook");
+
+  const STORAGE_KEY = "hcRoomDiscountSeen";
+  const DELAY_MS = 30000;
+
+  // Session gate: if it already fired this session, never arm the timer.
+  try {
+    if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
+  } catch (e) {
+    // Private mode / storage blocked — fail open, popup still shows.
+  }
+
+  let timer = null;
+
+  function isOpen() {
+    return !popup.classList.contains("hidden");
+  }
+
+  function openPopup() {
+    // "hidden" and "flex" are both display utilities, so swap rather than
+    // rely on Tailwind's class order.
+    popup.classList.remove("hidden");
+    popup.classList.add("flex");
+    try {
+      sessionStorage.setItem(STORAGE_KEY, "1");
+    } catch (e) {}
+    if (window.feather) window.feather.replace();
+  }
+
+  function closePopup() {
+    popup.classList.add("hidden");
+    popup.classList.remove("flex");
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  if (closeBtn) closeBtn.addEventListener("click", closePopup);
+
+  // "Book with a friend" is an <a href="#interest"> — close, then let the
+  // anchor jump run. The collapsible-form block above also binds this link,
+  // so the signup panel opens on its own.
+  if (bookBtn) bookBtn.addEventListener("click", closePopup);
+
+  // Click the backdrop (not the card) to dismiss.
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+  // Esc to dismiss.
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && isOpen()) closePopup();
+  });
+
+  timer = setTimeout(openPopup, DELAY_MS);
 })();
 
 

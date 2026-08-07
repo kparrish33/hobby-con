@@ -1098,12 +1098,13 @@ document.addEventListener("DOMContentLoaded", () => {
         error: "vendorFormNYError"
       },
       {
-        btn: "toggleVendorFormAZ",
-        panel: "vendorFormPanelAZ",
-        caret: "toggleVendorFormAZCaret",
-        form: "vendorFormAZ",
-        thanks: "vendorFormAZThanks",
-        error: "vendorFormAZError"
+        btn: "togglePartnershipForm",
+        panel: "partnershipFormPanel",
+        caret: "togglePartnershipFormCaret",
+        form: "partnershipForm",
+        thanks: "partnershipFormThanks",
+        error: "partnershipFormError",
+        submitText: "Submit Inquiry"
       }
     ];
 

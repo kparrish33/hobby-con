@@ -1046,10 +1046,14 @@
                       Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="tel"
+                      inputmode="tel"
                       id="ri_phone"
                       name="phone"
                       required
+                      pattern="(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}"
+                      title="Enter a 10-digit phone number, for example (516) 456-7890"
+                      placeholder="(516) 456-7890"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
@@ -1174,10 +1178,14 @@
                       Emergency Contact Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="tel"
+                      inputmode="tel"
                       id="ri_emergency_phone"
                       name="emergency_phone"
                       required
+                      pattern="(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}"
+                      title="Enter a 10-digit phone number, for example (516) 456-7890"
+                      placeholder="(516) 456-7890"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
@@ -1323,16 +1331,36 @@
                 </select>
               </div>
 
-                   <!-- Travel Plans (required) -->
+                   <!-- Transportation (required) -->
               <div>
-                <label class="block text-sm font-semibold mb-2" for="ri-travel">Please let us know your travel plans to the retreat and your expected time of arrival.</label>
-                <input
+                <label class="block text-sm font-semibold mb-2" for="ri-travel">How are you planning to travel to the retreat?</label>
+                <select
                   id="ri-travel"
                   name="travel_plans"
+                  required
+                  class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"
+                >
+                  <option value=""></option>
+                  <option value="Car">Car</option>
+                  <option value="Plane">Plane</option>
+                  <option value="Ferry">Ferry</option>
+                  <option value="Train">Train</option>
+                </select>
+              </div>
+
+                   <!-- Expected Arrival (required) -->
+              <div>
+                <label class="block text-sm font-semibold mb-2" for="ri-arrival">What is your expected time of arrival?</label>
+                <p class="mt-2 mb-4 text-xs text-slate-500">
+                  An estimate is fine, for example "around 5pm"
+                </p>
+                <input
+                  id="ri-arrival"
+                  name="expected_arrival"
                   type="text"
                   required
                   class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 bg-white"
-                  placeholder="Car, Train, Ferry, etc."
+                  placeholder="Around 5pm"
                   />
               </div>
 

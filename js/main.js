@@ -1624,6 +1624,46 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 
+// ===============================
+// Retreat: phone fields - digits only, live (xxx) xxx-xxxx formatting
+// Retreats-only: exits if neither phone input is present.
+// Works alongside the pattern="" attributes in retreats.html, which are
+// what actually block submission - this just stops bad input being typed.
+// ===============================
+(function () {
+  var fields = ["ri_phone", "ri_emergency_phone"]
+    .map(function (id) { return document.getElementById(id); })
+    .filter(function (el) { return !!el; });
+
+  if (!fields.length) return;
+
+  // Progressive formatting so the field reads correctly mid-typing.
+  //   "5"          -> "(5"
+  //   "516"        -> "(516"
+  //   "516456"     -> "(516) 456"
+  //   "5164567890" -> "(516) 456-7890"
+  function format(d) {
+    if (!d) return "";
+    if (d.length <= 3) return "(" + d;
+    if (d.length <= 6) return "(" + d.slice(0, 3) + ") " + d.slice(3);
+    return "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+  }
+
+  fields.forEach(function (el) {
+    el.addEventListener("input", function () {
+      var digits = el.value.replace(/\D/g, "");
+
+      // Drop a pasted US country code.
+      if (digits.length === 11 && digits.charAt(0) === "1") {
+        digits = digits.slice(1);
+      }
+
+      el.value = format(digits.slice(0, 10));
+    });
+  });
+})();
+
+
 // =====================
 // SHOP PAGE (HTML products + cart + mobile scroll)
 // Requirements:

@@ -286,17 +286,18 @@
     </p>
 
     <form
-      action="https://formspree.io/f/xpqjdabl"
+      action="https://script.google.com/macros/s/AKfycbxMMlo27-cTAL2X1aShFrova_IOOZwjhRIL5oEuKQVTG_jfzqwg7_YRj1b9ckz-6EzqvQ/exec"
       method="POST"
       id="contactForm"
       aria-label="Contact form"
       class="mt-10 hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-10 space-y-6 animate-slide-up"
     >
-      <!-- Hidden subject line -->
+      <!-- Must match SHARED_SECRET in the contact Apps Script. Not secret from
+           the user (it is in page source) - it only deters drive-by bots. -->
       <input
         type="hidden"
-        name="_subject"
-        value="New contact form submission from HobbyCon!"
+        name="token"
+        value="_5PvhmgYR-8H3oc-ytwU9OuNbyJYn3r3"
       />
 
       <!-- Name -->

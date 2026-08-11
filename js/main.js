@@ -523,7 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const submitBtn = form.querySelector("button[type='submit']");
-    if (submitBtn) submitBtn.disabled = true;
+    hcSubmitLoading(submitBtn, true);
 
     try {
       const response = await fetch(form.action, {
@@ -542,7 +542,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (errorMsg) errorMsg.classList.remove("hidden");
     }
 
-    if (submitBtn) submitBtn.disabled = false;
+    hcSubmitLoading(submitBtn, false);
   });
 })();
 
@@ -556,13 +556,11 @@ if (communityEmailForm) {
     event.preventDefault();
 
     const submitButton = communityEmailForm.querySelector("button[type='submit']");
-    const originalButtonText = submitButton.textContent;
 
     if (communityThankYou) communityThankYou.classList.add("hidden");
     if (communityError) communityError.classList.add("hidden");
 
-    submitButton.disabled = true;
-    submitButton.textContent = "Adding...";
+    hcSubmitLoading(submitButton, true, "Adding…");
 
     try {
       const formData = new FormData(communityEmailForm);
@@ -593,8 +591,7 @@ if (communityEmailForm) {
         communityError.classList.remove("hidden");
       }
     } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = originalButtonText;
+      hcSubmitLoading(submitButton, false);
     }
   });
 }
@@ -1155,7 +1152,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (errorMsg) errorMsg.classList.add("hidden");
 
           const submitBtn = form.querySelector("button[type='submit']");
-          if (submitBtn) submitBtn.disabled = true;
+          hcSubmitLoading(submitBtn, true);
 
           try {
             const res = await fetch(form.action, {
@@ -1174,7 +1171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (errorMsg) errorMsg.classList.remove("hidden");
           }
 
-          if (submitBtn) submitBtn.disabled = false;
+          hcSubmitLoading(submitBtn, false);
         });
       }
     });
@@ -1622,6 +1619,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
   timer = setTimeout(openPopup, DELAY_MS);
 })();
+
+
+// ===============================
+// Submit-button loading state (all forms)
+//
+// Swaps the button's contents for a sparkle + "Sending..." while a submission
+// is in flight, then restores the original label. Called from the contact,
+// retreat, vendor and partnership submit handlers.
+//
+// Top-level function declaration on purpose - it is hoisted, so the handlers
+// above can call it even though it is defined further down the file.
+//
+// Uses Tailwind's animate-pulse (loaded via CDN on every page), so no
+// style.css change is needed.
+// ===============================
+function hcSubmitLoading(btn, on, label) {
+  if (!btn) return;
+
+  if (on) {
+    // Stash the real label once, so a double-submit can't overwrite it.
+    if (typeof btn.dataset.hcLabel === "undefined") {
+      btn.dataset.hcLabel = btn.innerHTML;
+    }
+    btn.disabled = true;
+    btn.setAttribute("aria-busy", "true");
+    btn.innerHTML =
+      '<span class="inline-block animate-pulse" aria-hidden="true">✨</span>' +
+      '<span>' + (label || "Sending…") + '</span>';
+    return;
+  }
+
+  btn.disabled = false;
+  btn.removeAttribute("aria-busy");
+
+  if (typeof btn.dataset.hcLabel !== "undefined") {
+    btn.innerHTML = btn.dataset.hcLabel;
+    delete btn.dataset.hcLabel;
+  }
+
+  // Buttons contain feather icons, which are replaced <svg> nodes - they need
+  // re-rendering after innerHTML is restored.
+  if (window.feather) window.feather.replace();
+}
 
 
 // ===============================

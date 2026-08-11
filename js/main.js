@@ -495,18 +495,20 @@ document.addEventListener("DOMContentLoaded", function () {
           if (response.ok) {
             form.reset();
             thankYou.classList.remove("hidden", "text-red-500");
-            thankYou.textContent = "Thanks! Your message has been sent.";
+            thankYou.textContent = "Thanks! We've received your message.";
           } else {
             thankYou.classList.remove("hidden");
             thankYou.classList.add("text-red-500");
-            thankYou.textContent = "Oops! Something went wrong.";
+            thankYou.textContent =
+              "Something went wrong. Please try again, or email info@hobbycon.com.";
           }
         })
         .catch(() => {
           // Previously unhandled - a network drop left no message at all.
           thankYou.classList.remove("hidden");
           thankYou.classList.add("text-red-500");
-          thankYou.textContent = "Oops! Something went wrong.";
+          thankYou.textContent =
+            "Something went wrong. Please try again, or email info@hobbycon.com.";
         })
         .then(() => {
           hcSubmitLoading(submitBtn, false);
@@ -1681,7 +1683,7 @@ function hcSubmitLoading(btn, on, label) {
     btn.disabled = true;
     btn.setAttribute("aria-busy", "true");
     btn.innerHTML =
-      '<span class="hc-sparkle" aria-hidden="true">🫧</span>' +
+      '<span class="hc-sparkle" aria-hidden="true">💭</span>' +
       '<span>' + (label || "Sending…") + '</span>';
     return;
   }

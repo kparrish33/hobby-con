@@ -1625,15 +1625,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ===============================
-// Retreat: phone fields - digits only, live (xxx) xxx-xxxx formatting
-// Retreats-only: exits if neither phone input is present.
-// Works alongside the pattern="" attributes in retreats.html, which are
-// what actually block submission - this just stops bad input being typed.
+// Phone fields - digits only, live (xxx) xxx-xxxx formatting
+//
+// Applies to EVERY input[type="tel"] on any page, so it currently covers
+// the retreat form (phone + emergency phone), the general partnership form,
+// and the HobbyCon vendor application. Give any future phone field
+// type="tel" and it is picked up with no change here.
+//
+// The pattern="" attributes in the HTML are what actually block submission;
+// this just stops bad input being typed in the first place.
 // ===============================
 (function () {
-  var fields = ["ri_phone", "ri_emergency_phone"]
-    .map(function (id) { return document.getElementById(id); })
-    .filter(function (el) { return !!el; });
+  var fields = Array.prototype.slice.call(
+    document.querySelectorAll('input[type="tel"]')
+  );
 
   if (!fields.length) return;
 

@@ -467,10 +467,14 @@
                       Phone Number *
                     </label>
                     <input
-                      type="text"
+                      type="tel"
+                      inputmode="tel"
                       id="ny_phone"
                       name="phone"
                       required
+                      pattern="(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}"
+                      title="Enter a 10-digit phone number, for example (516) 456-7890"
+                      placeholder="(516) 456-7890"
                       class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                             focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
                     />
@@ -1301,10 +1305,14 @@
                 Phone Number *
               </label>
               <input
-                type="text"
+                type="tel"
+                inputmode="tel"
                 id="partner_phone"
                 name="phone"
                 required
+                pattern="(\+?1[\s.\-]?)?\(?\d{3}\)?[\s.\-]?\d{3}[\s.\-]?\d{4}"
+                title="Enter a 10-digit phone number, for example (516) 456-7890"
+                placeholder="(516) 456-7890"
                 class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900
                       focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-purple-300"
               />

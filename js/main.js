@@ -482,22 +482,35 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const data = new FormData(form);
+      const submitBtn = form.querySelector("button[type='submit']");
+
+      hcSubmitLoading(submitBtn, true);
 
       fetch(form.action, {
         method: form.method,
         body: data,
         headers: { Accept: "application/json" },
-      }).then((response) => {
-        if (response.ok) {
-          form.reset();
-          thankYou.classList.remove("hidden", "text-red-500");
-          thankYou.textContent = "Thanks! Your message has been sent.";
-        } else {
+      })
+        .then((response) => {
+          if (response.ok) {
+            form.reset();
+            thankYou.classList.remove("hidden", "text-red-500");
+            thankYou.textContent = "Thanks! Your message has been sent.";
+          } else {
+            thankYou.classList.remove("hidden");
+            thankYou.classList.add("text-red-500");
+            thankYou.textContent = "Oops! Something went wrong.";
+          }
+        })
+        .catch(() => {
+          // Previously unhandled - a network drop left no message at all.
           thankYou.classList.remove("hidden");
           thankYou.classList.add("text-red-500");
           thankYou.textContent = "Oops! Something went wrong.";
-        }
-      });
+        })
+        .then(() => {
+          hcSubmitLoading(submitBtn, false);
+        });
     });
   }
 
@@ -1631,27 +1644,55 @@ document.addEventListener("DOMContentLoaded", () => {
 // Top-level function declaration on purpose - it is hoisted, so the handlers
 // above can call it even though it is defined further down the file.
 //
-// Uses Tailwind's animate-pulse (loaded via CDN on every page), so no
-// style.css change is needed.
+// Deliberately does NOT use Tailwind's animate-pulse: this markup is injected
+// after the Tailwind CDN has scanned the page, so that class is often never
+// compiled and the sparkle sits there frozen. The keyframes are injected once,
+// here, instead - no style.css change and no dependency on Tailwind.
 // ===============================
+function hcInjectSpinnerCss() {
+  if (document.getElementById("hc-submit-css")) return;
+
+  var style = document.createElement("style");
+  style.id = "hc-submit-css";
+  style.textContent =
+    "@keyframes hcSparkle{0%,100%{opacity:1}50%{opacity:.3}}" +
+    ".hc-sparkle{display:inline-block;animation:hcSparkle 1.4s ease-in-out infinite}";
+  document.head.appendChild(style);
+}
+
 function hcSubmitLoading(btn, on, label) {
   if (!btn) return;
 
   if (on) {
+    hcInjectSpinnerCss();
+
     // Stash the real label once, so a double-submit can't overwrite it.
     if (typeof btn.dataset.hcLabel === "undefined") {
       btn.dataset.hcLabel = btn.innerHTML;
     }
+
+    // Freeze the current width so the button doesn't jump when its text
+    // changes length - matters most on narrow buttons sitting in a flex row.
+    if (typeof btn.dataset.hcWidth === "undefined") {
+      btn.dataset.hcWidth = btn.offsetWidth;
+      btn.style.minWidth = btn.offsetWidth + "px";
+    }
+
     btn.disabled = true;
     btn.setAttribute("aria-busy", "true");
     btn.innerHTML =
-      '<span class="inline-block animate-pulse" aria-hidden="true">✨</span>' +
+      '<span class="hc-sparkle" aria-hidden="true">🫧</span>' +
       '<span>' + (label || "Sending…") + '</span>';
     return;
   }
 
   btn.disabled = false;
   btn.removeAttribute("aria-busy");
+
+  if (typeof btn.dataset.hcWidth !== "undefined") {
+    btn.style.minWidth = "";
+    delete btn.dataset.hcWidth;
+  }
 
   if (typeof btn.dataset.hcLabel !== "undefined") {
     btn.innerHTML = btn.dataset.hcLabel;

@@ -358,13 +358,16 @@
             <div class="w-full">
               <form
                 id="vendorFormNY"
-                action="https://formspree.io/f/xaqdowrr"
+                action="https://script.google.com/macros/s/AKfycby5pCWl6tMEGQ1_j9ZvEt7ORmQVct6nl0cYeUcS5k0EZ3RKjy2uBTWA6Y_29mCz0ERi/exec"
                 method="POST"
                 class="mt-6 p-0 md:p-0"
               >
                 <!-- Identifies which event this submission is for -->
                 <input type="hidden" name="eventType" value="HobbyCon 2027 (NY)" />
-                <input type="hidden" name="_subject" value="Vendor Application — HobbyCon 2027 (NY)" />
+                <!-- Must match SHARED_SECRET in the vendor application Apps Script.
+                     Not secret from the user (it is in page source) - it only
+                     deters drive-by bots. -->
+                <input type="hidden" name="token" value="SLJHpxrfAt7em5dC4P1dQvmXyYu7OJXe" />
 
                 <!-- Header -->
                 <div class="mb-8">
@@ -617,6 +620,78 @@
                     </div>
                   </div>
 
+                  <!-- Vendor Identifiers (optional, self-selected) -->
+                  <div>
+                    <label class="block text-sm font-semibold text-slate-900 mb-3">
+                      Do any of these describe your business, club, or organization?
+                    </label>
+
+                    <p class="mt-2 mb-4 text-xs text-slate-500">
+                      Optional. Select any that apply. These may be shown publicly
+                      alongside your listing so attendees can find vendors they
+                      want to support. Leave blank to skip.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="black">
+                        <span>Black-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="indigenous">
+                        <span>Indigenous-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="latino">
+                        <span>Latino/Hispanic-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="aapi">
+                        <span>Asian/AAPI-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="minority">
+                        <span>Minority-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="immigrant">
+                        <span>Immigrant-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="woman">
+                        <span>Woman-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="lgbtq">
+                        <span>LGBTQ+-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="veteran">
+                        <span>Veteran-owned</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="accessible">
+                        <span>Accessible</span>
+                      </label>
+
+                      <label class="hc-check">
+                        <input type="checkbox" name="identifiers[]" value="sustainable">
+                        <span>Sustainable</span>
+                      </label>
+
+                    </div>
+                  </div>
+
                   <!-- Primary Hobby Category (required) -->
                   <div>
                     <label class="block text-sm font-semibold text-slate-900 mb-2">
@@ -748,6 +823,7 @@
                   <option value="entomology">Entomology/Insect Collecting</option>
                   <option value="flowerarranging">Flower Arranging</option>
                   <option value="foraging">Foraging</option>
+                  <option value="furniturerestoration">Furniture Restoration/Upcycling</option>
                   <option value="gardening">Gardening</option>
                   <option value="history">History</option>
                   <option value="locksmith">Locksmith</option>

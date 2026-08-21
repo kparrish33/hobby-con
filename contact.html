@@ -251,17 +251,19 @@
       aria-label="Contact form"
       class="flex-1 hc-card bg-white border border-slate-200 rounded-3xl shadow-sm p-8 md:p-10 space-y-6 animate-slide-up"
     >
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
+        Send Us a Message
+      </h2>
+
       <!-- Must match SHARED_SECRET in the contact Apps Script. Not secret from
-           the user (it is in page source) - it only deters drive-by bots. -->
+           the user (it is in page source) - it only deters drive-by bots.
+           Kept AFTER the h2 so space-y-6 does not push the heading down: the
+           first child gets no top margin, and a display:none input ignores it. -->
       <input
         type="hidden"
         name="token"
         value="_5PvhmgYR-8H3oc-ytwU9OuNbyJYn3r3"
       />
-
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900">
-        Send Us a Message
-      </h2>
 
       <!-- Name -->
       <div>

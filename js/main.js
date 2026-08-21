@@ -1654,7 +1654,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var TOPICS = {
     volunteer:
-      "I'd like to volunteer with HobbyCon. Here's a bit about me and what I'd like to help with:\n\n"
+      "I'd like to volunteer with HobbyCon. Here's a bit about me and what I'd like to help with:\n\n",
+    "puzzle-library":
+      "I'd like to volunteer with maintaining the HobbyCon puzzle library. Here's a bit about me:\n\n"
   };
 
   var topic = null;

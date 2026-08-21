@@ -3,20 +3,213 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
-# allow existing files/folders through
+# ------------------------------------------------------------
+# Force HTTPS
+# Split from the www rule and guarded with X-Forwarded-Proto. The site sits
+# behind the Sucuri firewall, which terminates SSL. If it ever forwards to the
+# origin over plain http, a bare "%{HTTPS} !=on" test would redirect forever.
+# Sucuri also does this redirect itself (Protocol Redirection: HTTPS only
+# site), so this block is a backstop.
+# ------------------------------------------------------------
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://hobbycon.com%{REQUEST_URI} [L,R=301]
+
+# ------------------------------------------------------------
+# Force non-www
+# Example: https://www.hobbycon.com/contact -> https://hobbycon.com/contact
+# ------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://hobbycon.com%{REQUEST_URI} [L,R=301]
+
+# ------------------------------------------------------------
+# Homepage redirects
+# True homepage: /
+# ------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/index\.html [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^index/?$ / [R=301,L]
+RewriteRule ^home/?$ / [R=301,L]
+RewriteRule ^homepage/?$ / [R=301,L]
+RewriteRule ^main/?$ / [R=301,L]
+
+# ------------------------------------------------------------
+# Redirect .html URLs to clean URLs
+# Example: /retreats.html -> /retreats
+# Example: /tickets.html -> /tickets
+# ------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# ------------------------------------------------------------
+# Retreats page alternates
+# Official page: /retreats
+# ------------------------------------------------------------
+RewriteRule ^retreat/?$ /retreats [R=301,L]
+RewriteRule ^retreat2026/?$ /retreats [R=301,L]
+RewriteRule ^retreats2026/?$ /retreats [R=301,L]
+RewriteRule ^hobbycon-retreat/?$ /retreats [R=301,L]
+RewriteRule ^hobbycon-retreats/?$ /retreats [R=301,L]
+RewriteRule ^mahjong/?$ /retreats [R=301,L]
+RewriteRule ^mahjong-retreat/?$ /retreats [R=301,L]
+RewriteRule ^mahjong-retreats/?$ /retreats [R=301,L]
+RewriteRule ^yoga-retreat/?$ /retreats [R=301,L]
+RewriteRule ^womens-retreat/?$ /retreats [R=301,L]
+RewriteRule ^women-retreat/?$ /retreats [R=301,L]
+
+# ------------------------------------------------------------
+# Tickets page alternates
+# Official page: /tickets
+# ------------------------------------------------------------
+RewriteRule ^ticket/?$ /tickets [R=301,L]
+RewriteRule ^passes/?$ /tickets [R=301,L]
+RewriteRule ^pass/?$ /tickets [R=301,L]
+RewriteRule ^buy/?$ /tickets [R=301,L]
+RewriteRule ^buy-tickets/?$ /tickets [R=301,L]
+RewriteRule ^purchase/?$ /tickets [R=301,L]
+RewriteRule ^purchase-tickets/?$ /tickets [R=301,L]
+RewriteRule ^register/?$ /tickets [R=301,L]
+RewriteRule ^registration/?$ /tickets [R=301,L]
+RewriteRule ^admission/?$ /tickets [R=301,L]
+
+# ------------------------------------------------------------
+# Community page alternates
+# Official page: /community
+# ------------------------------------------------------------
+RewriteRule ^join/?$ /community [R=301,L]
+RewriteRule ^signup/?$ /community [R=301,L]
+RewriteRule ^sign-up/?$ /community [R=301,L]
+RewriteRule ^newsletter/?$ /community [R=301,L]
+RewriteRule ^updates/?$ /community [R=301,L]
+RewriteRule ^mailing-list/?$ /community [R=301,L]
+RewriteRule ^subscribe/?$ /community [R=301,L]
+RewriteRule ^club/?$ /community [R=301,L]
+
+# ------------------------------------------------------------
+# Contact page alternates
+# Official page: /contact
+# ------------------------------------------------------------
+RewriteRule ^email/?$ /contact [R=301,L]
+RewriteRule ^info/?$ /contact [R=301,L]
+RewriteRule ^hello/?$ /contact [R=301,L]
+RewriteRule ^help/?$ /contact [R=301,L]
+RewriteRule ^connect/?$ /contact [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+
+# ------------------------------------------------------------
+# Vendors page alternates
+# Official page: /vendors
+# ------------------------------------------------------------
+RewriteRule ^vendor/?$ /vendors [R=301,L]
+RewriteRule ^exhibitor/?$ /vendors [R=301,L]
+RewriteRule ^exhibitors/?$ /vendors [R=301,L]
+RewriteRule ^seller/?$ /vendors [R=301,L]
+RewriteRule ^sellers/?$ /vendors [R=301,L]
+RewriteRule ^booth/?$ /vendors [R=301,L]
+RewriteRule ^booths/?$ /vendors [R=301,L]
+RewriteRule ^apply/?$ /vendors [R=301,L]
+RewriteRule ^apply-to-vend/?$ /vendors [R=301,L]
+RewriteRule ^vendor-application/?$ /vendors [R=301,L]
+RewriteRule ^vendors-application/?$ /vendors [R=301,L]
+RewriteRule ^be-a-vendor/?$ /vendors [R=301,L]
+
+# ------------------------------------------------------------
+# Highlights / news alternates
+# Official page: /news
+# ------------------------------------------------------------
+RewriteRule ^highlight/?$ /news [R=301,L]
+RewriteRule ^highlights/?$ /news [R=301,L]
+RewriteRule ^press/?$ /news [R=301,L]
+RewriteRule ^new/?$ /news [R=301,L]
+RewriteRule ^puzzle-library/?$ /news [R=301,L]
+
+# ------------------------------------------------------------
+# Convention page alternates
+# DISABLED: convention.html was removed and its content now lives on the
+# homepage. Every rule below would 301 into a 404. To bring them back, point
+# them at /#convention (the section on index.html) and uncomment.
+# ------------------------------------------------------------
+# RewriteRule ^convention/?$ /#convention [R=301,L]
+# RewriteRule ^conventions/?$ /#convention [R=301,L]
+# RewriteRule ^con/?$ /#convention [R=301,L]
+# RewriteRule ^hobbycon/?$ /#convention [R=301,L]
+# RewriteRule ^conference/?$ /#convention [R=301,L]
+# RewriteRule ^expo/?$ /#convention [R=301,L]
+# RewriteRule ^show/?$ /#convention [R=301,L]
+# RewriteRule ^festival/?$ /#convention [R=301,L]
+# RewriteRule ^about/?$ /#convention [R=301,L]
+# RewriteRule ^about-us/?$ /#convention [R=301,L]
+
+# ------------------------------------------------------------
+# About -> homepage
+# There is no about page; the mission copy lives on index.html.
+# ------------------------------------------------------------
+RewriteRule ^about/?$ / [R=301,L]
+RewriteRule ^about-us/?$ / [R=301,L]
+
+# ------------------------------------------------------------
+# Events page alternates
+# Official page: /events
+# ------------------------------------------------------------
+RewriteRule ^event/?$ /events [R=301,L]
+RewriteRule ^calendar/?$ /events [R=301,L]
+RewriteRule ^schedule/?$ /events [R=301,L]
+RewriteRule ^program/?$ /events [R=301,L]
+RewriteRule ^programming/?$ /events [R=301,L]
+RewriteRule ^things-to-do/?$ /events [R=301,L]
+RewriteRule ^activities/?$ /events [R=301,L]
+RewriteRule ^clubs/?$ /events [R=301,L]
+RewriteRule ^hobbyclubs/?$ /events [R=301,L]
+RewriteRule ^meetups/?$ /events [R=301,L]
+
+# ------------------------------------------------------------
+# Common typo redirects
+# ------------------------------------------------------------
+# Retreats typos
+RewriteRule ^retrets/?$ /retreats [R=301,L]
+RewriteRule ^reatreats/?$ /retreats [R=301,L]
+RewriteRule ^retrats/?$ /retreats [R=301,L]
+RewriteRule ^retreets/?$ /retreats [R=301,L]
+RewriteRule ^retreatts/?$ /retreats [R=301,L]
+
+# Tickets typos
+RewriteRule ^tickts/?$ /tickets [R=301,L]
+RewriteRule ^ticets/?$ /tickets [R=301,L]
+RewriteRule ^tickes/?$ /tickets [R=301,L]
+RewriteRule ^tix/?$ /tickets [R=301,L]
+
+# Community typos
+RewriteRule ^commmunity/?$ /community [R=301,L]
+RewriteRule ^comunity/?$ /community [R=301,L]
+RewriteRule ^communitiy/?$ /community [R=301,L]
+
+# Contact typos
+RewriteRule ^contct/?$ /contact [R=301,L]
+RewriteRule ^conact/?$ /contact [R=301,L]
+RewriteRule ^contacts/?$ /contact [R=301,L]
+
+# Vendors typos
+RewriteRule ^vender/?$ /vendors [R=301,L]
+RewriteRule ^venders/?$ /vendors [R=301,L]
+RewriteRule ^vendos/?$ /vendors [R=301,L]
+RewriteRule ^vedors/?$ /vendors [R=301,L]
+
+# Events typos
+RewriteRule ^evnts/?$ /events [R=301,L]
+RewriteRule ^eventz/?$ /events [R=301,L]
+
+# ------------------------------------------------------------
+# Allow existing files/folders through
+# This keeps images, CSS, JS, PDFs, PHP files, etc. working.
+# ------------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# /highlight /highlights /new /press -> /news
-RewriteRule ^(highlights?|new|press)/?$ /news [NC,R=301,L]
-
-# /contact -> /contact.html
+# ------------------------------------------------------------
+# Pretty URLs
+# Example: /retreats quietly loads /retreats.html
+# Example: /tickets quietly loads /tickets.html
+# ------------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
-
-RewriteEngine On
-
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} ^www\. [NC]
-RewriteRule ^ https://hobbycon.com%{REQUEST_URI} [L,R=301]

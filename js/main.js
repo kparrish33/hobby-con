@@ -9,6 +9,11 @@
    Every block is independently guarded (early return when its element is
    missing), so all pages load the whole file safely.
 
+   NOT IN THIS FILE: the puzzle hunt lives in js/puzzle.js. It was moved out
+   because it sat at the very end here, where any earlier runtime error stopped
+   it running without a visible error. Both files load on every main page and
+   neither depends on the other.
+
    Line numbers are accurate as of the last edit. If they drift, search the
    block name instead - the banner comments are unique.
 

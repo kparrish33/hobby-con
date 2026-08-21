@@ -1637,6 +1637,189 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // ===============================
+// Contact form: pre-fill from a ?topic= query string
+//
+// Lets other pages deep-link into the existing contact form with the message
+// already started, instead of standing up a separate form. Currently used by
+// the "Volunteer with us" card on community.html:
+//     contact?topic=volunteer#contact-form
+//
+// The text is a starting point, not a lock - it goes in the textarea so the
+// person can edit or delete it. Nothing is pre-filled if the field already has
+// content (e.g. the browser restored a draft on back-navigation).
+// ===============================
+(function () {
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+
+  var TOPICS = {
+    volunteer:
+      "I'd like to volunteer with HobbyCon. Here's a bit about me and what I'd like to help with:\n\n"
+  };
+
+  var topic = null;
+  try {
+    topic = new URLSearchParams(window.location.search).get("topic");
+  } catch (e) {
+    return; // very old browser - just leave the form blank
+  }
+  if (!topic) return;
+
+  var text = TOPICS[topic.toLowerCase()];
+  if (!text) return;
+
+  var message = form.querySelector('[name="message"]');
+  if (!message || message.value.trim() !== "") return;
+
+  message.value = text;
+
+  // Put the cursor at the end so they can type straight away.
+  message.focus();
+  try {
+    message.setSelectionRange(message.value.length, message.value.length);
+  } catch (e) {}
+})();
+
+
+// ===============================
+// Vendors: form panels as pop-up cards
+//
+// Purely ADDITIVE. The existing vendor/partnership toggle block (section 19,
+// sub-block A+B) still owns opening and closing - it just adds/removes
+// "hidden", and closeAll() still guarantees only one is open. Because the
+// panels are now position:fixed overlays, that same class toggle shows and
+// hides a modal instead of an inline dropdown.
+//
+// This block only adds the things a modal needs: backdrop click, Esc, a close
+// button, and locking page scroll while one is open. To close, it CLICKS the
+// original toggle button so the caret and aria-expanded stay correct rather
+// than duplicating that logic here.
+// ===============================
+(function () {
+  var panels = ["vendorFormPanelNY", "partnershipFormPanel"]
+    .map(function (id) { return document.getElementById(id); })
+    .filter(function (el) { return !!el; });
+
+  if (!panels.length) return;
+
+  function isOpen(p) { return !p.classList.contains("hidden"); }
+
+  function close(p) {
+    var btn = document.getElementById(p.getAttribute("data-toggle-btn"));
+    if (btn) btn.click();               // reuse the existing toggle
+    else p.classList.add("hidden");     // fallback if the button is missing
+  }
+
+  /**
+   * Has the applicant actually typed anything? These forms are long, so only
+   * warn when there is real work to lose - warning on an untouched form is
+   * just an annoying extra click.
+   */
+  function isDirty(p) {
+    var form = p.querySelector("form");
+    if (!form) return false;
+
+    var els = form.querySelectorAll("input, select, textarea");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.type === "hidden" || el.disabled) continue;
+
+      if (el.type === "checkbox" || el.type === "radio") {
+        if (el.checked !== el.defaultChecked) return true;
+      } else if (el.tagName === "SELECT") {
+        if (el.selectedIndex > 0) return true;
+      } else if ((el.value || "").trim() !== "") {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /** Confirm layer, built once per panel and reused. */
+  function confirmLayer(p) {
+    var existing = p.querySelector("[data-confirm]");
+    if (existing) return existing;
+
+    var w = document.createElement("div");
+    w.setAttribute("data-confirm", "");
+    w.className =
+      "hidden fixed inset-0 z-[9999] bg-slate-900/70 p-4 flex items-center justify-center";
+    w.innerHTML =
+      '<div class="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 text-center">' +
+        '<h3 class="text-xl font-bold text-slate-900">Leave this application?</h3>' +
+        '<p class="mt-3 text-sm text-slate-600">Your progress will not be saved.</p>' +
+        '<div class="mt-6 flex flex-col gap-3">' +
+          '<button type="button" data-keep class="hc-btn hc-btn-primary px-6 py-3 w-full justify-center">Keep applying</button>' +
+          '<button type="button" data-discard class="hc-btn hc-btn-ghost px-6 py-3 w-full justify-center">Discard ideas</button>' +
+        "</div>" +
+      "</div>";
+
+    w.querySelector("[data-keep]").addEventListener("click", function () {
+      w.classList.add("hidden");
+    });
+    w.querySelector("[data-discard]").addEventListener("click", function () {
+      w.classList.add("hidden");
+      close(p);
+    });
+    // Clicking the confirm backdrop is the safe choice: stay put.
+    w.addEventListener("click", function (e) {
+      if (e.target === w) w.classList.add("hidden");
+    });
+
+    p.appendChild(w);
+    return w;
+  }
+
+  function confirmOpen(p) {
+    var c = p.querySelector("[data-confirm]");
+    return !!c && !c.classList.contains("hidden");
+  }
+
+  /** Every exit route goes through here. */
+  function attemptClose(p) {
+    if (!isDirty(p)) { close(p); return; }
+    confirmLayer(p).classList.remove("hidden");
+  }
+
+  function syncScrollLock() {
+    var open = panels.some(isOpen);
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+
+  panels.forEach(function (p) {
+    // Click the dimmed backdrop (not the card) to dismiss.
+    p.addEventListener("click", function (e) {
+      if (e.target === p) attemptClose(p);
+    });
+
+    var x = p.querySelector("[data-modal-close]");
+    if (x) x.addEventListener("click", function () { attemptClose(p); });
+
+    var back = p.querySelector("[data-modal-back]");
+    if (back) back.addEventListener("click", function () { attemptClose(p); });
+
+    // closeAll() in the toggle block can hide a panel without going through
+    // this code, so watch the class attribute rather than hooking clicks.
+    new MutationObserver(syncScrollLock)
+      .observe(p, { attributes: true, attributeFilter: ["class"] });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    panels.forEach(function (p) {
+      if (!isOpen(p)) return;
+      // If the confirm is already up, Esc dismisses that first.
+      if (confirmOpen(p)) {
+        p.querySelector("[data-confirm]").classList.add("hidden");
+        return;
+      }
+      attemptClose(p);
+    });
+  });
+})();
+
+
+// ===============================
 // Submit-button loading state (all forms)
 //
 // Swaps the button's contents for a sparkle + "Sending..." while a submission

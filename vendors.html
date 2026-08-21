@@ -111,9 +111,8 @@
               opacity-0 pointer-events-none
               group-hover:opacity-100 group-hover:pointer-events-auto
               transition-opacity duration-150">
-              <a href="convention" class="block px-4 py-2 hover:bg-gray-100">Convention</a>
               <a href="retreats" class="block px-4 py-2 hover:bg-gray-100">Retreats</a>
-              <a href="events" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">More Experiences</a>
+              <a href="events" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg">Club Meetups</a>
             </div>
           </div>
           <a class="nav-link font-semibold hover:text-slate-900" href="community">Community</a>
@@ -151,9 +150,8 @@
       </summary>
 
       <div class="mt-2 pr-3 border-r border-slate-200 flex flex-col items-end gap-1">
-        <a href="convention" class="w-fit px-3 py-2 transition">Convention</a>
         <a href="retreats" class="w-fit px-3 py-2 transition">Retreats</a>
-        <a href="events" class="w-fit px-3 py-2 transition">More Experiences</a>
+        <a href="events" class="w-fit px-3 py-2 transition">Club Meetups</a>
       </div>
     </details>
 
@@ -173,7 +171,7 @@
       <section class="max-w-6xl mx-auto px-5 pt-12 pb-12 md:pt-16 md:pb-16">
         <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0">
           <h2 class="text-3xl md:text-5xl font-bold text-slate-900 leading-[1.05]">
-            Vendor Hub
+            Vendor Applications
           </h2>
           <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
             We're so excited to partner with diverse vendors to create a vibrant and engaging experience!
@@ -181,6 +179,153 @@
         </div>    
 
       </section>
+
+    </div>
+
+
+
+    <!-- VENDOR APPS -->
+      <section id="about" class="max-w-6xl mx-auto px-5 pt-0 pb-12 md:pb-16">
+
+<div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto items-stretch">
+  <!-- CARD 1: HobbyCon NY -->
+  <div id="vendorCardNY" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
+    <div class="flex items-start justify-between gap-4">
+      <div class="min-w-0">
+        <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
+          Vendor Application
+        </div>
+        <h3 class="mt-2 text-xl font-bold text-slate-900">HobbyCon 2027 (NY)</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Spring 2027 (TBD) | New York, NY
+        </p>
+      </div>
+
+      <button
+        type="button"
+        id="toggleVendorFormNY"
+        class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
+        aria-expanded="false"
+        aria-controls="vendorFormPanelNY"
+      >
+        Apply
+        <span id="toggleVendorFormNYCaret" class="inline-block transition-transform duration-200">▾</span>
+      </button>
+    </div>
+
+        <!-- Panel: Event 1 Vendor Form (Hidden by default) -->
+      </div>
+
+
+<!-- CARD: General Partnership Inquiry -->
+<div id="partnershipCard" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
+  <div class="flex items-start justify-between gap-4">
+    <div class="min-w-0">
+      <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
+        Partnership Inquiry
+      </div>
+
+      <h3 class="mt-2 text-xl font-bold text-slate-900">
+        Partner With Us
+      </h3>
+
+      <p class="mt-2 text-sm text-slate-600">
+        For those interested in working with HobbyCon
+      </p>
+    </div>
+
+    <button
+      type="button"
+      id="togglePartnershipForm"
+      class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
+      aria-expanded="false"
+      aria-controls="partnershipFormPanel"
+    >
+      Inquire
+      <span id="togglePartnershipFormCaret" class="inline-block transition-transform duration-200">▾</span>
+    </button>
+  </div>
+
+    </div>
+  </div>
+  <!-- ^ closes the two-up card grid opened above. It was previously left
+       unclosed, which made every later section a child of the grid. -->
+
+      <!-- Mahjong + Yoga Retreat – Join Now Banner -->
+                <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden pt-2 mt-10 mb-1">
+                  <a
+                    href="retreats"
+                    class="block ring-1 ring-black/5 bg-gradient-to-r from-[#DCE8FB] via-[#C2D7F6] to-[#A6C4F0]"
+                    aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
+                  >
+                    <!-- moving row; duplicate content for seamless loop -->
+                    <div class="marquee-track whitespace-nowrap py-3">
+                      <!-- GROUP A -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+                      </span>
+
+                      <!-- GROUP B (duplicate for seamless loop) -->
+                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+
+                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#4A5A7D]">
+                          Mahjong + Yoga Retreat
+                        </span>
+                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#2F4A78]">
+                          Join Now
+                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#2F4A78]"></i>
+                        </span>
+                      </span>
+                    </div>
+                  </a>
+                </div>
+
+        <!-- RESOURCE HUB -->
+        <section class="max-w-6xl mx-auto px-5 pt-12 pb-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center md:text-left">
+            Resource Hub
+          </h2>
+          <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed text-center md:text-left max-w-3xl mx-auto md:mx-0">
+            What vendors can expect at a HobbyCon event.
+          </p>
+        </section>
 
         <!-- Highlights -->
         <div class="max-w-6xl mx-auto px-6 md:px-8 py-2">
@@ -245,116 +390,55 @@
           </div>
         </div>
       </div>
-    </div>
 
-      <!-- Mahjong + Yoga Retreat – Join Now Banner -->
-                <div class="relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden pt-2 my-1">
-                  <a
-                    href="retreats"
-                    class="block ring-1 ring-black/5 bg-gradient-to-r from-[#F6DCC7] via-[#F3CFB4] to-[#F0BE98]"
-                    aria-label="Visit Mahjong + Yoga Retreat (Join Now)"
-                  >
-                    <!-- moving row; duplicate content for seamless loop -->
-                    <div class="marquee-track whitespace-nowrap py-3">
-                      <!-- GROUP A -->
-                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
+        <!-- CTA Section (HobbyCon style) -->
+        <section class="max-w-6xl mx-auto px-5 pt-20 pb-0">
+          <div
+            class="rounded-3xl p-10 md:p-14 text-center
+                  bg-gradient-to-r
+                  from-[#c7b6ff]
+                  via-[#a5b9ff]
+                  to-[#cbbcff]
+                  text-white shadow-xl"
+          >
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              Join the HobbyCon Community
+            </h2>
 
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
+            <p class="text-white/90 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+              We can’t wait to welcome you into the HobbyCon experience.
+            </p>
 
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-                      </span>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <a href="tickets" class="inline-flex w-52 h-16 items-center justify-center bg-white text-purple-700 text-lg font-bold px-10 py-5 rounded-full shadow-l hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                TICKETS
+              </a>
 
-                      <!-- GROUP B (duplicate for seamless loop) -->
-                      <span class="marquee-group inline-flex items-center gap-12 md:gap-16 px-16 md:px-24">
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
+              <a href="community" class="inline-flex items-center justify-center w-52 h-16 rounded-full font-bold text-lg text-white border-2 border-whitebg-transparent transition-all duration-300 hover:bg-white hover:text-purple-700 hover:scale-105">
+                COMMUNITY
+              </a>
+            </div>
+          </div>
+        </section>
+            </section>
 
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
+<!-- VENDOR FORM POP-UPS -->
+<!-- Kept OUTSIDE the cards on purpose: .hc-card:hover applies a transform
+     (style.css:331), and a transformed ancestor becomes the containing block
+     for position:fixed - which would trap these overlays inside the card
+     instead of covering the whole page. -->
+        <div id="vendorFormPanelNY" class="hidden fixed inset-0 z-[9998] overflow-y-auto bg-slate-900/60 p-4 sm:p-8" data-toggle-btn="toggleVendorFormNY">
+          <section class="relative w-full max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl px-6 md:px-8 pb-6 md:pb-8 pt-16 my-4">
+            <button type="button" data-modal-back
+              class="absolute top-5 left-6 md:left-8 inline-flex items-center gap-1 rounded-full
+                     border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold
+                     text-slate-600 hover:text-slate-900 hover:bg-slate-50 z-10">
+              &#8592; Back</button>
+              <button type="button" data-modal-close aria-label="Close"
+              class="absolute top-5 right-6 md:right-8 h-9 w-9 rounded-full border border-slate-200 bg-white
+                     text-slate-500 hover:text-slate-900 hover:bg-slate-50
+                     inline-flex items-center justify-center z-10">&#10005;</button>
 
-                        <span class="uppercase tracking-[0.18em] text-[11px] font-semibold text-[#9C5B3A]">
-                          Mahjong + Yoga Retreat
-                        </span>
-                        <span class="inline-flex items-center text-sm md:text-base font-extrabold text-[#C7643A]">
-                          Join Now
-                          <i data-feather="chevron-right" class="w-4 h-4 ml-1 text-[#C7643A]"></i>
-                        </span>
-                      </span>
-                    </div>
-                  </a>
-                </div>
-
-
-    <!-- VENDOR APPS -->
-      <section id="about" class="max-w-6xl mx-auto px-5 py-12 md:py-16">
-        
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center md:text-left">
-          Vendor Applications
-        </h2>
-
-        <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed text-center md:text-left
-            max-w-3xl md:max-w-6xl mx-auto md:mx-0">
-          We are accepting vendor applications for our upcoming events. Apply now!
-        </p> 
-
-<div class="mt-8 grid gap-6 max-w-4xl mx-auto">
-  <!-- CARD 1: HobbyCon NY -->
-  <div id="vendorCardNY" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
-    <div class="flex items-start justify-between gap-4">
-      <div class="min-w-0">
-        <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
-          Vendor Application
-        </div>
-        <h3 class="mt-2 text-xl font-bold text-slate-900">HobbyCon 2027 (NY)</h3>
-        <p class="mt-2 text-sm text-slate-600">
-          Spring 2027 (TBD) | New York, NY
-        </p>
-      </div>
-
-      <button
-        type="button"
-        id="toggleVendorFormNY"
-        class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
-        aria-expanded="false"
-        aria-controls="vendorFormPanelNY"
-      >
-        Apply
-        <span id="toggleVendorFormNYCaret" class="inline-block transition-transform duration-200">▾</span>
-      </button>
-    </div>
-
-        <!-- Panel: Event 1 Vendor Form (Hidden by default) -->
-        <div id="vendorFormPanelNY" class="hidden mt-4">
-          <section class="w-full px-0 sm:px-2 py-4">
             <div class="w-full">
               <form
                 id="vendorFormNY"
@@ -377,7 +461,7 @@
 
                   <div class="mt-2 text-slate-600 space-y-6 leading-relaxed">
                     <p>
-                      Welcome to the HobbyCon Vendor Application! We are so excited to welcome a variety of hobbies to our event. Applicantions are accepted on a rolling basis, applicants can expect to hear back 5-7 days after submission. If you have any questions or find any technical difficulties with this form, email
+                      Welcome to the HobbyCon Vendor Application! We are so excited to welcome a variety of hobbies to our event. Applicants can expect to hear back 5-7 days after submission. If you have any questions or find any technical difficulties with this form, email
                       <a href="mailto:info@hobbycon.com" class="font-semibold text-purple-700 hover:text-purple-900 underline">
                         info@hobbycon.com</a>
                       for assistance.
@@ -697,7 +781,7 @@
                     <label class="block text-sm font-semibold text-slate-900 mb-2">
                     Please select a PRIMARY hobby category *
                     <a 
-                      href="/convention#hobby-categories"
+                      href="/#hobby-categories"
                       target="_blank"
                       rel="noopener"
                       class="ml-2 text-sm font-medium text-purple-600 hover:text-purple-800 underline underline-offset-4"
@@ -839,7 +923,7 @@
                   <option value="retrogames">Retro Games & Consoles</option>
                   <option value="seashells">Seashell Collecting</option>
                   <option value="stationerystamps">Stationery & Stamps</option>
-                  <option value="thifting">Thrifting/Vintage Clothes Collecting</option>
+                  <option value="thrifting">Thrifting/Vintage Clothes Collecting</option>
                   <option value="tradingcards">Trading Cards (Sports, Games, etc.)</option>
                   <option value="tradingtrinkets">Trinket Trading</option>
                   <option value="vintagecameras">Vintage Cameras</option>
@@ -1266,41 +1350,19 @@
             </div>
           </section>
         </div>
-      </div>
 
+  <div id="partnershipFormPanel" class="hidden fixed inset-0 z-[9998] overflow-y-auto bg-slate-900/60 p-4 sm:p-8" data-toggle-btn="togglePartnershipForm">
+    <section class="relative w-full max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl px-6 md:px-8 pb-6 md:pb-8 pt-16 my-4">
+      <button type="button" data-modal-back
+              class="absolute top-5 left-6 md:left-8 inline-flex items-center gap-1 rounded-full
+                     border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold
+                     text-slate-600 hover:text-slate-900 hover:bg-slate-50 z-10">
+              &#8592; Back</button>
+              <button type="button" data-modal-close aria-label="Close"
+              class="absolute top-5 right-6 md:right-8 h-9 w-9 rounded-full border border-slate-200 bg-white
+                     text-slate-500 hover:text-slate-900 hover:bg-slate-50
+                     inline-flex items-center justify-center z-10">&#10005;</button>
 
-<!-- CARD: General Partnership Inquiry -->
-<div id="partnershipCard" class="hc-card bg-white border border-slate-200 rounded-3xl p-7 md:p-8 flex flex-col">
-  <div class="flex items-start justify-between gap-4">
-    <div class="min-w-0">
-      <div class="text-xs font-semibold uppercase tracking-wide text-purple-600">
-        Partnership Inquiry
-      </div>
-
-      <h3 class="mt-2 text-xl font-bold text-slate-900">
-        Partner With Us
-      </h3>
-
-      <p class="mt-2 text-sm text-slate-600">
-        For those interested in working with HobbyCon
-      </p>
-    </div>
-
-    <button
-      type="button"
-      id="togglePartnershipForm"
-      class="shrink-0 hc-btn hc-btn-primary px-6 py-3 text-base"
-      aria-expanded="false"
-      aria-controls="partnershipFormPanel"
-    >
-      Inquire
-      <span id="togglePartnershipFormCaret" class="inline-block transition-transform duration-200">▾</span>
-    </button>
-  </div>
-
-  <!-- Panel: General Partnership Form -->
-  <div id="partnershipFormPanel" class="hidden mt-4">
-    <section class="w-full px-0 sm:px-2 py-4">
       <div class="w-full">
         <form
           id="partnershipForm"
@@ -1585,38 +1647,6 @@
       </div>
     </section>
   </div>
-    </div>
-
-        <!-- CTA Section (HobbyCon style) -->
-        <section class="max-w-6xl mx-auto px-5 pt-20 pb-0">
-          <div
-            class="rounded-3xl p-10 md:p-14 text-center
-                  bg-gradient-to-r
-                  from-[#c7b6ff]
-                  via-[#a5b9ff]
-                  to-[#cbbcff]
-                  text-white shadow-xl"
-          >
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-              Join the HobbyCon Community
-            </h2>
-
-            <p class="text-white/90 text-base md:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-              We can’t wait to welcome you into the HobbyCon experience.
-            </p>
-
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a href="tickets" class="inline-flex w-52 h-16 items-center justify-center bg-white text-purple-700 text-lg font-bold px-10 py-5 rounded-full shadow-l hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                TICKETS
-              </a>
-
-              <a href="community" class="inline-flex items-center justify-center w-52 h-16 rounded-full font-bold text-lg text-white border-2 border-whitebg-transparent transition-all duration-300 hover:bg-white hover:text-purple-700 hover:scale-105">
-                COMMUNITY
-              </a>
-            </div>
-          </div>
-        </section>
-            </section>
 
 <!-- FOOTER -->
 <footer class="mt-16">
@@ -1644,7 +1674,7 @@
             </a>
 
             <a
-              href="https://www.facebook.com/profile.php?id=61578476813252"
+              href="https://www.facebook.com/hobbyconnyc/"
               aria-label="Facebook"
               class="h-10 w-10 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center
                      hover:-translate-y-0.5 hover:shadow-md transition"
@@ -1689,7 +1719,7 @@
             Links
           </h3>
           <ul class="mt-4 space-y-2 text-slate-600">
-            <li><a href="convention" class="hover:text-purple-700 transition">Convention</a></li>
+            <li><a href="community" class="hover:text-purple-700 transition">Community</a></li>
             <li><a href="vendors" class="hover:text-purple-700 transition">Vendors</a></li>
             <li><a href="retreats" class="hover:text-purple-700 transition">Retreats</a></li>
             <li><a href="tickets" class="hover:text-purple-700 transition">Tickets</a></li>

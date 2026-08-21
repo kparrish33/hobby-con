@@ -2214,7 +2214,9 @@ function hcSubmitLoading(btn, on, label) {
     s.id = "hc-puzzle-css";
     s.textContent =
       "@keyframes hcPieceIdle{0%,92%,100%{transform:none}96%{transform:scale(1.12) rotate(-8deg)}}" +
-      "[data-hc-piece]{opacity:.45;color:#7c3aed;background:none;border:0;padding:4px;line-height:0;cursor:pointer;transition:opacity .25s ease,transform .25s ease}" +
+      "[data-hc-piece]{display:inline-flex;align-items:center;justify-content:center;opacity:.45;" +
+      "color:#7c3aed;background:none;border:0;padding:6px;line-height:0;cursor:pointer;" +
+      "transition:opacity .25s ease,transform .25s ease}" +
       "[data-hc-piece]:hover,[data-hc-piece]:focus-visible{opacity:1;transform:scale(1.25) rotate(-10deg);outline:none}" +
       "@media (hover:none){[data-hc-piece]{animation:hcPieceIdle 6s ease-in-out infinite}}" +
       // The index piece is the tutorial: brighter, always wiggling, so people

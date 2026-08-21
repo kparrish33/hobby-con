@@ -8,6 +8,9 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# /highlight /highlights /new /press -> /news
+RewriteRule ^(highlights?|new|press)/?$ /news [NC,R=301,L]
+
 # /contact -> /contact.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]

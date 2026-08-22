@@ -520,11 +520,10 @@ html, body { overflow-x: clip; }
     padding: 1.25rem; /* instead of p-7 (1.75rem) */
   }
 
-  #vendorFormPanelNY section,
-  #vendorFormPanelAZ section {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  /* Removed 2026-08-21: this zeroed the panel's side padding on phones, so the
+     form text ran flush to the card edges. The markup already asks for
+     px-6 md:px-8; an ID selector here was silently beating it. The second
+     half (#vendorFormPanelAZ) referred to a panel that no longer exists. */
 }
 
 /* Safari: remove default <summary> marker */

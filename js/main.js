@@ -1712,9 +1712,18 @@ document.addEventListener("DOMContentLoaded", () => {
   function isOpen(p) { return !p.classList.contains("hidden"); }
 
   function close(p) {
+    // Hide directly rather than clicking the toggle. Relying on .click() meant
+    // that if the toggle was missing, hidden or its own handler threw, the
+    // panel could never be dismissed and the user was trapped in the form.
+    p.classList.add("hidden");
+    document.body.style.overflow = "";
+
     var btn = document.getElementById(p.getAttribute("data-toggle-btn"));
-    if (btn) btn.click();               // reuse the existing toggle
-    else p.classList.add("hidden");     // fallback if the button is missing
+    if (btn) {
+      btn.setAttribute("aria-expanded", "false");
+      var caret = document.getElementById(btn.id + "Caret");
+      if (caret) caret.style.transform = "";
+    }
   }
 
   /**
@@ -1744,53 +1753,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /** Confirm layer, built once per panel and reused. */
   function confirmLayer(p) {
-    var existing = p.querySelector("[data-confirm]");
-    if (existing) return existing;
+    if (p._hcConfirm) return p._hcConfirm;
 
     var w = document.createElement("div");
     w.setAttribute("data-confirm", "");
-    w.className =
-      "hidden fixed inset-0 z-[9999] bg-slate-900/70 p-4 flex items-center justify-center";
+    // Inline styles on purpose: the Tailwind CDN does not compile classes that
+    // JavaScript adds after load, and several of these (bg-slate-900/70,
+    // z-[9999]) do not appear in vendors.html markup, so they would never be
+    // generated on this page.
+    w.className = "hidden";
+    w.style.cssText =
+      "position:fixed;inset:0;z-index:10000;display:flex;align-items:center;" +
+      "justify-content:center;padding:16px;background:rgba(15,23,42,.7)";
     w.innerHTML =
-      '<div class="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-6 text-center">' +
-        '<h3 class="text-xl font-bold text-slate-900">Leave this application?</h3>' +
-        '<p class="mt-3 text-sm text-slate-600">Your progress will not be saved.</p>' +
-        '<div class="mt-6 flex flex-col gap-3">' +
-          '<button type="button" data-keep class="hc-btn hc-btn-primary px-6 py-3 w-full justify-center">Keep applying</button>' +
-          '<button type="button" data-discard class="hc-btn hc-btn-ghost px-6 py-3 w-full justify-center">Discard ideas</button>' +
+      '<div style="width:100%;max-width:24rem;background:#fff;border-radius:24px;' +
+        'box-shadow:0 24px 60px rgba(15,23,42,.35);padding:24px;text-align:center">' +
+        '<h3 style="margin:0;font-size:20px;font-weight:700;color:#0f172a">Leave this application?</h3>' +
+        '<p style="margin:12px 0 0;font-size:14px;color:#475569">Your progress will not be saved.</p>' +
+        '<div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">' +
+          '<button type="button" data-keep class="hc-btn hc-btn-primary" style="width:100%;justify-content:center;padding:12px 24px">Keep applying</button>' +
+          '<button type="button" data-discard class="hc-btn hc-btn-ghost" style="width:100%;justify-content:center;padding:12px 24px">Discard ideas</button>' +
         "</div>" +
       "</div>";
 
     w.querySelector("[data-keep]").addEventListener("click", function () {
       w.classList.add("hidden");
+      w.style.display = "none";
     });
     w.querySelector("[data-discard]").addEventListener("click", function () {
       w.classList.add("hidden");
+      w.style.display = "none";
       close(p);
     });
-    // Clicking the confirm backdrop is the safe choice: stay put.
     w.addEventListener("click", function (e) {
-      if (e.target === w) w.classList.add("hidden");
+      if (e.target === w) { w.classList.add("hidden"); w.style.display = "none"; }
     });
 
-    p.appendChild(w);
+    // Attached to <body>, not to the panel: the panel scrolls and could sit
+    // inside a transformed ancestor, either of which can trap position:fixed.
+    document.body.appendChild(w);
+    p._hcConfirm = w;
     return w;
   }
 
   function confirmOpen(p) {
-    var c = p.querySelector("[data-confirm]");
+    var c = p._hcConfirm;
     return !!c && !c.classList.contains("hidden");
   }
 
   /** Every exit route goes through here. */
   function attemptClose(p) {
     if (!isDirty(p)) { close(p); return; }
-    confirmLayer(p).classList.remove("hidden");
+    var c = confirmLayer(p);
+    c.classList.remove("hidden");
+    c.style.display = "flex";
   }
 
   function syncScrollLock() {
     var open = panels.some(isOpen);
     document.body.style.overflow = open ? "hidden" : "";
+
+    // The floating "NO OUTSIDE FOOD OR DRINK" badge is fixed at z-[9999],
+    // above the panel's z-[9998]. On mobile it lands right on top of the form
+    // and its dismiss X reads as a second close button, which is why people
+    // thought they were trapped. Hide it while a form is open.
+    var badge = document.getElementById("noOutsideFoodBadge");
+    if (badge) badge.style.display = open ? "none" : "";
   }
 
   panels.forEach(function (p) {
@@ -1817,7 +1845,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isOpen(p)) return;
       // If the confirm is already up, Esc dismisses that first.
       if (confirmOpen(p)) {
-        p.querySelector("[data-confirm]").classList.add("hidden");
+        p._hcConfirm.classList.add("hidden");
+        p._hcConfirm.style.display = "none";
         return;
       }
       attemptClose(p);

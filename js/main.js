@@ -19,6 +19,7 @@
 
    LINES         BLOCK                                    NOTES
    -----------------------------------------------------------------------------
+   41-79         0a) Form timing stamp (anti-spam)        must stay first; see note
    36-38         0) Small utilities                       banner only
    39-75         qs / qsa / clamp / rafThrottle / flipLogo top-level helper fns
    95-396        initCarousels()                          declared here, CALLED inside block below
@@ -38,6 +39,47 @@
    IIFEs (the retreat + shop ones) do not need DOMContentLoaded. Match that
    convention for anything new.
 ============================================================================= */
+/* ---------------------------
+   0a) Form timing stamp (anti-spam)
+
+   Writes the number of seconds the page has been open into the hidden
+   formElapsed field on every form that has one, just before it submits. The
+   Apps Script treats anything under 4 seconds as a bot.
+
+   Two deliberate choices:
+
+   - It is FIRST in the file and wrapped in its own try/catch. Sitting lower
+     down, behind a block that threw, would leave every form posting an empty
+     formElapsed - the same silent failure mode that hid the puzzle code.
+   - The listener is on document in the CAPTURE phase, so it runs before the
+     per-form submit handlers further down call new FormData(form). A listener
+     on the form itself would be a coin flip on registration order.
+
+   An empty formElapsed is accepted by the Apps Script on purpose, so a fault
+   here degrades to "no time trap", never to "nobody can submit".
+--------------------------- */
+(function () {
+  try {
+    var pageOpenedAt = Date.now();
+
+    document.addEventListener(
+      "submit",
+      function (ev) {
+        var form = ev.target;
+        if (!form || typeof form.querySelector !== "function") return;
+
+        var field = form.querySelector('input[name="formElapsed"]');
+        if (!field) return;
+
+        field.value = String(Math.round((Date.now() - pageOpenedAt) / 1000));
+      },
+      true
+    );
+  } catch (err) {
+    /* Intentionally silent - see the note above about degrading safely. */
+  }
+})();
+
 /* ---------------------------
    0) Small utilities
 --------------------------- */

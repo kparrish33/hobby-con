@@ -447,7 +447,19 @@
                 <!-- Must match SHARED_SECRET in the vendor application Apps Script.
                      Not secret from the user (it is in page source) - it only
                      deters drive-by bots. -->
-                <input type="hidden" name="token" value="SLJHpxrfAt7em5dC4P1dQvmXyYu7OJXe" />
+                <input type="hidden" name="token" value="TXr0IKaqLf4ryhE9IPqAcoWDOvAd3lJW" />
+                <!-- Anti-spam honeypot. Off-screen rather than display:none, which the
+                     better form-fillers know to skip. Named "fax" on purpose: "website"
+                     is a real field on this page, and reusing it here would throw away
+                     genuine submissions. Nothing visible, nothing tabbable, no label. -->
+                <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                  <input type="text" name="fax" tabindex="-1" autocomplete="off" />
+                </div>
+                <!-- Seconds this page had been open when submit fired. main.js fills it in;
+                     a bot posting the raw form leaves it empty, which the script allows
+                     through rather than risk dropping a real submission from a broken JS
+                     load. Anything under 4 seconds is not a person typing. -->
+                <input type="hidden" name="formElapsed" value="" />
 
                 <!-- Header -->
                 <div class="mb-8">
@@ -1365,7 +1377,19 @@
           <input type="hidden" name="inquiry_type" value="General Partnership Inquiry" />
           <!-- Must match SHARED_SECRET in the partnership Apps Script. Not secret
                from the user (it is in page source) - it only deters drive-by bots. -->
-          <input type="hidden" name="token" value="qXu2jBAFTBgK9cCVXktjpwhNg0uW5Of1" />
+          <input type="hidden" name="token" value="kceKoKT7iSeSF52VEjhkeoWMk84F30Ey" />
+          <!-- Anti-spam honeypot. Off-screen rather than display:none, which the
+               better form-fillers know to skip. Named "fax" on purpose: "website"
+               is a real field on this page, and reusing it here would throw away
+               genuine submissions. Nothing visible, nothing tabbable, no label. -->
+          <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <input type="text" name="fax" tabindex="-1" autocomplete="off" />
+          </div>
+          <!-- Seconds this page had been open when submit fired. main.js fills it in;
+               a bot posting the raw form leaves it empty, which the script allows
+               through rather than risk dropping a real submission from a broken JS
+               load. Anything under 4 seconds is not a person typing. -->
+          <input type="hidden" name="formElapsed" value="" />
 
           <div class="mb-8">
             <h3 class="text-2xl md:text-3xl font-bold text-slate-900">
